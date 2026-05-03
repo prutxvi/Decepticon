@@ -39,7 +39,7 @@ export CLAUDE_CREDENTIALS_VOLUME ?= $(shell test -f $(HOME)/.claude/.credentials
         dogfood launcher smoke \
         dev cli-dev web-dev infra \
         quality quality-cli test test-local lint lint-fix \
-        web-build web-lint web-migrate web-ee web-oss \
+        web-build web-hotswap web-lint web-migrate web-ee web-oss \
         status logs health clean \
         node-install web-db-ensure \
         benchmark recreate-litellm
@@ -68,6 +68,7 @@ help:
 	@echo ""
 	@echo "Web dashboard (single checks):"
 	@echo "  make web-build    Prisma generate + Next build"
+	@echo "  make web-hotswap  Build + inject into running container (~15s)"
 	@echo "  make web-lint     ESLint"
 	@echo "  make web-migrate [NAME=]   Prisma migrate dev"
 	@echo "  make web-ee / web-oss      Toggle EE/OSS mode (dev-only)"
@@ -195,6 +196,11 @@ quality: lint test-local quality-cli web-lint web-build
 
 web-build: node-install
 	cd $(WEB_DIR) && npx prisma generate && npm run build
+
+## Hot-swap web dashboard into running container (~15s vs ~5min docker build).
+## Builds Next.js on host, injects via tar pipe, restarts container.
+web-hotswap: node-install web-build
+	./scripts/web-hotswap.sh --skip-build
 
 web-lint: node-install
 	cd $(WEB_DIR) && npx eslint src/ --max-warnings 0

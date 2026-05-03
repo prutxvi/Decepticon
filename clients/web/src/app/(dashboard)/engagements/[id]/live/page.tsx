@@ -7,6 +7,9 @@ import { AgentGraphCanvas } from "@/components/agents/agent-graph-canvas";
 import { WebTerminal } from "@/components/terminal/web-terminal";
 import { useRunObserver } from "@/hooks/useRunObserver";
 import { useAgents } from "@/hooks/useAgents";
+import { LiveActivityFeed } from "@/components/streaming/live-activity-feed";
+import { OpplanLiveOverlay } from "@/components/streaming/opplan-live-overlay";
+import { AgentDetailPanel } from "@/components/streaming/agent-detail-panel";
 
 interface EngagementMeta {
   name: string;
@@ -78,18 +81,35 @@ export default function LivePage() {
 
   return (
     <div className="flex h-full overflow-hidden">
-      {/* Left: Agent Execution Graph */}
-      <div className="w-1/2 overflow-hidden border-r border-white/[0.08]">
+      {/* Left: Activity Feed */}
+      <div className="relative w-1/4 min-w-[280px] overflow-hidden border-r border-white/[0.08]">
+        <LiveActivityFeed events={events} engagementId={engagementId} />
+        {selectedAgent && (
+          <div className="absolute inset-0 z-20">
+            <AgentDetailPanel
+              agent={selectedAgent}
+              events={events}
+              onClose={() => setSelectedAgent(null)}
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Center: Agent Execution Graph + OPPLAN overlay */}
+      <div className="relative flex-1 min-w-[400px] overflow-hidden border-r border-white/[0.08]">
         <AgentGraphCanvas
           agents={agents}
           events={events}
           selectedAgent={selectedAgent}
           onAgentClick={handleAgentClick}
         />
+        <div className="absolute right-4 top-4 z-10">
+          <OpplanLiveOverlay engagementId={engagementId} />
+        </div>
       </div>
 
       {/* Right: CLI Terminal */}
-      <div className="w-1/2 overflow-hidden">
+      <div className="w-[35%] min-w-[350px] overflow-hidden">
         {engagement && agentId ? (
           <WebTerminal
             engagementId={engagementId}
