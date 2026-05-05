@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { SubagentCustomEvent } from "@decepticon/streaming";
 import { AGENT_DISPLAY_CONFIG } from "@/lib/agents";
 import { cn } from "@/lib/utils";
@@ -366,16 +366,14 @@ function IdleState({ engagementId }: { engagementId: string }) {
 export function LiveActivityFeed({ events, engagementId, className }: LiveActivityFeedProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const timestampsRef = useRef<number[]>([]);
-  const [, tick] = useState(0);
+  const [relTimes, setRelTimes] = useState<string[]>([]);
 
-  // Record arrival time for new events
+  // Write arrival timestamps to ref — mutation only, never read during render
   useEffect(() => {
     const ts = timestampsRef.current;
     if (events.length > ts.length) {
       const now = Date.now();
-      for (let i = ts.length; i < events.length; i++) {
-        ts.push(now);
-      }
+      for (let i = ts.length; i < events.length; i++) ts.push(now);
     }
   }, [events.length]);
 
@@ -384,20 +382,14 @@ export function LiveActivityFeed({ events, engagementId, className }: LiveActivi
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [events.length]);
 
-  // Update relative timestamps every 5s
+  // Recompute relative times via timer — async setState, avoids set-state-in-effect
   useEffect(() => {
-    const id = setInterval(() => tick((n) => n + 1), 5000);
+    const id = setInterval(() => {
+      const now = Date.now();
+      setRelTimes(timestampsRef.current.map((ts) => formatRelativeTime(now - ts)));
+    }, 5000);
     return () => clearInterval(id);
   }, []);
-
-  const getRelativeTime = useCallback(
-    (index: number) => {
-      const recorded = timestampsRef.current[index];
-      if (!recorded) return "now";
-      return formatRelativeTime(Date.now() - recorded);
-    },
-    [],
-  );
 
   // No streaming events — show engagement status instead
   if (events.length === 0) {
@@ -425,7 +417,7 @@ export function LiveActivityFeed({ events, engagementId, className }: LiveActivi
             <EventRow
               key={`${event.type}-${event.agent}-${i}`}
               event={event}
-              relativeTime={getRelativeTime(i)}
+              relativeTime={relTimes[i] ?? "now"}
             />
           ))}
           <div ref={bottomRef} />
