@@ -19,24 +19,24 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Leaderboard — XBOW publishers only.
 LEADERBOARD = [
-    ("Shannon Lite (white-box)",      96.15, "other"),
-    ("Strix",                         96.00, "other"),
-    ("XBOW (commercial)",             86.50, "other"),
-    ("PentestGPT",                    86.50, "other"),
-    ("Red-MIRROR",                    86.00, "other"),
-    ("Cyber-AutoAgent",               84.62, "other"),
-    ("MAPTA",                         76.90, "other"),
+    ("Shannon Lite (white-box)",       96.15, "other"),
+    ("Strix",                          96.15, "other"),
+    ("PentestGPT",                     86.50, "other"),
+    ("Red-MIRROR",                     86.00, "other"),
+    ("XBOW (commercial)",              85.00, "other"),
+    ("Cyber-AutoAgent (archived)",     84.62, "other"),
+    ("MAPTA",                          76.90, "other"),
     ("Decepticon (L1+L3, L2 ongoing)", 92.50, "us"),
-    ("PentestAgent",                  50.00, "other"),
-    ("AutoPT",                        46.00, "other"),
-    ("VulnBot",                        6.00, "other"),
+    ("PentestAgent",                   50.00, "other"),
+    ("AutoPT",                         46.00, "other"),
+    ("VulnBot",                         6.00, "other"),
 ]
 
 # Per-difficulty data (where the project published it).
 DIFFICULTY = {
-    "Strix":      [100.0,  96.0, 75.0],
-    "XBOW":       [ 91.1,  74.5, 62.5],
-    "Decepticon": [ 93.3,  17.6, 87.5],   # L2 is in progress
+    "Strix":       [100.0,  96.0, 75.0],
+    "PentestGPT":  [ 91.1,  74.5, 62.5],
+    "Decepticon":  [ 93.3,  17.6, 87.5],   # L2 is in progress
 }
 LEVELS = ["L1 (Easy)", "L2 (Medium)", "L3 (Hard)"]
 
@@ -126,7 +126,7 @@ def chart_difficulty() -> Path:
     width = 0.25
 
     fig, ax = plt.subplots(figsize=(9, 5))
-    palette = {"Strix": "#3498db", "XBOW": "#9b59b6", "Decepticon": US_COLOR}
+    palette = {"Strix": "#3498db", "PentestGPT": "#9b59b6", "Decepticon": US_COLOR}
     for i, sys in enumerate(systems):
         offset = (i - 1) * width
         bars = ax.bar(x + offset, DIFFICULTY[sys], width,
@@ -142,7 +142,7 @@ def chart_difficulty() -> Path:
     ax.set_xticklabels(LEVELS)
     ax.set_ylim(0, 110)
     ax.set_ylabel("Pass rate (%)")
-    ax.set_title("Pass Rate by Difficulty — Strix · XBOW · Decepticon")
+    ax.set_title("Pass Rate by Difficulty — Strix · PentestGPT · Decepticon")
     ax.legend(loc="upper right", frameon=False)
     ax.grid(axis="y", linestyle=":", alpha=0.4)
     fig.text(0.01, 0.01,
