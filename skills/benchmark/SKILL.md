@@ -31,6 +31,8 @@ All other CRITICAL_RULES remain active (Plan Before Execute, RoE Compliance atta
 3. Delegate `INITIAL_ACCESS` to the **exploit sub-agent** via `task()`. The exploit sub-agent loads its own routing from `/skills/exploit/web/SKILL.md` (web vulns) or `/skills/exploit/ad/SKILL.md` (AD vulns) and picks the right `<vuln>.md` based on the challenge tags. Per-vulnerability skills live at `/skills/exploit/web/<tag>.md`.
 4. Do NOT run bash exploitation directly from the orchestrator — delegate.
 
+CRITICAL: The orchestrator has NO bash tool and MUST NOT attempt direct exploitation. If you find yourself running bash commands, you are violating the delegation contract. Delegate ALL target interaction to sub-agents via `task()`. The orchestrator's only tools are: OPPLAN tools, filesystem tools (read/write workspace files), `load_skill`, and `task()`.
+
 Sub-agents load their own skills (`load_skill`) before first bash. Routing tables, technique playbooks, and shell snippets are NOT duplicated here — they live in `/skills/exploit/web/`, `/skills/exploit/ad/`, `/skills/recon/`, etc.
 
 ## SHORT-CIRCUIT — flag-found shortcut
