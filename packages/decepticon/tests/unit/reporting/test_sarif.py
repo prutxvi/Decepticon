@@ -113,9 +113,7 @@ class TestSarifLevelMapping:
             (0.0, "note"),
         ],
     )
-    def test_cvss_fallback_when_severity_missing(
-        self, score: float, expected: str
-    ) -> None:
+    def test_cvss_fallback_when_severity_missing(self, score: float, expected: str) -> None:
         assert _sarif_level(None, score) == expected
 
     def test_severity_takes_precedence_over_cvss(self) -> None:
@@ -223,7 +221,5 @@ class TestReportSarifTool:
         out = tmp_path / "nested" / "deeper" / "decepticon.sarif"
         g = _seeded_graph()
         with patch("decepticon.tools.reporting.tools._load", return_value=(g, None)):
-            asyncio.run(
-                report_sarif.ainvoke({"engagement_id": "eng-Y", "output_path": str(out)})
-            )
+            asyncio.run(report_sarif.ainvoke({"engagement_id": "eng-Y", "output_path": str(out)}))
         assert out.exists()

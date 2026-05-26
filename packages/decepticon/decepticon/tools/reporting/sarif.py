@@ -21,8 +21,7 @@ from decepticon_core.types.kg import KnowledgeGraph, Node, NodeKind
 
 SARIF_VERSION = "2.1.0"
 SARIF_SCHEMA = (
-    "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/"
-    "os/schemas/sarif-schema-2.1.0.json"
+    "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json"
 )
 DRIVER_NAME = "Decepticon"
 DRIVER_INFORMATION_URI = "https://github.com/PurpleAILAB/Decepticon"
@@ -44,9 +43,7 @@ def render_sarif(
     """
     include_set = set(include_kinds)
     nodes = [
-        n
-        for n in sorted(graph.nodes.values(), key=lambda x: x.created_at)
-        if n.kind in include_set
+        n for n in sorted(graph.nodes.values(), key=lambda x: x.created_at) if n.kind in include_set
     ]
 
     rules, rule_index_by_id = _build_rules(nodes)
@@ -90,9 +87,7 @@ def _build_rules(
                 "shortDescription": {"text": title},
                 "fullDescription": {"text": description},
                 "defaultConfiguration": {
-                    "level": _sarif_level(
-                        node.props.get("severity"), node.props.get("cvss_score")
-                    )
+                    "level": _sarif_level(node.props.get("severity"), node.props.get("cvss_score"))
                 },
             }
         )
@@ -241,9 +236,7 @@ def _partial_fingerprints(node: Node) -> dict[str, str]:
     alert on every run.
     """
     cwe = node.props.get("cwe") or []
-    cwe_text = (
-        ",".join(str(c) for c in cwe) if isinstance(cwe, (list, tuple)) else str(cwe)
-    )
+    cwe_text = ",".join(str(c) for c in cwe) if isinstance(cwe, (list, tuple)) else str(cwe)
     raw = "|".join(
         [
             node.id,
