@@ -175,10 +175,18 @@ services:
       # ``containers/langgraph.Dockerfile``) and are read in-process by
       # ``FilesystemBackend`` via ``CompositeBackend``. The sandbox only
       # owns ``/workspace/`` from here on.
-    pids_limit: 1024
+    pids_limit: 4096
+    # Run an init process (tini) as PID 1 inside the container. The
+    # daemon spawns tmux servers and bash shells; when a tmux server
+    # exits, its bash grandchildren are reparented to PID 1. tini reaps
+    # those orphans, preventing the <defunct> zombie accumulation that
+    # eventually exhausts the PID table (fork() -> EAGAIN). This replaces
+    # an in-process SIGCHLD reaper that raced with the daemon's own
+    # ``subprocess.run`` calls and clobbered command exit codes to 0.
+    init: true
     depends_on:
       neo4j:
-        condition: service_started
+        condition: service_healthy
     restart: unless-stopped
 
 
@@ -240,6 +248,25 @@ services:
   # as a streaming API on port 2024. Ink CLI connects here.
   langgraph:
     image: ghcr.io/purpleailab/decepticon-langgraph:${DECEPTICON_VERSION:-latest}
+    # Append --allow-blocking by default so blockbuster doesn't fatally
+    # abort runs on sync I/O in third-party deps (e.g. deepagents'
+    # subagents.py uses a sync httpx send in its atask path). Decepticon's
+    # own sync calls have been structurally fixed (see #325), but the
+    # third-party calls remain. Set LANGGRAPH_STRICT_ASYNC=1 in .env to
+    # opt out and reinstate the fatal-on-sync behavior (useful for
+    # debugging async issues in your own code).
+    # Note: $$ escapes compose interpolation so the literal $LANGGRAPH_STRICT_ASYNC
+    # reaches the shell — the env var is set on the container via env_file:.env,
+    # and the if/else decision happens at container start, not at compose render.
+    command:
+      - sh
+      - -c
+      - >
+        if [ -z "$${LANGGRAPH_STRICT_ASYNC:-}" ]; then
+          exec langgraph dev --host 0.0.0.0 --port 2024 --no-browser --n-jobs-per-worker 10 --allow-blocking;
+        else
+          exec langgraph dev --host 0.0.0.0 --port 2024 --no-browser --n-jobs-per-worker 10;
+        fi
     build:
       context: .
       dockerfile: containers/langgraph.Dockerfile

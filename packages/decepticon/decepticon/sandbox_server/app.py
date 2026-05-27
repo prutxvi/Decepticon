@@ -40,6 +40,7 @@ the right thing to ship as the default.
 from __future__ import annotations
 
 import base64
+import logging
 import os
 from contextlib import asynccontextmanager
 from typing import Annotated, AsyncIterator
@@ -48,6 +49,8 @@ from fastapi import Depends, FastAPI, Header, HTTPException, status
 from pydantic import BaseModel, Field
 
 from decepticon.sandbox_kernel.daemon import DaemonSandbox
+
+log = logging.getLogger("decepticon.sandbox_server")
 
 # ── Wire models. Mirror the in-process types one-to-one so the daemon
 # stays a thin transport layer over the canonical DockerSandbox API. ──
@@ -207,10 +210,33 @@ def auth(
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     global _required_token
     _required_token = os.environ.get("SAAS_SANDBOX_TOKEN") or None
+
+    # Zombie reaping is delegated to the container init process (tini),
+    # enabled via ``init: true`` on the sandbox compose service. tini
+    # runs as PID 1 and reaps the tmux server / bash grandchildren that
+    # get reparented to it when their tmux parent exits.
+    #
+    # The daemon deliberately does NOT install a process-wide
+    # ``waitpid(-1)`` SIGCHLD handler. Such a handler races with the
+    # ``subprocess.run`` calls the daemon uses to run commands: it steals
+    # their children, so ``Popen.wait`` hits ECHILD and CPython reports a
+    # bogus exit code of 0, clobbering real non-zero exits. Letting
+    # ``subprocess.run`` reap its own children — and tini reap the
+    # reparented orphans — keeps exit codes correct.
+
     # Warm the backend so the first agent request doesn't pay the
     # init cost on its critical path.
     _get_backend()
     yield
+    # Shutdown: kill every tmux session we ever handed out so the tmux
+    # servers don't outlive the daemon and leave bash zombies behind.
+    try:
+        backend = _get_backend()
+        killed = backend.kill_all_sessions()
+        if killed:
+            log.info("shutdown: killed %d tmux session(s)", killed)
+    except Exception:
+        log.exception("shutdown: kill_all_sessions raised")
 
 
 app = FastAPI(

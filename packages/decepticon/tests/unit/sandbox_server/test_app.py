@@ -413,3 +413,30 @@ def test_token_set_correct_bearer_is_200() -> None:
         )
     assert resp.status_code == 200
     assert resp.json()["output"] == "hello\n"
+
+
+# ── Shutdown cleanup ─────────────────────────────────────────────────────
+#
+# Zombie reaping is delegated to the container init process (``init: true``
+# on the sandbox compose service), NOT a process-wide SIGCHLD handler — the
+# latter races with ``subprocess.run`` and clobbers exit codes to 0. So
+# there is no reaper to assert on at startup; only the tmux-session teardown.
+
+
+def test_lifespan_shutdown_kills_all_tmux_sessions() -> None:
+    """The shutdown hook must drain every tmux session via kill_all_sessions
+    so tmux servers do not outlive the daemon and leak zombies."""
+    backend = _make_backend()
+    backend.kill_all_sessions.return_value = 3
+    with _client(backend) as _client_ctx:
+        pass  # context exit triggers lifespan shutdown
+    backend.kill_all_sessions.assert_called_once()
+
+
+def test_lifespan_shutdown_swallows_kill_all_sessions_errors() -> None:
+    """A failure tearing down tmux must not crash the daemon shutdown."""
+    backend = _make_backend()
+    backend.kill_all_sessions.side_effect = RuntimeError("tmux server dead")
+    # If the lifespan re-raises, _client's __exit__ would propagate.
+    with _client(backend) as _client_ctx:
+        pass
