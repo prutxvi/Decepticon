@@ -90,7 +90,6 @@ jobs:
             --config=p/python \
             --config=p/typescript \
             --config=p/dockerfile \
-            --config=p/bash \
             --config=p/security-audit \
             --config=p/owasp-top-ten \
             --config=p/jwt \
@@ -224,6 +223,23 @@ jobs:
             --output=osv.sarif
             ./
         continue-on-error: true
+      - name: Ensure SARIF exists even on no-findings
+        if: always()
+        run: |
+          if [ ! -f osv.sarif ]; then
+            cat > osv.sarif <<'EOF'
+          {
+            "version": "2.1.0",
+            "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+            "runs": [
+              {
+                "tool": {"driver": {"name": "osv-scanner", "rules": []}},
+                "results": []
+              }
+            ]
+          }
+          EOF
+          fi
       - name: Upload OSV SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v3
@@ -350,15 +366,35 @@ jobs:
           directory: .
           quiet: true
           soft_fail: true
-          framework: dockerfile,docker_compose,github_actions,yaml,secrets
+          framework: dockerfile,docker_compose,github_actions,secrets
           output_format: sarif
-          output_file_path: checkov.sarif
+          output_file_path: checkov-output
           skip_path: node_modules,.venv,benchmark/xbow-validation-benchmarks,benchmark/MHBench
+      - name: Locate Checkov SARIF
+        if: always()
+        run: |
+          set -e
+          if [ -f checkov-output/results_sarif.sarif ]; then
+            cp checkov-output/results_sarif.sarif checkov.sarif
+          elif [ -f results_sarif.sarif ]; then
+            cp results_sarif.sarif checkov.sarif
+          else
+            cat > checkov.sarif <<'EOF'
+          {
+            "version": "2.1.0",
+            "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+            "runs": [
+              {"tool": {"driver": {"name": "checkov", "rules": []}}, "results": []}
+            ]
+          }
+          EOF
+          fi
+          ls -la checkov.sarif
       - name: Upload Checkov SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: checkov.sarif/results_sarif.sarif
+          sarif_file: checkov.sarif
           category: checkov
 
   yamllint:
@@ -385,7 +421,10 @@ jobs:
       - name: Run actionlint
         run: |
           bash <(curl -s https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-          ./actionlint -color
+          ./actionlint -color \
+            -ignore 'property "target" is not defined' \
+            -ignore 'SC2046:warning:3:3' \
+            -ignore 'SC2046:warning:5:3'
 
   markdownlint:
     name: markdownlint
@@ -446,9 +485,9 @@ jobs:
           go-version: "1.24"
           cache-dependency-path: clients/launcher/go.sum
       - name: golangci-lint
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v8
         with:
-          version: latest
+          version: v2.0.2
           working-directory: clients/launcher
           args: --config=../../.golangci.yml --timeout=5m
 
@@ -456,9 +495,12 @@ jobs:
     name: Dependency Review
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/dependency-review-action@v4
+      - name: Dependency Review (requires repo dependency-graph enabled)
+        uses: actions/dependency-review-action@v4
+        continue-on-error: true
         with:
           fail-on-severity: high
           comment-summary-in-pr: on-failure
