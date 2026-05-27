@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import pytest
 
+from decepticon.tools.research import _engagement_scope as _scope
 from decepticon.tools.research._engagement_scope import (
     get_active_engagement,
     is_valid_engagement_label,
@@ -11,6 +12,24 @@ from decepticon.tools.research._engagement_scope import (
     set_active_engagement,
     with_engagement_property,
 )
+
+
+@pytest.fixture(autouse=True)
+def _reset_engagement_scope_context():
+    """Isolate the engagement contextvar between tests.
+
+    ``EngagementContextMiddleware.before_agent`` (exercised by middleware
+    tests in the same pytest session) sets the contextvar and never
+    resets it - that's correct production behavior because the
+    engagement should persist for the agent's whole run. For unit
+    tests we need fresh state every time, so we push None on entry and
+    pop on exit via the standard Token.reset() pattern.
+    """
+    token = _scope._active_engagement.set(None)
+    try:
+        yield
+    finally:
+        _scope._active_engagement.reset(token)
 
 
 class TestEngagementLabelValidation:
