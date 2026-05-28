@@ -360,6 +360,10 @@ services:
       - DECEPTICON_NEO4J_URI=bolt://neo4j:7687
       - DECEPTICON_NEO4J_USER=neo4j
       - DECEPTICON_NEO4J_PASSWORD=${NEO4J_PASSWORD:-decepticon-graph}
+      # Skillogy: opt-in via env var; agents use it instead of the
+      # file-system-backed SkillsMiddleware when DECEPTICON_USE_SKILLOGY=1.
+      - DECEPTICON_USE_SKILLOGY=${DECEPTICON_USE_SKILLOGY:-0}
+      - DECEPTICON_SKILLOGY_URL=http://skillogy:9100
       # Neo4j is the sole KG backend (no DECEPTICON_KG_BACKEND needed)
       # BENCHMARK_MODE flows in via `env_file: .env` above — no need to
       # re-declare it here. Set BENCHMARK_MODE=1 in .env to engage CTF/XBOW
@@ -515,6 +519,29 @@ services:
   #   - OTEL_ENABLED=1
   #   - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4318/v1/traces
   #   - OTEL_SERVICE_NAME=decepticon
+
+  skillogy:
+    image: ghcr.io/purpleailab/decepticon-skillogy:${DECEPTICON_VERSION:-latest}
+    build:
+      context: .
+      dockerfile: containers/skillogy.Dockerfile
+    container_name: decepticon${DECEPTICON_STACK_NAME:+-${DECEPTICON_STACK_NAME}}-skillogy
+    ports:
+      - "127.0.0.1:${SKILLOGY_REST_PORT:-9100}:9100"
+      - "127.0.0.1:${SKILLOGY_GRPC_PORT:-50051}:50051"
+    environment:
+      - SKILLOGY_REST_PORT=9100
+      - SKILLOGY_GRPC_PORT=50051
+      - SKILLOGY_SKILLS_ROOT=/app/skills
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9100/v1/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 30s
+    networks:
+      - decepticon-net
+    restart: unless-stopped
 
 volumes:
   postgres_data:

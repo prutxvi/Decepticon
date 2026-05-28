@@ -1,0 +1,98 @@
+// Skillogy wire protocol — canonical definitions for both REST and gRPC.
+//
+// The schemas below are the source of truth. The hand-rolled Python
+// dataclasses in ``decepticon.skillogy.proto.__init__`` mirror these
+// definitions until protoc generation is wired into the build (a CI
+// step will then enforce that the dataclasses match this file).
+//
+// REST mapping: every gRPC method maps 1:1 to an HTTP+JSON endpoint
+// under /v1/. The FastAPI app generates an OpenAPI 3.1 schema at
+// /openapi.json that mirrors this file. Both transports return the
+// same wire types.
+
+syntax = "proto3";
+
+package decepticon.skillogy.v1;
+
+option go_package = "github.com/PurpleAILAB/Decepticon/clients/launcher/internal/skillogy;skillogy";
+
+// A single skill's metadata. Returned by ListSkills; populated from each
+// SKILL.md's YAML frontmatter at ingest time.
+message SkillMeta {
+  string name = 1;
+  string description = 2;
+  string subdomain = 3;
+  repeated string tags = 4;
+  repeated string mitre_attack = 5;
+  string path = 6;               // canonical /skills/<...>/SKILL.md path
+  string content_sha256 = 7;     // body hash for cache invalidation
+  int64  size_bytes = 8;
+  bool   safety_critical = 9;    // mirrors metadata.safety_critical
+  string gated_by_conops = 10;   // ConOps flag required to use this skill
+}
+
+// Full skill payload — metadata + body + optional references/scripts.
+message SkillEnvelope {
+  SkillMeta meta = 1;
+  string body = 2;
+  map<string, bytes> references = 3;  // filename -> raw bytes
+  map<string, bytes> scripts = 4;     // filename -> raw bytes
+}
+
+// List request: filter by subdomain / tags / ATT&CK ID overlap.
+message SkillListRequest {
+  repeated string subdomain_filter = 1;
+  repeated string tag_filter = 2;
+  repeated string mitre_filter = 3;
+  bool include_safety_critical = 4;
+  bool include_gated = 5;
+  int32 page_size = 6;
+  string page_token = 7;
+}
+
+message SkillListResponse {
+  repeated SkillMeta skills = 1;
+  string next_page_token = 2;
+  int32 total_count = 3;
+}
+
+// Load a specific skill by path. Body + attachments returned.
+message SkillLoadRequest {
+  string path = 1;
+  bool include_references = 2;
+  bool include_scripts = 3;
+}
+
+message SkillLoadResponse {
+  SkillEnvelope skill = 1;
+}
+
+// Ingest: push a SKILL.md (and optional attachments) to the registry.
+// Idempotent on (path, content_sha256).
+message SkillIngestRequest {
+  string path = 1;
+  string body = 2;
+  map<string, bytes> references = 3;
+  map<string, bytes> scripts = 4;
+}
+
+message SkillIngestResponse {
+  string path = 1;
+  string content_sha256 = 2;
+  bool created = 3;
+}
+
+// Health: liveness + registry stats.
+message HealthRequest {}
+message HealthResponse {
+  string status = 1;
+  int64 skill_count = 2;
+  int64 uptime_seconds = 3;
+}
+
+service Skillogy {
+  rpc ListSkills(SkillListRequest) returns (SkillListResponse);
+  rpc LoadSkill(SkillLoadRequest) returns (SkillLoadResponse);
+  rpc IngestSkill(SkillIngestRequest) returns (SkillIngestResponse);
+  rpc Health(HealthRequest) returns (HealthResponse);
+}

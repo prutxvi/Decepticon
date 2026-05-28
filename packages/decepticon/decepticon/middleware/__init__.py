@@ -21,6 +21,7 @@ from decepticon.middleware.prompt_injection_shield import (
     PromptInjectionShieldMiddleware,
 )
 from decepticon.middleware.roe import RoEEnforcementMiddleware
+from decepticon.middleware.skillogy import SkillogyMiddleware, maybe_install_skillogy
 from decepticon.middleware.skills import SkillsMiddleware
 from decepticon.middleware.untrusted_output import UntrustedOutputMiddleware
 
@@ -40,6 +41,8 @@ __all__ = [
     "PromptInjectionShieldMiddleware",
     "RoEEnforcementMiddleware",
     "SandboxNotificationMiddleware",
+    "SkillogyMiddleware",
     "SkillsMiddleware",
     "UntrustedOutputMiddleware",
+    "maybe_install_skillogy",
 ]
