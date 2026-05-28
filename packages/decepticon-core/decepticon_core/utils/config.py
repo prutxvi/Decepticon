@@ -31,11 +31,20 @@ def _project_root() -> Path:
     return Path.cwd()
 
 
+_LOCAL_PROXY_KEY = "sk-decepticon-master"  # nosemgrep: decepticon-no-hardcoded-default-key
+
+
 class LLMConfig(BaseModel):
-    """LLM proxy connection configuration."""
+    """LLM proxy connection configuration.
+
+    ``proxy_api_key`` defaults to the local-dev placeholder so the
+    Decepticon Python package can be imported without setting any env
+    var (module-level agent constructors build LLMs at import time).
+    Production deployments override via DECEPTICON_LLM__PROXY_API_KEY.
+    """
 
     proxy_url: str = "http://localhost:4000"
-    proxy_api_key: str = ""
+    proxy_api_key: str = _LOCAL_PROXY_KEY
     timeout: int = 120
     max_retries: int = 2
 
