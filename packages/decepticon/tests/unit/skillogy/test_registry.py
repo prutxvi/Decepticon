@@ -78,6 +78,7 @@ def test_ingest_marks_created_when_body_changes():
     second = reg.ingest("/skills/a", new_body)
     assert second.created
     env = reg.load("/skills/a")
+    assert env is not None
     assert "## More content" in env.body
 
 
