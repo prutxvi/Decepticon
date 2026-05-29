@@ -168,6 +168,25 @@ def test_engagement_only_injection(middleware: EngagementContextMiddleware) -> N
     assert "BENCHMARK MODE" not in text  # benchmark section absent
 
 
+def test_engagement_injection_honors_custom_workspace(
+    middleware: EngagementContextMiddleware,
+) -> None:
+    """Multi-tenant / SaaS launchers mount engagements under a non-default
+    root; the injection must name the resolved workspace, not a hardcoded
+    ``/workspace`` (regression: the path was previously hardcoded)."""
+    req = _FakeRequest(
+        state={"engagement_name": "blue-falcon", "workspace_path": "/srv/engagements/bf"},
+    )
+    result = middleware._inject(req)
+    text = _flatten(result.system_message)
+
+    assert "Workspace root: /srv/engagements/bf" in text
+    assert "Treat /srv/engagements/bf as the only engagement directory" in text
+    assert "/srv/engagements/bf/plan/" in text
+    # The stale default must not leak into a custom-root engagement.
+    assert "/workspace" not in text
+
+
 def test_benchmark_mode_env_off_does_not_inject_challenge_context(
     middleware: EngagementContextMiddleware,
 ) -> None:

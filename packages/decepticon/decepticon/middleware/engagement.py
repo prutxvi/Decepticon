@@ -152,13 +152,21 @@ def _resolve_workspace_path(state: Any) -> str:
 
 
 def _build_engagement_injection(slug: str, workspace: str) -> str:
+    # ``workspace`` is the live engagement root resolved from state/config by
+    # ``_resolve_workspace_path``. It is ``/workspace`` for the default
+    # single-tenant launcher, but multi-tenant / SaaS launchers mount each
+    # engagement under a distinct root — so the injection must reflect the
+    # resolved path, not a hardcoded ``/workspace`` (which would point the
+    # agent at the wrong directory). Trailing slashes are trimmed so the
+    # ``{root}/plan/`` guidance never doubles up.
+    root = workspace.rstrip("/") or workspace
     return (
         "\n\n[Engagement context — set by the launcher]\n"
         f"Workspace slug: {slug}\n"
-        "Workspace root: /workspace\n"
-        "Treat /workspace as the only engagement directory for this run. "
+        f"Workspace root: {root}\n"
+        f"Treat {root} as the only engagement directory for this run. "
         "Read and write planning documents directly under "
-        "/workspace/plan/. Do NOT re-prompt the operator for a slug or an "
+        f"{root}/plan/. Do NOT re-prompt the operator for a slug or an "
         "engagement directory name; the launcher already chose them. The "
         "human-friendly engagement title belongs in roe.json:engagement_name "
         "and may differ from this slug."
