@@ -23,6 +23,7 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import logging
+import posixpath
 import re
 import subprocess
 import threading
@@ -86,6 +87,16 @@ class SandboxBase(BaseSandbox):
         if not path.startswith("/workspace/"):
             return "/workspace"
         path = path.rstrip("/")
+        # Reject path traversal: a "." or ".." component passes the per-segment
+        # character class below, so without this guard "/workspace/../../etc"
+        # would be returned verbatim and escape the per-engagement subtree.
+        # Mirror the EngagementFilesystem guard (middleware/filesystem.py): fail
+        # closed to /workspace unless the path is already fully normalized.
+        # posixpath (not os.path) because these are virtual POSIX paths —
+        # os.path.normpath rewrites "/" to "\\" on Windows and would reject
+        # every valid path.
+        if posixpath.normpath(path) != path:
+            return "/workspace"
         components = path[len("/workspace/") :].split("/")
         if any(not re.fullmatch(r"[A-Za-z0-9_.-]{1,128}", component) for component in components):
             return "/workspace"
