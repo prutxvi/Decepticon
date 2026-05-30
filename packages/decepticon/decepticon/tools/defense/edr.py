@@ -61,6 +61,13 @@ def push_defender_xdr_detection(
 
     tagged = f"decepticon-eng-{engagement_slug()}-{rule_name}"
     meta = _extract_yara_metadata(yara_rule)
+
+    sha256 = meta.get("sha256") or meta.get("hash")
+    if sha256:
+        kql_query = f'DeviceFileEvents | where SHA256 == "{sha256}"'
+    else:
+        return {"error": "YARA rule has no extractable indicator for Defender KQL translation"}
+
     body = {
         "displayName": f"[Decepticon] {rule_name}",
         "description": (
@@ -72,7 +79,7 @@ def push_defender_xdr_detection(
         "ruleType": "advancedHunting",
         "queryCondition": {
             "queryLanguage": "kql",
-            "queryText": yara_rule,
+            "queryText": kql_query,
         },
         "tags": [
             f"decepticon-eng-{engagement_slug()}",

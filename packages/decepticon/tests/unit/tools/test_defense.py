@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 import pytest
 
 from decepticon.tools.defense import conops as conops_mod
-from decepticon.tools.defense.edr import _extract_yara_metadata
+from decepticon.tools.defense.edr import _extract_yara_metadata, push_defender_xdr_detection
 from decepticon.tools.defense.elastic import (
     SigmaToElasticError,
     sigma_to_lucene,
@@ -39,8 +40,8 @@ def _basic_sigma() -> dict:
 
 def test_sigma_to_spl_basic():
     spl = sigma_to_spl(_basic_sigma())
-    assert "Image=*\\powershell.exe" in spl
-    assert "CommandLine=*DownloadString*" in spl
+    assert 'Image="*\\\\powershell.exe"' in spl
+    assert 'CommandLine="*DownloadString*"' in spl
 
 
 def test_sigma_to_spl_with_or_condition():
@@ -64,8 +65,8 @@ def test_sigma_to_spl_with_list_value():
         }
     }
     spl = sigma_to_spl(rule)
-    assert "Image=*\\cmd.exe" in spl
-    assert "Image=*\\powershell.exe" in spl
+    assert 'Image="*\\\\cmd.exe"' in spl
+    assert 'Image="*\\\\powershell.exe"' in spl
 
 
 def test_sigma_to_spl_unknown_modifier_raises():
@@ -187,3 +188,106 @@ def test_resolve_auth_value_missing_env_raises(monkeypatch: pytest.MonkeyPatch):
 def test_resolve_auth_value_success(monkeypatch: pytest.MonkeyPatch):
     monkeypatch.setenv("SOME_TOKEN", "supersecret")
     assert conops_mod.resolve_auth_value("hec_token:SOME_TOKEN") == "supersecret"
+
+
+def test_sigma_to_spl_contains_with_spaces_stays_quoted():
+    rule = {
+        "detection": {
+            "sel": {"CommandLine|contains": "cmd.exe /c whoami"},
+            "condition": "sel",
+        }
+    }
+    spl = sigma_to_spl(rule)
+    assert 'CommandLine="*cmd.exe /c whoami*"' in spl
+
+
+def test_sigma_to_spl_contains_with_special_chars_escaped():
+    rule = {
+        "detection": {
+            "sel": {"CommandLine|contains": 'say "hello" and\\or'},
+            "condition": "sel",
+        }
+    }
+    spl = sigma_to_spl(rule)
+    assert 'CommandLine="*say \\"hello\\" and\\\\or*"' in spl
+
+
+def _yara_with_sha256(sha256: str) -> str:
+    return f"""
+    rule test_rule {{
+      meta:
+        sha256 = "{sha256}"
+      strings:
+        $a = "malware"
+      condition:
+        $a
+    }}
+    """
+
+
+def _yara_no_indicator() -> str:
+    return """
+    rule test_rule {
+      meta:
+        author = "tester"
+      strings:
+        $a = "malware"
+      condition:
+        $a
+    }
+    """
+
+
+def test_push_defender_xdr_kql_built_from_sha256(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    sha = "abc123def456" * 4 + "abcd"
+    yara = _yara_with_sha256(sha)
+
+    (tmp_path / "conops.json").write_text(
+        json.dumps(
+            {
+                "blue_team": {"defender": {"auth": "bearer_token:DEFENDER_TOKEN"}},
+                "engagement": {"slug": "test-eng"},
+            }
+        )
+    )
+    monkeypatch.setenv("DECEPTICON_ENGAGEMENT_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("DEFENDER_TOKEN", "fake-token")
+
+    mock_resp = MagicMock()
+    mock_resp.status_code = 201
+    mock_resp.text = "{}"
+
+    with patch("requests.post", return_value=mock_resp) as mock_post:
+        result = push_defender_xdr_detection("test-rule", yara)
+
+    assert result.get("status") == "pushed"
+    posted_body = json.loads(mock_post.call_args.kwargs.get("data", "{}"))
+    query_text = posted_body["queryCondition"]["queryText"]
+    assert "DeviceFileEvents" in query_text
+    assert "where SHA256 ==" in query_text
+    assert sha in query_text
+    assert "rule test_rule" not in query_text
+
+
+def test_push_defender_xdr_no_indicator_returns_error(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    yara = _yara_no_indicator()
+
+    (tmp_path / "conops.json").write_text(
+        json.dumps(
+            {
+                "blue_team": {"defender": {"auth": "bearer_token:DEFENDER_TOKEN"}},
+                "engagement": {"slug": "test-eng"},
+            }
+        )
+    )
+    monkeypatch.setenv("DECEPTICON_ENGAGEMENT_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("DEFENDER_TOKEN", "fake-token")
+
+    with patch("requests.post") as mock_post:
+        result = push_defender_xdr_detection("test-rule", yara)
+
+    mock_post.assert_not_called()
+    assert "error" in result
+    assert "no extractable indicator" in result["error"]

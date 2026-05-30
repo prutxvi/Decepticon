@@ -52,12 +52,17 @@ def _selection_to_spl(selection: dict[str, Any]) -> str:
 
 def _field_clause(field: str, modifier: str, value: Any) -> str:
     quoted = _quote_spl(value)
-    if modifier == "contains":
-        return f"{field}=*{value}*" if isinstance(value, str) else f"{field}={quoted}"
-    if modifier == "startswith":
-        return f"{field}={value}*" if isinstance(value, str) else f"{field}={quoted}"
-    if modifier == "endswith":
-        return f"{field}=*{value}" if isinstance(value, str) else f"{field}={quoted}"
+    if isinstance(value, str):
+        esc = value.replace("\\", "\\\\").replace('"', '\\"')
+        if modifier == "contains":
+            return f'{field}="*{esc}*"'
+        if modifier == "startswith":
+            return f'{field}="{esc}*"'
+        if modifier == "endswith":
+            return f'{field}="*{esc}"'
+    else:
+        if modifier in ("contains", "startswith", "endswith"):
+            return f"{field}={quoted}"
     if modifier in ("", "equals"):
         return f"{field}={quoted}"
     raise SigmaConversionError(f"unsupported Sigma modifier ``{modifier}``")
