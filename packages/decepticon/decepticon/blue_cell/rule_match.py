@@ -109,17 +109,17 @@ def _evaluate_condition(condition: str, selection_results: dict[str, bool]) -> b
     """
     if not condition.strip():
         return all(selection_results.values()) if selection_results else False
-    tokens = condition.lower().split()
+    tokens = condition.split()
     eval_expr_parts: list[str] = []
     for token in tokens:
         token_clean = token.strip("()")
-        if token in {"and", "or", "not", "(", ")"}:
+        if token_clean.lower() in {"and", "or", "not"} and token_clean == token:
+            eval_expr_parts.append(token_clean.lower())
+        elif token in {"(", ")"}:
             eval_expr_parts.append(token)
         elif token_clean in selection_results:
             wrapped = token.replace(token_clean, str(selection_results[token_clean]))
             eval_expr_parts.append(wrapped)
-        elif token in {"(", ")"}:
-            eval_expr_parts.append(token)
         else:
             return False
     expr = " ".join(eval_expr_parts)
