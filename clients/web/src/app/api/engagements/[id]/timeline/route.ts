@@ -1,5 +1,6 @@
 import { requireAuth, AuthError } from "@/lib/auth-bridge";
 import { prisma } from "@/lib/prisma";
+import { resolveEngagementDir } from "@/lib/workspace";
 import { NextRequest, NextResponse } from "next/server";
 import * as fs from "fs/promises";
 import * as path from "path";
@@ -33,7 +34,6 @@ export async function GET(
   }
 
   const WORKSPACE = process.env.WORKSPACE_PATH ?? "/workspace";
-  const wsPath = path.join(WORKSPACE, engagement.name);
   const events: TimelineEvent[] = [];
 
   // Engagement creation
@@ -43,6 +43,14 @@ export async function GET(
     title: "Engagement created",
     detail: `${engagement.name} (${engagement.targetType}: ${engagement.targetValue})`,
   });
+
+  let wsPath: string;
+  try {
+    wsPath = resolveEngagementDir(engagement.name, WORKSPACE);
+  } catch {
+    // Path escapes WORKSPACE — return only non-filesystem events
+    return NextResponse.json(events);
+  }
 
   // Scan plan docs for creation timestamps
   const planDir = path.join(wsPath, "plan");

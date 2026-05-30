@@ -1,5 +1,6 @@
 import { requireAuth, AuthError } from "@/lib/auth-bridge";
 import { prisma } from "@/lib/prisma";
+import { resolveEngagementDir } from "@/lib/workspace";
 import { NextRequest, NextResponse } from "next/server";
 import * as fs from "fs/promises";
 import * as path from "path";
@@ -140,9 +141,9 @@ export async function GET(
 
   {
     const WORKSPACE = process.env.WORKSPACE_PATH ?? path.join(process.env.HOME ?? "", ".decepticon", "workspace");
-    const wsPath = path.join(WORKSPACE, engagement.name);
-    const findingsDir = path.join(wsPath, "findings");
     try {
+      const wsPath = resolveEngagementDir(engagement.name, WORKSPACE);
+      const findingsDir = path.join(wsPath, "findings");
       const files = await fs.readdir(findingsDir);
       for (const file of files.sort()) {
         if (file.startsWith("FIND-") && file.endsWith(".md")) {
