@@ -1,5 +1,6 @@
 import { requireAuth, AuthError } from "@/lib/auth-bridge";
 import { prisma } from "@/lib/prisma";
+import { resolveEngagementDir } from "@/lib/workspace";
 import { NextRequest, NextResponse } from "next/server";
 import * as fs from "fs/promises";
 import * as path from "path";
@@ -29,10 +30,14 @@ export async function GET(
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const wsPath = path.join(WORKSPACE, engagement.name);
-  const planDir = path.join(wsPath, "plan");
-
   const docs: Record<string, unknown> = {};
+
+  let planDir: string;
+  try {
+    planDir = path.join(resolveEngagementDir(engagement.name, WORKSPACE), "plan");
+  } catch {
+    return NextResponse.json(docs);
+  }
 
   for (const name of PLAN_DOCS) {
     try {

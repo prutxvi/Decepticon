@@ -1,5 +1,6 @@
 import { requireAuth, AuthError } from "@/lib/auth-bridge";
 import { prisma } from "@/lib/prisma";
+import { SLUG_RE } from "@/lib/workspace";
 import { NextRequest, NextResponse } from "next/server";
 import * as fs from "fs/promises";
 import * as path from "path";
@@ -7,11 +8,6 @@ import * as path from "path";
 const WORKSPACE = process.env.WORKSPACE_PATH ?? path.join(process.env.HOME ?? "", ".decepticon", "workspace");
 
 const WORKSPACE_SUBDIRS = ["plan"];
-
-// Slug regex matches the Go launcher (clients/launcher/internal/engagement/picker.go).
-// Web and launcher share one engagement-naming policy so directories created
-// from either side surface in the other's picker without quoting/encoding hacks.
-const SLUG_RE = /^[a-z0-9][a-z0-9-]{1,62}[a-z0-9]$/;
 
 function isEngagementWorkspaceDir(name: string) {
   return SLUG_RE.test(name) && !name.startsWith(".");

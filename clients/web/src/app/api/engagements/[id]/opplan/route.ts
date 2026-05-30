@@ -1,5 +1,6 @@
 import { requireAuth, AuthError } from "@/lib/auth-bridge";
 import { prisma } from "@/lib/prisma";
+import { resolveEngagementDir } from "@/lib/workspace";
 import { NextRequest, NextResponse } from "next/server";
 import * as fs from "fs/promises";
 import * as path from "path";
@@ -25,16 +26,15 @@ export async function GET(
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  // Try to read opplan from workspace
   const WORKSPACE = process.env.WORKSPACE_PATH ?? path.join(process.env.HOME ?? "", ".decepticon", "workspace");
-  const wsPath = path.join(WORKSPACE, engagement.name);
-  const opplanPath = path.join(wsPath, "plan", "opplan.json");
 
   try {
+    const wsPath = resolveEngagementDir(engagement.name, WORKSPACE);
+    const opplanPath = path.join(wsPath, "plan", "opplan.json");
     const content = await fs.readFile(opplanPath, "utf-8");
     return NextResponse.json(JSON.parse(content));
   } catch {
-    // File not found or invalid — return empty
+    // File not found, invalid, or path escapes WORKSPACE — return empty
   }
 
   return NextResponse.json({ objectives: [] });

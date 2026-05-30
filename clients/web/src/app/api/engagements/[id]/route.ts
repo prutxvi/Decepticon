@@ -1,6 +1,6 @@
 import { requireAuth, AuthError } from "@/lib/auth-bridge";
 import { prisma } from "@/lib/prisma";
-import { isValidEngagementSlug } from "@/lib/engagement-slug";
+import { SLUG_RE } from "@/lib/workspace";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
@@ -57,11 +57,10 @@ export async function PATCH(
       return NextResponse.json({ error: "No valid fields to update" }, { status: 400 });
     }
 
-    // The name doubles as the workspace directory slug used by every route that
-    // joins WORKSPACE/<name>/... — reject anything that isn't a safe slug here
-    // (e.g. "../../tmp/pwn", absolute paths) so a rename can never enable path
-    // traversal downstream. Same rule the CREATE route enforces.
-    if ("name" in data && !isValidEngagementSlug(data.name)) {
+    // `name` doubles as the on-disk workspace slug. Enforce the same regex as
+    // POST so a PATCH cannot smuggle a path-traversal value past the filesystem
+    // routes that resolve path.join(WORKSPACE, name).
+    if ("name" in data && (typeof data.name !== "string" || !SLUG_RE.test(data.name))) {
       return NextResponse.json(
         {
           error:
