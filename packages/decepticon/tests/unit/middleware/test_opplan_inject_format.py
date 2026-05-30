@@ -279,6 +279,7 @@ class TestAwrapModelCall:
             },
         )
         result = await middleware.awrap_model_call(req, handler)
+        assert isinstance(result, tuple)
         assert result[0] == "R"
         injected = captured["req"]
         full_text = _flatten(injected.system_message)
