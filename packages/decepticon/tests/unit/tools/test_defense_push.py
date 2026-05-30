@@ -169,13 +169,13 @@ class TestSplunkConverter:
         assert _field_clause("EventID", "", "4624") == 'EventID="4624"'
 
     def test_field_clause_startswith(self):
-        assert _field_clause("Image", "startswith", "C:\\Windows") == "Image=C:\\Windows*"
+        assert _field_clause("Image", "startswith", "C:\\Windows") == 'Image="C:\\\\Windows*"'
 
     def test_field_clause_contains(self):
-        assert _field_clause("CommandLine", "contains", "bypass") == "CommandLine=*bypass*"
+        assert _field_clause("CommandLine", "contains", "bypass") == 'CommandLine="*bypass*"'
 
     def test_field_clause_endswith(self):
-        assert _field_clause("Image", "endswith", ".exe") == "Image=*.exe"
+        assert _field_clause("Image", "endswith", ".exe") == 'Image="*.exe"'
 
     def test_field_clause_non_string_with_modifier(self):
         # numeric value with contains modifier: falls back to quoted form
@@ -189,8 +189,8 @@ class TestSplunkConverter:
     def test_selection_to_spl_list_values(self):
         sel = {"Image|endswith": [".exe", ".dll"]}
         result = _selection_to_spl(sel)
-        assert "Image=*.exe" in result
-        assert "Image=*.dll" in result
+        assert 'Image="*.exe"' in result
+        assert 'Image="*.dll"' in result
         assert "OR" in result
 
     def test_sigma_to_spl_no_detection_raises(self):
@@ -847,6 +847,7 @@ class TestPushDefenderXdr:
     rule MyRule {
       meta:
         tags = "apt29,lateral-movement"
+        sha256 = "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899"
       strings:
         $a = "malware"
       condition:

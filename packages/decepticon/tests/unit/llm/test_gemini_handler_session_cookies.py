@@ -39,7 +39,15 @@ if "litellm" not in sys.modules:
     _litellm_stub.ModelResponse = _ModelResponse
     sys.modules["litellm"] = _litellm_stub
 
-if "oauth_token_store" not in sys.modules:
+# Load the real config module under its bare name, evicting any *partial* stub
+# another test (test_claude_code_handler_cache_dedup) may have registered via
+# sys.modules.setdefault — under pytest -n auto that stub can otherwise shadow
+# the real module here and change gemini_handler's behavior.
+_ots_existing = sys.modules.get("oauth_token_store")
+if _ots_existing is None or not getattr(_ots_existing, "__file__", None):
+    _fake_httpx = sys.modules.get("httpx")
+    if _fake_httpx is not None and not getattr(_fake_httpx, "__file__", None):
+        del sys.modules["httpx"]
     _ots_path = Path(__file__).resolve().parents[5] / "config" / "oauth_token_store.py"
     _ots_spec = importlib.util.spec_from_file_location("oauth_token_store", _ots_path)
     assert _ots_spec and _ots_spec.loader

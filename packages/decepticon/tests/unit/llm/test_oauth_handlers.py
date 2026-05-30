@@ -16,6 +16,7 @@ Covered fixes:
 from __future__ import annotations
 
 import importlib
+import importlib.util
 import sys
 import types
 from pathlib import Path
@@ -63,8 +64,36 @@ if str(_CONFIG_DIR) not in sys.path:
     sys.path.insert(0, str(_CONFIG_DIR))
 
 
+def _ensure_real_oauth_token_store() -> None:
+    # The handlers do ``from oauth_token_store import ...`` by bare name. Another
+    # test module (test_claude_code_handler_cache_dedup) registers a *partial*
+    # stub under that same bare name via ``sys.modules.setdefault``; under
+    # ``pytest -n auto`` that stub can land in this worker first and shadow the
+    # real module, so symbols like ``DEFAULT_JWT_SKEW_SECONDS`` go missing. Load
+    # the real config module from file (it only needs the litellm stub above and
+    # the installed httpx) so the handlers resolve against the complete module
+    # regardless of collection order.
+    existing = sys.modules.get("oauth_token_store")
+    if existing is not None and getattr(existing, "__file__", None):
+        return
+    fake_httpx = sys.modules.get("httpx")
+    if fake_httpx is not None and not getattr(fake_httpx, "__file__", None):
+        del sys.modules["httpx"]
+    spec = importlib.util.spec_from_file_location(
+        "oauth_token_store", _CONFIG_DIR / "oauth_token_store.py"
+    )
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    sys.modules["oauth_token_store"] = module
+    spec.loader.exec_module(module)
+
+
+_ensure_real_oauth_token_store()
+
+
 def _load(name: str) -> Any:
     _ensure_litellm_stub()
+    _ensure_real_oauth_token_store()
     return importlib.import_module(name)
 
 

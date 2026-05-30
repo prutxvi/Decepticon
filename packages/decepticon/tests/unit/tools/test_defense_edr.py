@@ -13,13 +13,29 @@ from decepticon.tools.defense.edr import (
     push_defender_xdr_detection,
 )
 
+_SHA256 = "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899"
+
 _YARA_RULE_WITH_META = (
     "\nrule test_rule {\n"
     "  meta:\n"
     '    author = "decepticon"\n'
+    f'    sha256 = "{_SHA256}"\n'
     '    indicator_type = "sha256"\n'
     '    indicator_value = "deadbeef1234"\n'
     '    tags = "a,b"\n'
+    "  strings:\n"
+    '    $a = "malware"\n'
+    "  condition:\n"
+    "    $a\n"
+    "}\n"
+)
+
+# sha256 meta satisfies #417's Defender KQL indicator gate (else the push
+# short-circuits before POST); no ``tags`` meta so tags stay engagement-only.
+_YARA_RULE_INDICATOR_NO_TAGS = (
+    "\nrule indicator_only {\n"
+    "  meta:\n"
+    f'    sha256 = "{_SHA256}"\n'
     "  strings:\n"
     '    $a = "malware"\n'
     "  condition:\n"
@@ -73,7 +89,9 @@ class TestPushDefenderXdrDetectionSuccess:
         assert captured["headers"]["Authorization"] == "Bearer tok"
         body = json.loads(captured["data"])
         assert body["displayName"] == "[Decepticon] myrule"
-        assert body["queryCondition"]["queryText"] == _YARA_RULE_WITH_META
+        assert (
+            body["queryCondition"]["queryText"] == f'DeviceFileEvents | where SHA256 == "{_SHA256}"'
+        )
 
     def test_tags_include_yara_meta_tags_split_and_technique_id(
         self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
@@ -111,7 +129,7 @@ class TestPushDefenderXdrDetectionSuccess:
             return mock_resp
 
         monkeypatch.setattr("requests.post", fake_post)
-        push_defender_xdr_detection("myrule", _YARA_RULE_NO_META)
+        push_defender_xdr_detection("myrule", _YARA_RULE_INDICATOR_NO_TAGS)
         body = json.loads(captured["data"])
         assert body["tags"] == ["decepticon-eng-eng1"]
         assert "MITRE" not in body["description"]
@@ -151,7 +169,7 @@ class TestPushDefenderXdrDetectionErrorBranches:
         monkeypatch.setenv("DECEPTICON_ENGAGEMENT_WORKSPACE", str(tmp_path))
         monkeypatch.setenv("DEF_TOKEN", "tok")
         monkeypatch.setitem(sys.modules, "requests", None)  # type: ignore[call-overload]
-        result = push_defender_xdr_detection("myrule", _YARA_RULE_NO_META)
+        result = push_defender_xdr_detection("myrule", _YARA_RULE_INDICATOR_NO_TAGS)
         assert result == {"error": "``requests`` not installed in langgraph container"}
 
     def test_requests_post_raises_exception_returns_error(
@@ -165,7 +183,7 @@ class TestPushDefenderXdrDetectionErrorBranches:
             raise RuntimeError("boom")
 
         monkeypatch.setattr("requests.post", boom)
-        result = push_defender_xdr_detection("myrule", _YARA_RULE_NO_META)
+        result = push_defender_xdr_detection("myrule", _YARA_RULE_INDICATOR_NO_TAGS)
         assert result["error"].startswith("Defender POST failed:")
         assert "boom" in result["error"]
 
@@ -183,7 +201,7 @@ class TestPushDefenderXdrDetectionErrorBranches:
             return mock_resp
 
         monkeypatch.setattr("requests.post", fake_post)
-        result = push_defender_xdr_detection("myrule", _YARA_RULE_NO_META)
+        result = push_defender_xdr_detection("myrule", _YARA_RULE_INDICATOR_NO_TAGS)
         assert result["error"] == "Defender returned HTTP 403"
         assert "body" in result
         assert len(result["body"]) <= 1000

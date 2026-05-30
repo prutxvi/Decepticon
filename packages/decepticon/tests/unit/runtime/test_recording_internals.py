@@ -51,7 +51,7 @@ def _model_request(content: str = "hi", model_name: str = "m1") -> SimpleNamespa
 def _tool_request(tool_name: str = "bash", args: dict | None = None) -> SimpleNamespace:
     return SimpleNamespace(
         tool=SimpleNamespace(name=tool_name),
-        tool_call_args=args if args is not None else {"cmd": "id"},
+        tool_call={"args": args if args is not None else {"cmd": "id"}},
     )
 
 

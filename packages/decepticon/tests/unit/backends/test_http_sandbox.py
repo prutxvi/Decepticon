@@ -302,7 +302,11 @@ def test_start_background_posts_and_registers_local_mirror() -> None:
     assert job is not None
     assert job.command == "nmap t"
     assert job.status == "running"
-    assert job.workspace_path == "/ws"
+    # The daemon receives the raw workspace_path, but the local mirror
+    # normalizes anything outside the /workspace tree back to the default
+    # (see _normalize_workspace), so an out-of-tree "/ws" is stored as
+    # "/workspace" and the mirror key falls back to the bare session.
+    assert job.workspace_path == "/workspace"
 
 
 def test_start_background_defaults_workspace_path_to_workspace() -> None:
