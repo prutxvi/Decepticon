@@ -15,6 +15,7 @@ The tools auto-select: MCP when reachable, headless otherwise.
 
 from __future__ import annotations
 
+import dataclasses
 import json
 import os
 import shutil
@@ -49,6 +50,9 @@ class GhidraFunction:
 
     def to_dict(self) -> dict[str, Any]:
         return {k: v for k, v in self.__dict__.items() if v}
+
+
+_GHIDRA_FUNC_KEYS: frozenset[str] = frozenset(f.name for f in dataclasses.fields(GhidraFunction))
 
 
 @dataclass
@@ -365,7 +369,10 @@ def ghidra_analyze_binary(binary: str) -> GhidraAnalysis:
                 language=data.get("language", ""),
                 image_base=data.get("image_base", ""),
                 function_count=data.get("function_count", 0),
-                functions=[GhidraFunction(**f) for f in data.get("functions", [])[:500]],
+                functions=[
+                    GhidraFunction(**{k: v for k, v in f.items() if k in _GHIDRA_FUNC_KEYS})
+                    for f in data.get("functions", [])[:500]
+                ],
                 imports=data.get("imports", [])[:500],
                 exports=data.get("exports", [])[:200],
             )
@@ -386,7 +393,10 @@ def ghidra_analyze_binary(binary: str) -> GhidraAnalysis:
         language=data.get("language", ""),
         image_base=data.get("image_base", ""),
         function_count=data.get("function_count", 0),
-        functions=[GhidraFunction(**f) for f in data.get("functions", [])[:500]],
+        functions=[
+            GhidraFunction(**{k: v for k, v in f.items() if k in _GHIDRA_FUNC_KEYS})
+            for f in data.get("functions", [])[:500]
+        ],
         imports=data.get("imports", [])[:500],
         exports=data.get("exports", [])[:200],
     )

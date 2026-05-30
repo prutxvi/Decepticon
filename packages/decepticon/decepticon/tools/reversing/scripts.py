@@ -32,7 +32,6 @@ print("[+] Functions: {{}}".format(fm.getFunctionCount()))
 for f in fm.getFunctions(True):
     name = f.getName()
     if not f.isThunk() and f.isExternal() is False:
-        addrs = [str(a) for a in f.getEntryPoint()]
         print("fn {{}} @ {{}}".format(name, f.getEntryPoint()))
 
 # Dump external imports (likely interesting APIs)
@@ -72,9 +71,9 @@ pvj
 
 def ghidra_recon_script(binary: str, script_name: str = "decepticon_recon.py") -> str:
     """Return a Ghidra headless script body targeting ``binary``."""
-    return _GHIDRA_RECON.format(binary=binary, script_name=script_name)
+    return _GHIDRA_RECON.replace("{binary}", binary).replace("{script_name}", script_name)
 
 
 def r2_recon_script(binary: str) -> str:
     """Return a radare2 script body; feed via ``r2 -q -i <script> <binary>``."""
-    return _R2_RECON.format(binary=binary)
+    return _R2_RECON.replace("{binary}", binary)
