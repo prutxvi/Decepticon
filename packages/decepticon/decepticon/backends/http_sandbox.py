@@ -48,7 +48,9 @@ from __future__ import annotations
 
 import asyncio
 import base64
+import hashlib
 import logging
+import re
 import time
 
 import httpx
@@ -62,6 +64,38 @@ from deepagents.backends.sandbox import BaseSandbox
 from decepticon.sandbox_kernel import BackgroundJob, BackgroundJobTracker
 
 log = logging.getLogger(__name__)
+
+_WORKSPACE_DEFAULT = "/workspace"
+
+
+def _normalize_workspace(workspace_path: str | None) -> str:
+    path = (workspace_path or _WORKSPACE_DEFAULT).strip()
+    if path == _WORKSPACE_DEFAULT:
+        return path
+    if not path.startswith("/workspace/"):
+        return _WORKSPACE_DEFAULT
+    path = path.rstrip("/")
+    components = path[len("/workspace/") :].split("/")
+    if any(not re.fullmatch(r"[A-Za-z0-9_.-]{1,128}", c) for c in components):
+        return _WORKSPACE_DEFAULT
+    return path
+
+
+def _workspace_slug(workspace_path: str) -> str:
+    path = _normalize_workspace(workspace_path)
+    if path == _WORKSPACE_DEFAULT:
+        return "root"
+    digest = hashlib.sha1(path.encode("utf-8"), usedforsecurity=False).hexdigest()[:8]
+    slug = path.rsplit("/", 1)[-1] or "workspace"
+    safe_slug = re.sub(r"[^a-zA-Z0-9_.-]+", "-", slug).strip("-") or "workspace"
+    return f"{safe_slug}-{digest}"
+
+
+def _mirror_key(session: str, workspace_path: str | None) -> str:
+    path = _normalize_workspace(workspace_path)
+    if path == _WORKSPACE_DEFAULT:
+        return session
+    return f"{_workspace_slug(path)}:{session}"
 
 
 class SandboxError(RuntimeError):
@@ -326,11 +360,13 @@ class HTTPSandbox(BaseSandbox):
         # the local mirror so SandboxNotificationMiddleware's
         # iteration can find it; `poll_completion` will replace the
         # stub's status / exit_code on the next refresh tick.
-        ws = workspace_path or "/workspace"
+        ws = _normalize_workspace(workspace_path)
+        mirror_key = _mirror_key(session, ws)
         self._jobs.register(
             session=session,
             command=command,
             initial_markers=0,
+            key=mirror_key,
             workspace_path=ws,
         )
 
@@ -362,34 +398,22 @@ class HTTPSandbox(BaseSandbox):
             completed_at=j.get("completed_at"),
             consumed=j.get("consumed", False),
         )
-        # Keep the local mirror coherent: refresh status from the
-        # daemon's view so ``BackgroundJobTracker.pending_completions``
-        # surfaces this job to SandboxNotificationMiddleware on its next
-        # tick. Dedupe of already-emitted completions is handled by
-        # ``mark_consumed`` (the middleware calls it post-emit) — not by
-        # removing from the mirror, which would make the done state
-        # invisible to ``pending_completions`` entirely.
-        local = self._jobs.get(session=job.session)
+        mirror_key = _mirror_key(job.session, job.workspace_path)
+        local = self._jobs.get(session=job.session, key=mirror_key)
         if local is None:
-            # Stub entry was never registered (e.g. start_background was
-            # called from a different agent process, or the local mirror
-            # was cleared). Re-register so subsequent polls find it.
             self._jobs.register(
                 session=job.session,
                 command=job.command,
                 initial_markers=job.initial_markers,
+                key=mirror_key,
                 workspace_path=job.workspace_path,
             )
-            local = self._jobs.get(session=job.session)
+            local = self._jobs.get(session=job.session, key=mirror_key)
         if local is not None and job.status != "running":
-            # The daemon reports exit_code as ``int | None``; if the job
-            # raced past completion before its exit code was captured,
-            # fall back to ``-1`` so the local mirror still flips to
-            # ``done`` and the notification path can fire.
             self._jobs.mark_complete(
                 session=job.session,
                 exit_code=job.exit_code if job.exit_code is not None else -1,
-                key=local.key,
+                key=mirror_key,
             )
         return job
 
