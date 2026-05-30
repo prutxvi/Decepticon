@@ -6,11 +6,16 @@ import json
 from pathlib import Path
 
 import pytest
+from langchain_core.messages import AIMessage
 
 from decepticon.runtime.recording import (
+    ReplayMiddleware,
     ReplayMismatchError,
     _canonicalize,
     _hash_request,
+    _serialize_ai_response,
+    _serialize_model_request,
+    _serialize_tool_request,
     open_record,
     open_replay,
 )
@@ -96,3 +101,52 @@ def test_replay_mismatch_error_has_useful_fields():
 def test_open_replay_missing_file_raises(tmp_path: Path):
     with pytest.raises(FileNotFoundError):
         open_replay(tmp_path / "missing.jsonl")
+
+
+class _ToolStub:
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+
+class _ToolCallRequestStub:
+    def __init__(self, tool_name: str, args: dict[str, object]) -> None:
+        self.tool = _ToolStub(tool_name)
+        self.tool_call = {"name": tool_name, "args": args}
+
+
+def test_serialize_tool_request_captures_args_from_tool_call():
+    serialized = _serialize_tool_request(_ToolCallRequestStub("bash", {"command": "ls -la"}))
+    assert serialized == {"tool": "bash", "args": {"command": "ls -la"}}
+
+
+def test_same_tool_different_args_hash_differently():
+    req_a = _serialize_tool_request(_ToolCallRequestStub("bash", {"command": "whoami"}))
+    req_b = _serialize_tool_request(_ToolCallRequestStub("bash", {"command": "id"}))
+    assert _hash_request(req_a) != _hash_request(req_b)
+
+
+def test_ai_response_additional_kwargs_round_trips():
+    message = AIMessage(content="answer", additional_kwargs={"reasoning_content": "X"})
+    serialized = _serialize_ai_response(message)
+    assert serialized["additional_kwargs"] == {"reasoning_content": "X"}
+    reconstructed = ReplayMiddleware(path=None)._model_response({"response": serialized})
+    assert reconstructed.additional_kwargs["reasoning_content"] == "X"
+
+
+class _ModelStub:
+    def __init__(self, model_name: str) -> None:
+        self.model_name = model_name
+        self.name = None
+
+
+class _ModelRequestStub:
+    def __init__(self, model_name: str) -> None:
+        self.model = _ModelStub(model_name)
+        self.system_message = None
+        self.messages = []
+        self.tools = []
+
+
+def test_serialize_model_request_records_model_name():
+    serialized = _serialize_model_request(_ModelRequestStub("deepseek-reasoner"))
+    assert serialized["model"] == "deepseek-reasoner"

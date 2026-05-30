@@ -119,8 +119,9 @@ def _serialize_messages(messages: list[Any]) -> list[dict[str, Any]]:
 
 def _serialize_model_request(request: Any) -> dict[str, Any]:
     system = request.system_message
+    model = getattr(request, "model", None)
     return {
-        "model": getattr(getattr(request, "model", None), "name", "") or "",
+        "model": getattr(model, "model_name", None) or getattr(model, "name", "") or "",
         "system": getattr(system, "content", "") if system is not None else "",
         "messages": _serialize_messages(getattr(request, "messages", []) or []),
         "tools": [getattr(t, "name", "") for t in (getattr(request, "tools", []) or [])],
@@ -129,9 +130,11 @@ def _serialize_model_request(request: Any) -> dict[str, Any]:
 
 def _serialize_tool_request(request: Any) -> dict[str, Any]:
     tool = getattr(request, "tool", None)
+    tc = getattr(request, "tool_call", None) or {}
+    args = tc.get("args", {}) if isinstance(tc, dict) else {}
     return {
         "tool": getattr(tool, "name", "") if tool else "",
-        "args": getattr(request, "tool_call_args", {}) or {},
+        "args": args or {},
     }
 
 
@@ -141,6 +144,7 @@ def _serialize_ai_response(message: Any) -> dict[str, Any]:
         "content": getattr(message, "content", ""),
         "tool_calls": getattr(message, "tool_calls", []) or [],
         "usage_metadata": getattr(message, "usage_metadata", {}) or {},
+        "additional_kwargs": getattr(message, "additional_kwargs", {}) or {},
     }
 
 
@@ -348,7 +352,7 @@ class ReplayMiddleware(AgentMiddleware):
         return AIMessage(
             content=payload.get("content", ""),
             tool_calls=payload.get("tool_calls", []) or [],
-            additional_kwargs={},
+            additional_kwargs=payload.get("additional_kwargs") or {},
             usage_metadata=payload.get("usage_metadata") or None,
         )
 
