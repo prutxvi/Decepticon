@@ -554,10 +554,7 @@ def _resolve_ollama_cloud_model() -> str | None:
     instead of pointing at the local Ollama instance's ``OLLAMA_API_BASE``.
     """
     base = os.getenv("OLLAMA_CLOUD_API_BASE", "").strip()
-    key = (
-        os.getenv("OLLAMA_CLOUD_API_KEY", "").strip()
-        or os.getenv("OLLAMA_API_KEY", "").strip()
-    )
+    key = os.getenv("OLLAMA_CLOUD_API_KEY", "").strip() or os.getenv("OLLAMA_API_KEY", "").strip()
     model = os.getenv("OLLAMA_CLOUD_MODEL", "").strip()
     if not base and not key and not model:
         return None

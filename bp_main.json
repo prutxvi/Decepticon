@@ -1,0 +1,2590 @@
+
+{
+    "version": "1.39.5",
+    "time": "1780169960929",
+    "generalDiagnostics": [
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\benchmark\\harness.py",
+            "severity": "warning",
+            "message": "Argument of type \"str | None\" cannot be assigned to parameter \"thread_id\" of type \"str\" in function \"cancel\"\n  Type \"str | None\" is not assignable to type \"str\"\n    \"None\" is not assignable to \"str\"",
+            "range": {
+                "start": {
+                    "line": 180,
+                    "character": 35
+                },
+                "end": {
+                    "line": 180,
+                    "character": 51
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\benchmark\\harness.py",
+            "severity": "warning",
+            "message": "Argument of type \"str | None\" cannot be assigned to parameter \"run_id\" of type \"str\" in function \"cancel\"\n  Type \"str | None\" is not assignable to type \"str\"\n    \"None\" is not assignable to \"str\"",
+            "range": {
+                "start": {
+                    "line": 180,
+                    "character": 53
+                },
+                "end": {
+                    "line": 180,
+                    "character": 66
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\benchmark\\harness.py",
+            "severity": "warning",
+            "message": "Argument of type \"str | None\" cannot be assigned to parameter \"thread_id\" of type \"str\" in function \"get\"\n  Type \"str | None\" is not assignable to type \"str\"\n    \"None\" is not assignable to \"str\"",
+            "range": {
+                "start": {
+                    "line": 237,
+                    "character": 36
+                },
+                "end": {
+                    "line": 237,
+                    "character": 52
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\benchmark\\harness.py",
+            "severity": "warning",
+            "message": "Argument of type \"str | None\" cannot be assigned to parameter \"run_id\" of type \"str\" in function \"get\"\n  Type \"str | None\" is not assignable to type \"str\"\n    \"None\" is not assignable to \"str\"",
+            "range": {
+                "start": {
+                    "line": 237,
+                    "character": 54
+                },
+                "end": {
+                    "line": 237,
+                    "character": 67
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\benchmark\\harness.py",
+            "severity": "warning",
+            "message": "Argument of type \"str | None\" cannot be assigned to parameter \"thread_id\" of type \"str\" in function \"get_state\"\n  Type \"str | None\" is not assignable to type \"str\"\n    \"None\" is not assignable to \"str\"",
+            "range": {
+                "start": {
+                    "line": 390,
+                    "character": 41
+                },
+                "end": {
+                    "line": 390,
+                    "character": 57
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\plugins\\detector.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 194,
+                    "character": 12
+                },
+                "end": {
+                    "line": 194,
+                    "character": 33
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\plugins\\exploiter.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 214,
+                    "character": 12
+                },
+                "end": {
+                    "line": 214,
+                    "character": 34
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\plugins\\patcher.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 187,
+                    "character": 12
+                },
+                "end": {
+                    "line": 187,
+                    "character": 32
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\plugins\\scanner.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 188,
+                    "character": 12
+                },
+                "end": {
+                    "line": 188,
+                    "character": 32
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\plugins\\verifier.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 195,
+                    "character": 12
+                },
+                "end": {
+                    "line": 195,
+                    "character": 33
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\plugins\\vulnresearch.py",
+            "severity": "warning",
+            "message": "Argument of type \"AgentProtocol\" cannot be assigned to parameter \"runnable\" of type \"Runnable[Unknown, Unknown] | None\" in function \"__init__\"\n  Type \"AgentProtocol\" is not assignable to type \"Runnable[Unknown, Unknown] | None\"\n    \"AgentProtocol\" is not assignable to \"Runnable[Unknown, Unknown]\"\n    \"AgentProtocol\" is not assignable to \"None\"",
+            "range": {
+                "start": {
+                    "line": 152,
+                    "character": 43
+                },
+                "end": {
+                    "line": 152,
+                    "character": 57
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\ad_operator.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 186,
+                    "character": 12
+                },
+                "end": {
+                    "line": 186,
+                    "character": 36
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\analyst.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 177,
+                    "character": 12
+                },
+                "end": {
+                    "line": 177,
+                    "character": 32
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\cloud_hunter.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 176,
+                    "character": 12
+                },
+                "end": {
+                    "line": 176,
+                    "character": 37
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\contract_auditor.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 184,
+                    "character": 12
+                },
+                "end": {
+                    "line": 184,
+                    "character": 41
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\decepticon.py",
+            "severity": "warning",
+            "message": "Argument of type \"AgentProtocol\" cannot be assigned to parameter \"runnable\" of type \"Runnable[Unknown, Unknown] | None\" in function \"__init__\"\n  Type \"AgentProtocol\" is not assignable to type \"Runnable[Unknown, Unknown] | None\"\n    \"AgentProtocol\" is not assignable to \"Runnable[Unknown, Unknown]\"\n    \"AgentProtocol\" is not assignable to \"None\"",
+            "range": {
+                "start": {
+                    "line": 149,
+                    "character": 43
+                },
+                "end": {
+                    "line": 149,
+                    "character": 57
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\exploit.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 198,
+                    "character": 12
+                },
+                "end": {
+                    "line": 198,
+                    "character": 32
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\mobile_operator.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 137,
+                    "character": 12
+                },
+                "end": {
+                    "line": 137,
+                    "character": 40
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\phisher.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 151,
+                    "character": 12
+                },
+                "end": {
+                    "line": 151,
+                    "character": 32
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\postexploit.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 194,
+                    "character": 12
+                },
+                "end": {
+                    "line": 194,
+                    "character": 36
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\recon.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 203,
+                    "character": 12
+                },
+                "end": {
+                    "line": 203,
+                    "character": 30
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\reverser.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 188,
+                    "character": 12
+                },
+                "end": {
+                    "line": 188,
+                    "character": 33
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\agents\\standard\\wireless_operator.py",
+            "severity": "warning",
+            "message": "Argument of type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"(*, backend: Any = None, llm: Any = None, fallback_models: list[Unknown] | None = None, sandbox: Any = None, tools: list[Any] | None = None, middleware: list[Any] | None = None, system_prompt: str | None = None, recursion_limit: int | None = None) -> CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with type \"AgentProtocol\"\n      \"CompiledStateGraph[AgentState[Any], Any, _InputAgentState, _OutputAgentState[Any]]\" is incompatible with protocol \"AgentProtocol\"\n        \"invoke\" is an incompatible type\n          No overloaded function matches type \"(state: Any, *, config: Any | None = None) -> Any\"",
+            "range": {
+                "start": {
+                    "line": 150,
+                    "character": 12
+                },
+                "end": {
+                    "line": 150,
+                    "character": 42
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\backends\\http_sandbox.py",
+            "severity": "warning",
+            "message": "Invalid exception class or object\n  \"None\" does not derive from BaseException",
+            "range": {
+                "start": {
+                    "line": 90,
+                    "character": 10
+                },
+                "end": {
+                    "line": 90,
+                    "character": 18
+                }
+            },
+            "rule": "reportGeneralTypeIssues"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\cli\\scan.py",
+            "severity": "warning",
+            "message": "No overloads for \"stream\" match the provided arguments",
+            "range": {
+                "start": {
+                    "line": 268,
+                    "character": 27
+                },
+                "end": {
+                    "line": 274,
+                    "character": 9
+                }
+            },
+            "rule": "reportCallIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\cli\\scan.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, dict[str, str]]\" cannot be assigned to parameter \"config\" of type \"Config | None\" in function \"stream\"\n  Type \"dict[str, dict[str, str]]\" is not assignable to type \"Config | None\"\n    \"dict[str, dict[str, str]]\" is not assignable to \"Config\"\n    \"dict[str, dict[str, str]]\" is not assignable to \"None\"",
+            "range": {
+                "start": {
+                    "line": 272,
+                    "character": 19
+                },
+                "end": {
+                    "line": 272,
+                    "character": 25
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\cli\\scan.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"from_json\" for class \"type[KnowledgeGraph]\"\n  Attribute \"from_json\" is unknown",
+            "range": {
+                "start": {
+                    "line": 309,
+                    "character": 30
+                },
+                "end": {
+                    "line": 309,
+                    "character": 39
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\middleware\\budget.py",
+            "severity": "warning",
+            "message": "Import \"psycopg2\" could not be resolved from source",
+            "range": {
+                "start": {
+                    "line": 271,
+                    "character": 15
+                },
+                "end": {
+                    "line": 271,
+                    "character": 23
+                }
+            },
+            "rule": "reportMissingModuleSource"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\middleware\\skillogy.py",
+            "severity": "warning",
+            "message": "No overloads for \"__init__\" match the provided arguments",
+            "range": {
+                "start": {
+                    "line": 191,
+                    "character": 21
+                },
+                "end": {
+                    "line": 191,
+                    "character": 55
+                }
+            },
+            "rule": "reportCallIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\middleware\\skillogy.py",
+            "severity": "warning",
+            "message": "Argument of type \"list[Unknown] | list[dict[str, str]]\" cannot be assigned to parameter \"content\" of type \"str | list[str | dict[Unknown, Unknown]] | None\" in function \"__init__\"\n  Type \"list[Unknown] | list[dict[str, str]]\" is not assignable to type \"str | list[str | dict[Unknown, Unknown]] | None\"\n    Type \"list[dict[str, str]]\" is not assignable to type \"str | list[str | dict[Unknown, Unknown]] | None\"\n      \"list[dict[str, str]]\" is not assignable to \"str\"\n      \"list[dict[str, str]]\" is not assignable to \"list[str | dict[Unknown, Unknown]]\"\n        Type parameter \"_T@list\" is invariant, but \"dict[str, str]\" is not the same as \"str | dict[Unknown, Unknown]\"\n        Consider switching from \"list\" to \"Sequence\" which is covariant\n      \"list[dict[str, str]]\" is not assignable to \"None\"",
+            "range": {
+                "start": {
+                    "line": 191,
+                    "character": 43
+                },
+                "end": {
+                    "line": 191,
+                    "character": 54
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\middleware\\skillogy.py",
+            "severity": "warning",
+            "message": "Type \"ToolMessage | Command[Any]\" is not assignable to return type \"ToolMessage\"\n  Type \"ToolMessage | Command[Any]\" is not assignable to type \"ToolMessage\"\n    \"Command[Any]\" is not assignable to \"ToolMessage\"",
+            "range": {
+                "start": {
+                    "line": 196,
+                    "character": 15
+                },
+                "end": {
+                    "line": 196,
+                    "character": 31
+                }
+            },
+            "rule": "reportReturnType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\middleware\\skillogy.py",
+            "severity": "warning",
+            "message": "Type \"ToolMessage | Command[Any]\" is not assignable to return type \"ToolMessage\"\n  Type \"ToolMessage | Command[Any]\" is not assignable to type \"ToolMessage\"\n    \"Command[Any]\" is not assignable to \"ToolMessage\"",
+            "range": {
+                "start": {
+                    "line": 200,
+                    "character": 15
+                },
+                "end": {
+                    "line": 200,
+                    "character": 37
+                }
+            },
+            "rule": "reportReturnType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\runtime\\__init__.py",
+            "severity": "warning",
+            "message": "Operation on \"__all__\" is not supported, so exported symbol list may be incorrect",
+            "range": {
+                "start": {
+                    "line": 80,
+                    "character": 0
+                },
+                "end": {
+                    "line": 80,
+                    "character": 18
+                }
+            },
+            "rule": "reportUnsupportedDunderAll"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\runtime\\cart.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"values\" for class \"list[Unknown]\"\n  Attribute \"values\" is unknown",
+            "range": {
+                "start": {
+                    "line": 106,
+                    "character": 38
+                },
+                "end": {
+                    "line": 106,
+                    "character": 44
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\server\\plugins_api.py",
+            "severity": "warning",
+            "message": "Argument of type \"AsyncConnectionProto\" cannot be assigned to parameter \"conn\" of type \"InMemConnectionProto | None\" in function \"delete\"\n  Type \"AsyncConnectionProto\" is not assignable to type \"InMemConnectionProto | None\"\n    \"AsyncConnectionProto\" is not assignable to \"InMemConnectionProto\"\n    \"AsyncConnectionProto\" is not assignable to \"None\"",
+            "range": {
+                "start": {
+                    "line": 252,
+                    "character": 55
+                },
+                "end": {
+                    "line": 252,
+                    "character": 59
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\telemetry\\otel.py",
+            "severity": "warning",
+            "message": "Argument of type \"object\" cannot be assigned to parameter \"token\" of type \"Token[str | None]\" in function \"reset\"\n  \"object\" is not assignable to \"Token[str | None]\"",
+            "range": {
+                "start": {
+                    "line": 255,
+                    "character": 36
+                },
+                "end": {
+                    "line": 255,
+                    "character": 41
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\tools\\browser\\tools.py",
+            "severity": "warning",
+            "message": "Import \"playwright\" could not be resolved",
+            "range": {
+                "start": {
+                    "line": 92,
+                    "character": 17
+                },
+                "end": {
+                    "line": 92,
+                    "character": 27
+                }
+            },
+            "rule": "reportMissingImports"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\tools\\defense\\sentinel.py",
+            "severity": "warning",
+            "message": "Argument of type \"Any | None\" cannot be assigned to parameter \"auth_spec\" of type \"str\" in function \"resolve_auth_value\"\n  Type \"Any | None\" is not assignable to type \"str\"\n    \"None\" is not assignable to \"str\"",
+            "range": {
+                "start": {
+                    "line": 153,
+                    "character": 36
+                },
+                "end": {
+                    "line": 153,
+                    "character": 45
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\tools\\research\\neo4j_store.py",
+            "severity": "warning",
+            "message": "Import \"neo4j\" could not be resolved",
+            "range": {
+                "start": {
+                    "line": 120,
+                    "character": 17
+                },
+                "end": {
+                    "line": 120,
+                    "character": 22
+                }
+            },
+            "rule": "reportMissingImports"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\tools\\reversing\\ghidra.py",
+            "severity": "warning",
+            "message": "Type \"dict[str, bool | str]\" is not assignable to return type \"dict[str, bool]\"\n  \"str\" is not assignable to \"bool\"\n  \"str\" is not assignable to \"bool\"",
+            "range": {
+                "start": {
+                    "line": 477,
+                    "character": 11
+                },
+                "end": {
+                    "line": 482,
+                    "character": 5
+                }
+            },
+            "rule": "reportReturnType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\tools\\web\\tools.py",
+            "severity": "warning",
+            "message": "No overloads for \"update\" match the provided arguments",
+            "range": {
+                "start": {
+                    "line": 242,
+                    "character": 12
+                },
+                "end": {
+                    "line": 242,
+                    "character": 80
+                }
+            },
+            "rule": "reportCallIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\decepticon\\tools\\web\\tools.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, int | float]\" cannot be assigned to parameter \"m\" of type \"Iterable[tuple[str, str]]\" in function \"update\"\n  \"Literal['status']\" is not assignable to \"tuple[str, str]\"\n  \"Literal['elapsed_ms']\" is not assignable to \"tuple[str, str]\"",
+            "range": {
+                "start": {
+                    "line": 242,
+                    "character": 25
+                },
+                "end": {
+                    "line": 242,
+                    "character": 79
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\cli\\test_auth.py",
+            "severity": "warning",
+            "message": "\"AuthMethod\" is not exported from module \"decepticon.llm.factory\"\n  Import from \"decepticon_core.types.llm\" instead",
+            "range": {
+                "start": {
+                    "line": 10,
+                    "character": 35
+                },
+                "end": {
+                    "line": 10,
+                    "character": 45
+                }
+            },
+            "rule": "reportPrivateImportUsage"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\core\\test_logging.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"stream\" for class \"Handler\"\n  Attribute \"stream\" is unknown",
+            "range": {
+                "start": {
+                    "line": 31,
+                    "character": 12
+                },
+                "end": {
+                    "line": 31,
+                    "character": 18
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"CustomLLM\" for class \"ModuleType\"\n  Attribute \"CustomLLM\" is unknown",
+            "range": {
+                "start": {
+                    "line": 14,
+                    "character": 14
+                },
+                "end": {
+                    "line": 14,
+                    "character": 23
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"ModelResponse\" for class \"ModuleType\"\n  Attribute \"ModelResponse\" is unknown",
+            "range": {
+                "start": {
+                    "line": 15,
+                    "character": 14
+                },
+                "end": {
+                    "line": 15,
+                    "character": 27
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"DEFAULT_REFRESH_BUFFER_SECONDS\" for class \"ModuleType\"\n  Attribute \"DEFAULT_REFRESH_BUFFER_SECONDS\" is unknown",
+            "range": {
+                "start": {
+                    "line": 17,
+                    "character": 12
+                },
+                "end": {
+                    "line": 17,
+                    "character": 42
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"FileBackedCache\" for class \"ModuleType\"\n  Attribute \"FileBackedCache\" is unknown",
+            "range": {
+                "start": {
+                    "line": 18,
+                    "character": 12
+                },
+                "end": {
+                    "line": 18,
+                    "character": 27
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"is_timestamp_expired\" for class \"ModuleType\"\n  Attribute \"is_timestamp_expired\" is unknown",
+            "range": {
+                "start": {
+                    "line": 19,
+                    "character": 12
+                },
+                "end": {
+                    "line": 19,
+                    "character": 32
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"oauth_refresh_request\" for class \"ModuleType\"\n  Attribute \"oauth_refresh_request\" is unknown",
+            "range": {
+                "start": {
+                    "line": 20,
+                    "character": 12
+                },
+                "end": {
+                    "line": 20,
+                    "character": 33
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"read_json_file\" for class \"ModuleType\"\n  Attribute \"read_json_file\" is unknown",
+            "range": {
+                "start": {
+                    "line": 21,
+                    "character": 12
+                },
+                "end": {
+                    "line": 21,
+                    "character": 26
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"with_retry_on_401\" for class \"ModuleType\"\n  Attribute \"with_retry_on_401\" is unknown",
+            "range": {
+                "start": {
+                    "line": 22,
+                    "character": 12
+                },
+                "end": {
+                    "line": 22,
+                    "character": 29
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_claude_code_handler_cache_dedup.py",
+            "severity": "warning",
+            "message": "Cannot assign to attribute \"write_json_atomic\" for class \"ModuleType\"\n  Attribute \"write_json_atomic\" is unknown",
+            "range": {
+                "start": {
+                    "line": 23,
+                    "character": 12
+                },
+                "end": {
+                    "line": 23,
+                    "character": 29
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_factory.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"model_name\" for class \"BaseChatModel\"\n  Attribute \"model_name\" is unknown",
+            "range": {
+                "start": {
+                    "line": 125,
+                    "character": 21
+                },
+                "end": {
+                    "line": 125,
+                    "character": 31
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_factory.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"model_name\" for class \"BaseChatModel\"\n  Attribute \"model_name\" is unknown",
+            "range": {
+                "start": {
+                    "line": 136,
+                    "character": 21
+                },
+                "end": {
+                    "line": 136,
+                    "character": 31
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_factory.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"model_name\" for class \"BaseChatModel\"\n  Attribute \"model_name\" is unknown",
+            "range": {
+                "start": {
+                    "line": 136,
+                    "character": 46
+                },
+                "end": {
+                    "line": 136,
+                    "character": 56
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_factory.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"model_name\" for class \"BaseChatModel\"\n  Attribute \"model_name\" is unknown",
+            "range": {
+                "start": {
+                    "line": 147,
+                    "character": 19
+                },
+                "end": {
+                    "line": 147,
+                    "character": 29
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_factory.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"model_name\" for class \"BaseChatModel\"\n  Attribute \"model_name\" is unknown",
+            "range": {
+                "start": {
+                    "line": 158,
+                    "character": 19
+                },
+                "end": {
+                    "line": 158,
+                    "character": 29
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_factory.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"model_name\" for class \"BaseChatModel\"\n  Attribute \"model_name\" is unknown",
+            "range": {
+                "start": {
+                    "line": 181,
+                    "character": 47
+                },
+                "end": {
+                    "line": 181,
+                    "character": 57
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\llm\\test_oauth_token_store.py",
+            "severity": "warning",
+            "message": "Import \"litellm\" could not be resolved",
+            "range": {
+                "start": {
+                    "line": 31,
+                    "character": 7
+                },
+                "end": {
+                    "line": 31,
+                    "character": 14
+                }
+            },
+            "rule": "reportMissingImports"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_engagement.py",
+            "severity": "warning",
+            "message": "Argument of type \"set[type[AgentState[ResponseT@AgentState]] | type[OPPLANState] | type[EngagementContextState]]\" cannot be assigned to parameter \"schemas\" of type \"list[type]\" in function \"_resolve_schemas\"\n  \"set[type[AgentState[ResponseT@AgentState]] | type[OPPLANState] | type[EngagementContextState]]\" is not assignable to \"list[type]\"",
+            "range": {
+                "start": {
+                    "line": 91,
+                    "character": 25
+                },
+                "end": {
+                    "line": 91,
+                    "character": 74
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_engagement.py",
+            "severity": "warning",
+            "message": "Argument of type \"(_state: Unknown) -> dict[str, str]\" cannot be assigned to parameter \"action\" of type \"StateNode[NodeInputT@add_node, None]\" in function \"add_node\"\n  Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"StateNode[NodeInputT@add_node, None]\"\n    \"FunctionType\" is not assignable to \"Runnable[NodeInputT@add_node, Any]\"\n    Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"(state: NodeInputT@add_node) -> Any\"\n      Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"(state: NodeInputT@add_node, config: RunnableConfig) -> Any\"\n      Function accepts too many positional parameters; expected 1 but received 2\n        Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"(state: NodeInputT@add_node, *, config: RunnableConfig, store: BaseStore) -> Any\"\n  ...",
+            "range": {
+                "start": {
+                    "line": 102,
+                    "character": 31
+                },
+                "end": {
+                    "line": 102,
+                    "character": 39
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_engagement.py",
+            "severity": "warning",
+            "message": "Argument of type \"(_state: Unknown) -> dict[str, None]\" cannot be assigned to parameter \"action\" of type \"StateNode[NodeInputT@add_node, None]\" in function \"add_node\"\n  Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"StateNode[NodeInputT@add_node, None]\"\n    \"FunctionType\" is not assignable to \"Runnable[NodeInputT@add_node, Any]\"\n    Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"(state: NodeInputT@add_node) -> Any\"\n      Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"(state: NodeInputT@add_node, config: RunnableConfig) -> Any\"\n      Function accepts too many positional parameters; expected 1 but received 2\n        Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"(state: NodeInputT@add_node, *, config: RunnableConfig, store: BaseStore) -> Any\"\n  ...",
+            "range": {
+                "start": {
+                    "line": 103,
+                    "character": 32
+                },
+                "end": {
+                    "line": 103,
+                    "character": 41
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_engagement.py",
+            "severity": "warning",
+            "message": "Argument of type \"set[type[AgentState[ResponseT@AgentState]] | type[OPPLANState] | type[EngagementContextState]]\" cannot be assigned to parameter \"schemas\" of type \"list[type]\" in function \"_resolve_schemas\"\n  \"set[type[AgentState[ResponseT@AgentState]] | type[OPPLANState] | type[EngagementContextState]]\" is not assignable to \"list[type]\"",
+            "range": {
+                "start": {
+                    "line": 119,
+                    "character": 25
+                },
+                "end": {
+                    "line": 119,
+                    "character": 74
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_engagement.py",
+            "severity": "warning",
+            "message": "Argument of type \"(_state: Unknown) -> dict[str, str]\" cannot be assigned to parameter \"action\" of type \"StateNode[NodeInputT@add_node, None]\" in function \"add_node\"\n  Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"StateNode[NodeInputT@add_node, None]\"\n    \"FunctionType\" is not assignable to \"Runnable[NodeInputT@add_node, Any]\"\n    Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"(state: NodeInputT@add_node) -> Any\"\n      Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"(state: NodeInputT@add_node, config: RunnableConfig) -> Any\"\n      Function accepts too many positional parameters; expected 1 but received 2\n        Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, str]\" is not assignable to type \"(state: NodeInputT@add_node, *, config: RunnableConfig, store: BaseStore) -> Any\"\n  ...",
+            "range": {
+                "start": {
+                    "line": 133,
+                    "character": 36
+                },
+                "end": {
+                    "line": 133,
+                    "character": 49
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_engagement.py",
+            "severity": "warning",
+            "message": "Argument of type \"(_state: Unknown) -> dict[str, None]\" cannot be assigned to parameter \"action\" of type \"StateNode[NodeInputT@add_node, None]\" in function \"add_node\"\n  Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"StateNode[NodeInputT@add_node, None]\"\n    \"FunctionType\" is not assignable to \"Runnable[NodeInputT@add_node, Any]\"\n    Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"(state: NodeInputT@add_node) -> Any\"\n      Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"(state: NodeInputT@add_node, config: RunnableConfig) -> Any\"\n      Function accepts too many positional parameters; expected 1 but received 2\n        Parameter name mismatch: \"state\" versus \"_state\"\n    Type \"(_state: Unknown) -> dict[str, None]\" is not assignable to type \"(state: NodeInputT@add_node, *, config: RunnableConfig, store: BaseStore) -> Any\"\n  ...",
+            "range": {
+                "start": {
+                    "line": 134,
+                    "character": 37
+                },
+                "end": {
+                    "line": 134,
+                    "character": 51
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"list[dict[str, Unknown]]\" cannot be assigned to parameter \"matches\" of type \"list[GrepMatch] | None\" in function \"__init__\"\n  Type \"list[dict[str, Unknown]]\" is not assignable to type \"list[GrepMatch] | None\"\n    \"list[dict[str, Unknown]]\" is not assignable to \"list[GrepMatch]\"\n      Type parameter \"_T@list\" is invariant, but \"dict[str, Unknown]\" is not the same as \"GrepMatch\"\n      Consider switching from \"list\" to \"Sequence\" which is covariant\n    \"list[dict[str, Unknown]]\" is not assignable to \"None\"",
+            "range": {
+                "start": {
+                    "line": 48,
+                    "character": 34
+                },
+                "end": {
+                    "line": 48,
+                    "character": 68
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 57,
+                    "character": 41
+                },
+                "end": {
+                    "line": 57,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 83,
+                    "character": 41
+                },
+                "end": {
+                    "line": 83,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 98,
+                    "character": 41
+                },
+                "end": {
+                    "line": 98,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 110,
+                    "character": 41
+                },
+                "end": {
+                    "line": 110,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BACKEND_TYPES | None\" in function \"__init__\"\n  Type \"RecordingBackend\" is not assignable to type \"BACKEND_TYPES | None\"\n    \"RecordingBackend\" is not assignable to \"BackendProtocol\"\n    Type \"RecordingBackend\" is not assignable to type \"BackendFactory\"\n    \"RecordingBackend\" is not assignable to \"None\"",
+            "range": {
+                "start": {
+                    "line": 124,
+                    "character": 44
+                },
+                "end": {
+                    "line": 124,
+                    "character": 62
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 137,
+                    "character": 41
+                },
+                "end": {
+                    "line": 137,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 154,
+                    "character": 41
+                },
+                "end": {
+                    "line": 154,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 166,
+                    "character": 41
+                },
+                "end": {
+                    "line": 166,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 176,
+                    "character": 41
+                },
+                "end": {
+                    "line": 176,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 191,
+                    "character": 41
+                },
+                "end": {
+                    "line": 191,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 200,
+                    "character": 41
+                },
+                "end": {
+                    "line": 200,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 215,
+                    "character": 41
+                },
+                "end": {
+                    "line": 215,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"RecordingBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"RecordingBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 231,
+                    "character": 41
+                },
+                "end": {
+                    "line": 231,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_filesystem.py",
+            "severity": "warning",
+            "message": "Argument of type \"_ErrorBackend\" cannot be assigned to parameter \"backend\" of type \"BackendProtocol\" in function \"__init__\"\n  \"_ErrorBackend\" is not assignable to \"BackendProtocol\"",
+            "range": {
+                "start": {
+                    "line": 256,
+                    "character": 41
+                },
+                "end": {
+                    "line": 256,
+                    "character": 48
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Argument of type \"_Req\" cannot be assigned to parameter \"request\" of type \"ToolCallRequest\" in function \"wrap_tool_call\"\n  \"_Req\" is not assignable to \"ToolCallRequest\"",
+            "range": {
+                "start": {
+                    "line": 166,
+                    "character": 31
+                },
+                "end": {
+                    "line": 166,
+                    "character": 38
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 167,
+                    "character": 18
+                },
+                "end": {
+                    "line": 167,
+                    "character": 25
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Argument of type \"_Req\" cannot be assigned to parameter \"request\" of type \"ToolCallRequest\" in function \"wrap_tool_call\"\n  \"_Req\" is not assignable to \"ToolCallRequest\"",
+            "range": {
+                "start": {
+                    "line": 186,
+                    "character": 31
+                },
+                "end": {
+                    "line": 186,
+                    "character": 38
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 187,
+                    "character": 18
+                },
+                "end": {
+                    "line": 187,
+                    "character": 25
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Argument of type \"_Req\" cannot be assigned to parameter \"request\" of type \"ToolCallRequest\" in function \"wrap_tool_call\"\n  \"_Req\" is not assignable to \"ToolCallRequest\"",
+            "range": {
+                "start": {
+                    "line": 203,
+                    "character": 31
+                },
+                "end": {
+                    "line": 203,
+                    "character": 38
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"lower\" for class \"list[str | dict[Unknown, Unknown]]\"\n  Attribute \"lower\" is unknown",
+            "range": {
+                "start": {
+                    "line": 206,
+                    "character": 38
+                },
+                "end": {
+                    "line": 206,
+                    "character": 43
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Argument of type \"_Req\" cannot be assigned to parameter \"request\" of type \"ToolCallRequest\" in function \"wrap_tool_call\"\n  \"_Req\" is not assignable to \"ToolCallRequest\"",
+            "range": {
+                "start": {
+                    "line": 227,
+                    "character": 31
+                },
+                "end": {
+                    "line": 227,
+                    "character": 38
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 228,
+                    "character": 18
+                },
+                "end": {
+                    "line": 228,
+                    "character": 25
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Argument of type \"_Req\" cannot be assigned to parameter \"request\" of type \"ToolCallRequest\" in function \"wrap_tool_call\"\n  \"_Req\" is not assignable to \"ToolCallRequest\"",
+            "range": {
+                "start": {
+                    "line": 238,
+                    "character": 22
+                },
+                "end": {
+                    "line": 238,
+                    "character": 29
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Argument of type \"_Req\" cannot be assigned to parameter \"request\" of type \"ToolCallRequest\" in function \"awrap_tool_call\"\n  \"_Req\" is not assignable to \"ToolCallRequest\"",
+            "range": {
+                "start": {
+                    "line": 263,
+                    "character": 38
+                },
+                "end": {
+                    "line": 263,
+                    "character": 45
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_hitl.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 264,
+                    "character": 18
+                },
+                "end": {
+                    "line": 264,
+                    "character": 25
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Argument of type \"Literal['sk-test-original']\" cannot be assigned to parameter \"api_key\" of type \"SecretStr | (() -> str) | (() -> Awaitable[str]) | None\" in function \"__init__\"\n  Type \"Literal['sk-test-original']\" is not assignable to type \"SecretStr | (() -> str) | (() -> Awaitable[str]) | None\"\n    \"Literal['sk-test-original']\" is not assignable to \"SecretStr\"\n    \"Literal['sk-test-original']\" is not assignable to \"None\"\n    Type \"Literal['sk-test-original']\" is not assignable to type \"() -> str\"\n    Type \"Literal['sk-test-original']\" is not assignable to type \"() -> Awaitable[str]\"",
+            "range": {
+                "start": {
+                    "line": 59,
+                    "character": 16
+                },
+                "end": {
+                    "line": 59,
+                    "character": 34
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"openai_api_base\" for class \"BaseChatModel\"\n  Attribute \"openai_api_base\" is unknown",
+            "range": {
+                "start": {
+                    "line": 80,
+                    "character": 21
+                },
+                "end": {
+                    "line": 80,
+                    "character": 36
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"openai_api_base\" for class \"BaseChatModel\"\n  Attribute \"openai_api_base\" is unknown",
+            "range": {
+                "start": {
+                    "line": 84,
+                    "character": 21
+                },
+                "end": {
+                    "line": 84,
+                    "character": 36
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"openai_api_key\" for class \"BaseChatModel\"\n  Attribute \"openai_api_key\" is unknown",
+            "range": {
+                "start": {
+                    "line": 98,
+                    "character": 24
+                },
+                "end": {
+                    "line": 98,
+                    "character": 38
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"openai_api_base\" for class \"BaseChatModel\"\n  Attribute \"openai_api_base\" is unknown",
+            "range": {
+                "start": {
+                    "line": 118,
+                    "character": 25
+                },
+                "end": {
+                    "line": 118,
+                    "character": 40
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"model_name\" for class \"BaseChatModel\"\n  Attribute \"model_name\" is unknown",
+            "range": {
+                "start": {
+                    "line": 121,
+                    "character": 25
+                },
+                "end": {
+                    "line": 121,
+                    "character": 35
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"openai_api_base\" for class \"BaseChatModel\"\n  Attribute \"openai_api_base\" is unknown",
+            "range": {
+                "start": {
+                    "line": 148,
+                    "character": 21
+                },
+                "end": {
+                    "line": 148,
+                    "character": 36
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"openai_api_base\" for class \"BaseChatModel\"\n  Attribute \"openai_api_base\" is unknown",
+            "range": {
+                "start": {
+                    "line": 149,
+                    "character": 21
+                },
+                "end": {
+                    "line": 149,
+                    "character": 36
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"temperature\" for class \"BaseChatModel\"\n  Attribute \"temperature\" is unknown",
+            "range": {
+                "start": {
+                    "line": 171,
+                    "character": 21
+                },
+                "end": {
+                    "line": 171,
+                    "character": 32
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"temperature\" for class \"BaseChatModel\"\n  Attribute \"temperature\" is unknown",
+            "range": {
+                "start": {
+                    "line": 172,
+                    "character": 57
+                },
+                "end": {
+                    "line": 172,
+                    "character": 68
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"temperature\" for class \"BaseChatModel\"\n  Attribute \"temperature\" is unknown",
+            "range": {
+                "start": {
+                    "line": 187,
+                    "character": 21
+                },
+                "end": {
+                    "line": 187,
+                    "character": 32
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"openai_api_base\" for class \"BaseChatModel\"\n  Attribute \"openai_api_base\" is unknown",
+            "range": {
+                "start": {
+                    "line": 207,
+                    "character": 21
+                },
+                "end": {
+                    "line": 207,
+                    "character": 36
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Argument of type \"_Req\" cannot be assigned to parameter \"request\" of type \"ModelRequest[None]\" in function \"wrap_model_call\"\n  \"_Req\" is not assignable to \"ModelRequest[None]\"",
+            "range": {
+                "start": {
+                    "line": 278,
+                    "character": 34
+                },
+                "end": {
+                    "line": 278,
+                    "character": 40
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_model_override.py",
+            "severity": "warning",
+            "message": "Argument of type \"(request: Unknown) -> Literal['passthrough']\" cannot be assigned to parameter \"handler\" of type \"(ModelRequest[None]) -> ModelResponse[Any]\" in function \"wrap_model_call\"\n  Type \"(request: Unknown) -> Literal['passthrough']\" is not assignable to type \"(ModelRequest[None]) -> ModelResponse[Any]\"\n    Function return type \"Literal['passthrough']\" is incompatible with type \"ModelResponse[Any]\"\n      \"Literal['passthrough']\" is not assignable to \"ModelResponse[Any]\"",
+            "range": {
+                "start": {
+                    "line": 278,
+                    "character": 42
+                },
+                "end": {
+                    "line": 278,
+                    "character": 49
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 38,
+                    "character": 29
+                },
+                "end": {
+                    "line": 38,
+                    "character": 63
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 38,
+                    "character": 73
+                },
+                "end": {
+                    "line": 38,
+                    "character": 77
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 50,
+                    "character": 8
+                },
+                "end": {
+                    "line": 50,
+                    "character": 67
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 50,
+                    "character": 77
+                },
+                "end": {
+                    "line": 50,
+                    "character": 81
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 75,
+                    "character": 20
+                },
+                "end": {
+                    "line": 75,
+                    "character": 54
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 75,
+                    "character": 64
+                },
+                "end": {
+                    "line": 75,
+                    "character": 68
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 76,
+                    "character": 30
+                },
+                "end": {
+                    "line": 76,
+                    "character": 64
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 76,
+                    "character": 74
+                },
+                "end": {
+                    "line": 76,
+                    "character": 78
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 88,
+                    "character": 29
+                },
+                "end": {
+                    "line": 88,
+                    "character": 63
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 88,
+                    "character": 73
+                },
+                "end": {
+                    "line": 88,
+                    "character": 77
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 101,
+                    "character": 29
+                },
+                "end": {
+                    "line": 101,
+                    "character": 63
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 101,
+                    "character": 73
+                },
+                "end": {
+                    "line": 101,
+                    "character": 77
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"abefore_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 117,
+                    "character": 42
+                },
+                "end": {
+                    "line": 117,
+                    "character": 76
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"abefore_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 117,
+                    "character": 86
+                },
+                "end": {
+                    "line": 117,
+                    "character": 90
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 141,
+                    "character": 28
+                },
+                "end": {
+                    "line": 141,
+                    "character": 62
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 141,
+                    "character": 72
+                },
+                "end": {
+                    "line": 141,
+                    "character": 76
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 177,
+                    "character": 29
+                },
+                "end": {
+                    "line": 177,
+                    "character": 63
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 177,
+                    "character": 73
+                },
+                "end": {
+                    "line": 177,
+                    "character": 77
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"abefore_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 192,
+                    "character": 42
+                },
+                "end": {
+                    "line": 192,
+                    "character": 76
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"abefore_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 192,
+                    "character": 86
+                },
+                "end": {
+                    "line": 192,
+                    "character": 90
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 204,
+                    "character": 29
+                },
+                "end": {
+                    "line": 204,
+                    "character": 63
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 204,
+                    "character": 73
+                },
+                "end": {
+                    "line": 204,
+                    "character": 77
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"dict[str, list[Unknown]]\" cannot be assigned to parameter \"state\" of type \"AgentState[Any]\" in function \"before_model\"\n  \"dict[str, list[Unknown]]\" is not assignable to \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 223,
+                    "character": 29
+                },
+                "end": {
+                    "line": 223,
+                    "character": 63
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_notifications.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"before_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 223,
+                    "character": 73
+                },
+                "end": {
+                    "line": 223,
+                    "character": 77
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_opplan_persistence.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"after_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 366,
+                    "character": 69
+                },
+                "end": {
+                    "line": 366,
+                    "character": 73
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_opplan_persistence.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"after_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 383,
+                    "character": 67
+                },
+                "end": {
+                    "line": 383,
+                    "character": 71
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_opplan_persistence.py",
+            "severity": "warning",
+            "message": "Argument of type \"None\" cannot be assigned to parameter \"runtime\" of type \"Runtime[None]\" in function \"after_model\"\n  \"None\" is not assignable to \"Runtime[None]\"",
+            "range": {
+                "start": {
+                    "line": 396,
+                    "character": 67
+                },
+                "end": {
+                    "line": 396,
+                    "character": 71
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_roe.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 285,
+                    "character": 41
+                },
+                "end": {
+                    "line": 285,
+                    "character": 48
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_roe.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"status\" for class \"Command[Unknown]\"\n  Attribute \"status\" is unknown",
+            "range": {
+                "start": {
+                    "line": 286,
+                    "character": 22
+                },
+                "end": {
+                    "line": 286,
+                    "character": 28
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_roe.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 295,
+                    "character": 22
+                },
+                "end": {
+                    "line": 295,
+                    "character": 29
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_roe.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 308,
+                    "character": 49
+                },
+                "end": {
+                    "line": 308,
+                    "character": 56
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_roe.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 317,
+                    "character": 38
+                },
+                "end": {
+                    "line": 317,
+                    "character": 45
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_roe.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 318,
+                    "character": 39
+                },
+                "end": {
+                    "line": 318,
+                    "character": 46
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_roe.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 335,
+                    "character": 22
+                },
+                "end": {
+                    "line": 335,
+                    "character": 29
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_skills.py",
+            "severity": "warning",
+            "message": "Argument of type \"_FakeRequest\" cannot be assigned to parameter \"request\" of type \"ModelRequest[None]\" in function \"modify_request\"\n  \"_FakeRequest\" is not assignable to \"ModelRequest[None]\"",
+            "range": {
+                "start": {
+                    "line": 222,
+                    "character": 32
+                },
+                "end": {
+                    "line": 222,
+                    "character": 39
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_skills.py",
+            "severity": "warning",
+            "message": "Argument of type \"_FakeRequest\" cannot be assigned to parameter \"request\" of type \"ModelRequest[None]\" in function \"modify_request\"\n  \"_FakeRequest\" is not assignable to \"ModelRequest[None]\"",
+            "range": {
+                "start": {
+                    "line": 245,
+                    "character": 32
+                },
+                "end": {
+                    "line": 245,
+                    "character": 39
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_skills.py",
+            "severity": "warning",
+            "message": "Argument of type \"_FakeRequest\" cannot be assigned to parameter \"request\" of type \"ModelRequest[None]\" in function \"modify_request\"\n  \"_FakeRequest\" is not assignable to \"ModelRequest[None]\"",
+            "range": {
+                "start": {
+                    "line": 267,
+                    "character": 32
+                },
+                "end": {
+                    "line": 267,
+                    "character": 39
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 162,
+                    "character": 22
+                },
+                "end": {
+                    "line": 162,
+                    "character": 29
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 163,
+                    "character": 53
+                },
+                "end": {
+                    "line": 163,
+                    "character": 60
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 179,
+                    "character": 50
+                },
+                "end": {
+                    "line": 179,
+                    "character": 57
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"tool_call_id\" for class \"Command[Unknown]\"\n  Attribute \"tool_call_id\" is unknown",
+            "range": {
+                "start": {
+                    "line": 180,
+                    "character": 22
+                },
+                "end": {
+                    "line": 180,
+                    "character": 34
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 188,
+                    "character": 32
+                },
+                "end": {
+                    "line": 188,
+                    "character": 39
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 189,
+                    "character": 32
+                },
+                "end": {
+                    "line": 189,
+                    "character": 39
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 190,
+                    "character": 40
+                },
+                "end": {
+                    "line": 190,
+                    "character": 47
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 191,
+                    "character": 48
+                },
+                "end": {
+                    "line": 191,
+                    "character": 55
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 199,
+                    "character": 50
+                },
+                "end": {
+                    "line": 199,
+                    "character": 57
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\middleware\\test_untrusted_output.py",
+            "severity": "warning",
+            "message": "Cannot access attribute \"content\" for class \"Command[Unknown]\"\n  Attribute \"content\" is unknown",
+            "range": {
+                "start": {
+                    "line": 281,
+                    "character": 39
+                },
+                "end": {
+                    "line": 281,
+                    "character": 46
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\references\\test_references.py",
+            "severity": "warning",
+            "message": "\"subprocess\" is not exported from module \"decepticon.tools.references.fetch\"",
+            "range": {
+                "start": {
+                    "line": 166,
+                    "character": 38
+                },
+                "end": {
+                    "line": 166,
+                    "character": 48
+                }
+            },
+            "rule": "reportPrivateImportUsage"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\research\\test_poc.py",
+            "severity": "warning",
+            "message": "\"Severity\" is not exported from module \"decepticon.tools.research.poc\"\n  Import from \"decepticon_core.types.kg\" instead",
+            "range": {
+                "start": {
+                    "line": 14,
+                    "character": 4
+                },
+                "end": {
+                    "line": 14,
+                    "character": 12
+                }
+            },
+            "rule": "reportPrivateImportUsage"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\research\\test_tools.py",
+            "severity": "warning",
+            "message": "\"cve_mod\" is not exported from module \"decepticon.tools.research.tools\"",
+            "range": {
+                "start": {
+                    "line": 202,
+                    "character": 43
+                },
+                "end": {
+                    "line": 202,
+                    "character": 50
+                }
+            },
+            "rule": "reportPrivateImportUsage"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\research\\test_tools.py",
+            "severity": "warning",
+            "message": "\"cve_mod\" is not exported from module \"decepticon.tools.research.tools\"",
+            "range": {
+                "start": {
+                    "line": 203,
+                    "character": 43
+                },
+                "end": {
+                    "line": 203,
+                    "character": 50
+                }
+            },
+            "rule": "reportPrivateImportUsage"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\skillogy\\test_middleware.py",
+            "severity": "warning",
+            "message": "Argument of type \"Self@_FakeSkillsMiddleware\" cannot be assigned to parameter \"self\" of type \"AgentMiddleware[AgentState[Any], None, Any]\" in function \"__init__\"\n  \"_FakeSkillsMiddleware*\" is not assignable to \"AgentMiddleware[AgentState[Any], None, Any]\"\n    Type parameter \"StateT@AgentMiddleware\" is invariant, but \"SkillsState\" is not the same as \"AgentState[Any]\"",
+            "range": {
+                "start": {
+                    "line": 27,
+                    "character": 33
+                },
+                "end": {
+                    "line": 27,
+                    "character": 37
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\test_plugin_loader.py",
+            "severity": "warning",
+            "message": "Argument of type \"() -> str\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"() -> str\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"str\" is incompatible with type \"AgentProtocol\"\n      \"str\" is incompatible with protocol \"AgentProtocol\"\n        \"name\" is not present\n        \"invoke\" is not present",
+            "range": {
+                "start": {
+                    "line": 161,
+                    "character": 16
+                },
+                "end": {
+                    "line": 161,
+                    "character": 39
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\test_plugin_loader.py",
+            "severity": "warning",
+            "message": "Argument of type \"() -> Literal['agent-instance']\" cannot be assigned to parameter \"factory\" of type \"() -> AgentProtocol\" in function \"__init__\"\n  Type \"() -> Literal['agent-instance']\" is not assignable to type \"() -> AgentProtocol\"\n    Function return type \"Literal['agent-instance']\" is incompatible with type \"AgentProtocol\"\n      \"Literal['agent-instance']\" is incompatible with protocol \"AgentProtocol\"\n        \"name\" is not present\n        \"invoke\" is not present",
+            "range": {
+                "start": {
+                    "line": 269,
+                    "character": 16
+                },
+                "end": {
+                    "line": 269,
+                    "character": 23
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "c:\\Users\\Admin\\AppData\\Local\\Temp\\opencode\\Decepticon\\packages\\decepticon\\tests\\unit\\tools\\bash\\test_proxy_env.py",
+            "severity": "warning",
+            "message": "\"time\" is not exported from module \"decepticon.sandbox_kernel.tmux\"",
+            "range": {
+                "start": {
+                    "line": 244,
+                    "character": 33
+                },
+                "end": {
+                    "line": 244,
+                    "character": 37
+                }
+            },
+            "rule": "reportPrivateImportUsage"
+        }
+    ],
+    "summary": {
+        "filesAnalyzed": 386,
+        "errorCount": 0,
+        "warningCount": 161,
+        "informationCount": 0,
+        "timeInSec": 12.579
+    }
+}

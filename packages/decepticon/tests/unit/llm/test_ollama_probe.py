@@ -393,9 +393,7 @@ def _cloud_opener(
     def _opener(url_or_request: Any, timeout: float) -> _FakeResponse:
         del timeout
         url = (
-            url_or_request.full_url
-            if hasattr(url_or_request, "full_url")
-            else str(url_or_request)
+            url_or_request.full_url if hasattr(url_or_request, "full_url") else str(url_or_request)
         )
         if captured is not None:
             captured["url"] = url
