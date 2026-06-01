@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from decepticon.tools.ad.adcs import analyze_adcs_templates
 import decepticon.tools.ad.bloodhound as bh_mod
+from decepticon.tools.ad.adcs import analyze_adcs_templates
 from decepticon.tools.ad.dcsync import dcsync_candidates
 from decepticon.tools.ad.kerberos import classify_hashcat_hash, parse_ticket
 from decepticon_core.types.kg import KnowledgeGraph
