@@ -55,7 +55,13 @@ export function useRunObserver({ threadId }: UseRunObserverOptions): UseRunObser
 
     let active = true;
     const client = clientRef.current;
-    console.log("[useRunObserver] Starting poll for thread:", threadId);
+
+    // New thread = new session: start from an empty event log. Within a thread
+    // events accumulate across runs so the feed/graph mirror the CLI's full
+    // session history instead of resetting on every operator message.
+    eventsRef.current = [];
+    setEvents([]);
+    observingRunRef.current = null;
 
     const poll = async () => {
       if (!active) return;
@@ -73,9 +79,6 @@ export function useRunObserver({ threadId }: UseRunObserverOptions): UseRunObser
           setIsRunning(true);
           setActiveRunId(runningRun.run_id);
           observingRunRef.current = runningRun.run_id;
-          // Reset events for new run
-          eventsRef.current = [];
-          setEvents([]);
           joinRunStream(threadId, runningRun.run_id);
         } else if (!runningRun && observingRunRef.current) {
           observingRunRef.current = null;
