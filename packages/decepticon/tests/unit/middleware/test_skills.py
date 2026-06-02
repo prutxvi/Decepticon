@@ -1,92 +1,38 @@
-"""Tests for SkillsMiddleware defensive paths (issue #157 regressions).
+"""Tests for SkillsMiddleware defensive paths (issue #157 regression).
 
 The base ``SkillsMiddleware`` is exercised through deepagents' own tests,
-but the decepticon subclass adds workflow-loading, a custom prompt
-template, and isinstance gates on backend results that aren't covered
-by the base test surface. This file pins those defensive paths so the
-fixes that landed for the audit findings cannot silently regress.
+but the decepticon subclass adds a custom prompt template with an
+``except (KeyError, IndexError)`` shield around ``.format(...)`` that is
+worth pinning so a future placeholder change cannot silently regress.
 
-Findings covered:
-  - MED #7: ``data.get("content", "")`` is gated by ``isinstance(data, dict)``
-    in both ``_read_workflow_for_source`` and ``_aread_workflow_for_source``.
-    Pre-fix, a backend returning a truthy non-dict (e.g. a raw string in
-    error paths) crashed the middleware on ``.get``.
+Workflow loading was removed from this middleware in Skillogy Amendment
+v0.2.2 — ``workflow.md`` was renamed ``<role>.md`` and moved to
+``decepticon/agents/prompts/workflows/`` so ``PromptBuilder`` can
+concatenate it into the cacheable static prefix at agent factory time.
+The MED #7 ``_read_workflow_for_source`` tests that lived here no
+longer apply because the helper they pinned was deleted with the
+middleware-side workflow loader.
+
+Surviving finding:
   - MED #8: ``self.system_prompt_template.format(...)`` is wrapped in
     ``except (KeyError, IndexError)``. Pre-fix, a template edit that
-    introduced a placeholder mismatch would crash every model step from
-    that point on; the fix logs and falls through to the original system
-    message instead.
+    introduced a placeholder mismatch crashed every model step from
+    that point on; the fix logs and falls through to the original
+    system message instead.
 """
 
 from __future__ import annotations
 
-import asyncio
 from typing import Any
 
 from langchain_core.messages import SystemMessage
 
 from decepticon.middleware.skills import SkillsMiddleware
 
-# ── Backend stand-ins ───────────────────────────────────────────────────
 
-
-class _BackendResult:
-    """Minimal duck-typed stand-in for backend read results.
-
-    Real backend results expose ``.error`` (str | None) and ``.file_data``
-    (dict | None). We construct edge-case shapes (non-dict file_data) on
-    purpose to exercise the isinstance gate.
-    """
-
-    def __init__(self, *, error: str | None = None, file_data: Any = None) -> None:
-        self.error = error
-        self.file_data = file_data
-
-
-class _StringFileDataBackend:
-    """Backend whose ``read``/``aread`` return a result whose
-    ``file_data`` is a raw string instead of a dict.
-
-    Pre-fix this triggered ``AttributeError: 'str' object has no attribute 'get'``
-    inside ``_read_workflow_for_source``; the fix gates on
-    ``isinstance(data, dict)`` and returns None.
-    """
-
-    def __init__(self, file_data: Any) -> None:
-        self._file_data = file_data
-
-    def read(self, _path: str) -> _BackendResult:
-        return _BackendResult(error=None, file_data=self._file_data)
-
-    async def aread(self, _path: str) -> _BackendResult:
-        return _BackendResult(error=None, file_data=self._file_data)
-
-
-class _DictFileDataBackend:
-    """Backend that returns a properly-shaped dict for the happy path."""
-
-    def __init__(self, content: str) -> None:
-        self._content = content
-
-    def read(self, _path: str) -> _BackendResult:
-        return _BackendResult(file_data={"content": self._content})
-
-    async def aread(self, _path: str) -> _BackendResult:
-        return _BackendResult(file_data={"content": self._content})
-
-
-class _RaisingBackend:
-    """Backend whose ``read`` raises — exercises the outer try/except in
-    ``_read_workflow_for_source``."""
-
-    def read(self, _path: str) -> _BackendResult:
-        raise RuntimeError("backend not connected")
-
-    async def aread(self, _path: str) -> _BackendResult:
-        raise RuntimeError("backend not connected")
-
-
-# ── Request stand-in ────────────────────────────────────────────────────
+class _Backend:
+    """Minimal stand-in — the new middleware does not call any backend
+    read paths from ``modify_request``, so this is a no-op shape."""
 
 
 class _FakeRequest:
@@ -101,96 +47,12 @@ class _FakeRequest:
         self.system_message = system_message
 
     def override(self, system_message: SystemMessage) -> "_FakeRequest":
-        new = _FakeRequest(state=self.state, system_message=system_message)
-        return new
+        return _FakeRequest(state=self.state, system_message=system_message)
 
 
-def _make_middleware(backend: Any) -> SkillsMiddleware:
+def _make_middleware() -> SkillsMiddleware:
     """Build a SkillsMiddleware against a stub backend with one source."""
-    return SkillsMiddleware(backend=backend, sources=["/skills/standard/recon/"])
-
-
-# ── MED #7 — isinstance gate on backend result ─────────────────────────
-
-
-class TestWorkflowLoaderRejectsNonDictFileData:
-    """``_read_workflow_for_source`` and its async sibling must return
-    None when the backend hands back a non-dict ``file_data``. The
-    isinstance gate at line 169/186 of skills.py is the explicit
-    contract — pre-fix this crashed on ``.get``.
-    """
-
-    def test_string_file_data_returns_none(self) -> None:
-        backend = _StringFileDataBackend(file_data="raw text not a dict")
-        mw = _make_middleware(backend)
-
-        result = mw._read_workflow_for_source(backend, "/skills/standard/recon/")
-
-        assert result is None, (
-            "non-dict file_data must short-circuit to None — see issue #157 MED #7"
-        )
-
-    def test_list_file_data_returns_none(self) -> None:
-        backend = _StringFileDataBackend(file_data=["line1", "line2"])
-        mw = _make_middleware(backend)
-
-        assert mw._read_workflow_for_source(backend, "/skills/standard/recon/") is None
-
-    def test_none_file_data_returns_none(self) -> None:
-        backend = _StringFileDataBackend(file_data=None)
-        mw = _make_middleware(backend)
-
-        assert mw._read_workflow_for_source(backend, "/skills/standard/recon/") is None
-
-    def test_dict_with_content_returns_string(self) -> None:
-        """Happy-path positive control: a properly-shaped dict still works."""
-        backend = _DictFileDataBackend(content="# Recon Workflow\nDo this then that.")
-        mw = _make_middleware(backend)
-
-        result = mw._read_workflow_for_source(backend, "/skills/standard/recon/")
-        assert result == "# Recon Workflow\nDo this then that."
-
-    def test_backend_read_exception_returns_none(self) -> None:
-        """Outer try/except catches arbitrary backend errors."""
-        backend = _RaisingBackend()
-        mw = _make_middleware(backend)
-
-        assert mw._read_workflow_for_source(backend, "/skills/standard/recon/") is None
-
-    # ── async siblings ──────────────────────────────────────────────────
-
-    def test_async_string_file_data_returns_none(self) -> None:
-        backend = _StringFileDataBackend(file_data="raw text not a dict")
-        mw = _make_middleware(backend)
-
-        result = asyncio.run(mw._aread_workflow_for_source(backend, "/skills/standard/recon/"))
-        assert result is None
-
-    def test_async_dict_with_content_returns_string(self) -> None:
-        backend = _DictFileDataBackend(content="# Recon Workflow")
-        mw = _make_middleware(backend)
-
-        result = asyncio.run(mw._aread_workflow_for_source(backend, "/skills/standard/recon/"))
-        assert result == "# Recon Workflow"
-
-    def test_async_backend_read_exception_returns_none(self) -> None:
-        backend = _RaisingBackend()
-        mw = _make_middleware(backend)
-
-        result = asyncio.run(mw._aread_workflow_for_source(backend, "/skills/standard/recon/"))
-        assert result is None
-
-    def test_empty_string_content_returns_none(self) -> None:
-        """Empty content collapses to None — keeps the prompt clean.
-
-        Implementation detail of the helper, but pinning it here so a
-        future refactor that emits an empty string banner does not
-        accidentally inject visible whitespace into the system prompt.
-        """
-        backend = _DictFileDataBackend(content="   ")
-        mw = _make_middleware(backend)
-
-        assert mw._read_workflow_for_source(backend, "/skills/standard/recon/") is None
+    return SkillsMiddleware(backend=_Backend(), sources=["/skills/standard/recon/"])
 
 
 # ── MED #8 — template format failures are swallowed ────────────────────
@@ -209,14 +71,13 @@ class TestModifyRequestTemplateFormatFailures:
         untouched, so the agent step continues with the baked-in system
         message rather than failing the whole inference.
         """
-        backend = _DictFileDataBackend(content="x")
-        mw = _make_middleware(backend)
+        mw = _make_middleware()
         # Inject a bad template — references a placeholder we never pass.
         mw.system_prompt_template = "broken {nonexistent_placeholder}"
 
         original_msg = SystemMessage(content="original system msg")
         request = _FakeRequest(
-            state={"skills_metadata": [], "workflow_content": ""},
+            state={"skills_metadata": []},
             system_message=original_msg,
         )
 
@@ -233,13 +94,12 @@ class TestModifyRequestTemplateFormatFailures:
         Python raises IndexError here, not KeyError, so the except clause
         must cover both.
         """
-        backend = _DictFileDataBackend(content="x")
-        mw = _make_middleware(backend)
+        mw = _make_middleware()
         mw.system_prompt_template = "broken {0}"
 
         original_msg = SystemMessage(content="original")
         request = _FakeRequest(
-            state={"skills_metadata": [], "workflow_content": ""},
+            state={"skills_metadata": []},
             system_message=original_msg,
         )
 
@@ -250,18 +110,15 @@ class TestModifyRequestTemplateFormatFailures:
         """Positive control: a working template still does its job —
         otherwise the swallow-on-error contract would mask all failures.
         """
-        backend = _DictFileDataBackend(content="x")
-        mw = _make_middleware(backend)
-        # Use a minimal template that only references the standard placeholders.
+        mw = _make_middleware()
+        # Minimal template that references only the surviving placeholders.
+        # ``{workflow}`` is gone — workflow lives in PromptBuilder now.
         mw.system_prompt_template = (
-            "skills_locations={skills_locations}|workflow={workflow}|skills_list={skills_list}"
+            "skills_locations={skills_locations}|skills_list={skills_list}|MARKER"
         )
 
         request = _FakeRequest(
-            state={
-                "skills_metadata": [],
-                "workflow_content": "WORKFLOW_BODY",
-            },
+            state={"skills_metadata": []},
             system_message=SystemMessage(content="original"),
         )
 
@@ -270,11 +127,8 @@ class TestModifyRequestTemplateFormatFailures:
         # The override path was taken: out is a *new* request with a
         # different system_message that includes our marker.
         assert out is not request
-        # Narrow the type for the type checker — the override path always
-        # populates system_message; the Optional shape is only there for
-        # callers that pass system_message=None on input.
+        # Narrow the type for the type checker.
         assert out.system_message is not None
-        # The new system message contains our marker, proving format() ran.
         content = out.system_message.content
         flattened = (
             content
@@ -284,4 +138,4 @@ class TestModifyRequestTemplateFormatFailures:
                 for block in content
             )
         )
-        assert "WORKFLOW_BODY" in flattened
+        assert "MARKER" in flattened

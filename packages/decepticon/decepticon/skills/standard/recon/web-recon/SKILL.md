@@ -22,7 +22,7 @@ Sub-skills under this directory:
 | Auth mapping | `load_skill("/skills/standard/recon/web-recon/auth-mapping/SKILL.md")` | login flow analysis |
 | Cookie audit | `load_skill("/skills/standard/recon/web-recon/cookie-audit/SKILL.md")` | sink behind session, race-condition recon |
 
-For overall recon workflow, scope rules, and handoff format, see `load_skill("/skills/standard/recon/workflow.md")` (root workflow).
+Overall recon workflow, scope rules, and handoff format are loaded into your system prompt at agent boot — no `load_skill` call needed for them.
 
 ## Tag-Driven Fast Paths
 

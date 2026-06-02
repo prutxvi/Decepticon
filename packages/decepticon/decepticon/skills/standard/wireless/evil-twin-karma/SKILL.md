@@ -17,7 +17,7 @@ metadata:
 
 # Evil Twin / KARMA / Mana Rogue AP
 
-> **RoE hard stop (mirrors workflow.md):**
+> **RoE hard stop (mirrors the wireless workflow loaded into your system prompt):**
 > NEVER bring up an evil-twin AP on public airspace without
 > `permitted_actions: evil_twin` recorded in `plan/roe.json` for
 > this session. Confirm `iw reg get` before any TX. This applies

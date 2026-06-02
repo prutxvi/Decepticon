@@ -15639,7 +15639,7 @@ New-AADIntSAMLToken -ImmutableID <BASE64> -Issuer http://<ADFS>/adfs/services/tr
 MERGE (n:Skill {name: 'evil-twin-karma'})
 SET n.aatmf_tactic_raw = [], n.allowed_tools = ['Bash Read Write'], n.body = '# Evil Twin / KARMA / Mana Rogue AP
 
-> **RoE hard stop (mirrors workflow.md):**
+> **RoE hard stop (mirrors the wireless workflow loaded into your system prompt):**
 > NEVER bring up an evil-twin AP on public airspace without
 > `permitted_actions: evil_twin` recorded in `plan/roe.json` for
 > this session. Confirm `iw reg get` before any TX. This applies
@@ -15873,7 +15873,7 @@ kg_add_node(
 - `wpa-enterprise-eap` skill — use instead for 802.1X/MGT targets.
 - `deauth-pmf` skill — PMF detection and targeted deauth mechanics.
 - `wpa3-sae` skill — Path D captive portal for SAE networks.
-', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:f569a46454256cac469692252aa798bd276167e245d3f8d57181dc83599ab13f', n.description = 'Evil-twin rogue AP with KARMA/Mana PNL-probe response, captive-portal credential capture, and post-association MITM for PSK/open networks. Distinct from wpa-enterprise-eap which targets 802.1X.', n.mitre_attack_raw = ['T1557', 'T1556', 'T1598'], n.path = '/skills/standard/wireless/evil-twin-karma/SKILL.md', n.size_bytes = 7538, n.subdomain = 'wireless', n.tags_raw = ['evil-twin', 'karma', 'mana', 'rogue-ap', 'captive-portal', 'mitm'], n.upstream_ref_raw = '', n.when_to_use = 'evil twin, KARMA, Mana, rogue AP, captive portal, hostapd-mana, wifiphisher, airgeddon, PNL, probe response, client coercion, PSK phishing, open network MITM';
+', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:2cf00d5a8e3a64e2c814607501aff8a68cb8410326040499edaa596fc478a8d9', n.description = 'Evil-twin rogue AP with KARMA/Mana PNL-probe response, captive-portal credential capture, and post-association MITM for PSK/open networks. Distinct from wpa-enterprise-eap which targets 802.1X.', n.mitre_attack_raw = ['T1557', 'T1556', 'T1598'], n.path = '/skills/standard/wireless/evil-twin-karma/SKILL.md', n.size_bytes = 7579, n.subdomain = 'wireless', n.tags_raw = ['evil-twin', 'karma', 'mana', 'rogue-ap', 'captive-portal', 'mitm'], n.upstream_ref_raw = '', n.when_to_use = 'evil twin, KARMA, Mana, rogue AP, captive portal, hostapd-mana, wifiphisher, airgeddon, PNL, probe response, client coercion, PSK phishing, open network MITM';
 MERGE (n:Skill {name: 'excessive-agency'})
 SET n.aatmf_tactic_raw = [], n.allowed_tools = [], n.body = '# LLM Excessive Agency (LLM06:2025)
 
@@ -35795,7 +35795,7 @@ microservice that proxies a backend on behalf of the user.
    the same socket.
 5. If three bounded variants do not reach an internal route, write the
    evidence and pivot back to Class A or B. Do not brute-force admin for
-   more than the budget in `exploit/workflow.md`.
+   more than the budget in the exploit workflow (loaded into your system prompt).
 
 **Critical: identify the attack-surface layer BEFORE picking a primitive.**
 
@@ -35941,7 +35941,7 @@ Differential 400/501 alone is **NOT** verification. Connection close after one r
 ├── smuggle_<target>_evidence.txt       # Cross-user / admin-bleed proof
 └── smuggle_<target>_summary.md         # Variant tried, gate result, evidence trail
 ```
-', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:ecedff36032acd210cb60c82c04de9f2926ec1d468425d414641b83472faa3c8', n.description = 'HTTP Request Smuggling (HRS) — front-end / back-end parser disagreement attacks that desync the proxy stack. Covers CL.TE, TE.CL, TE.TE, CL.0, HTTP/2 downgrade (h2.cl, h2.te), pipelining, and connection-state pinning. Includes a confirm-desync gate, header obfuscation catalog, and minimal raw-socket Python harnesses (no smuggler.py available in sandbox).', n.mitre_attack_raw = ['T1190'], n.path = '/skills/standard/exploit/web/smuggling/SKILL.md', n.size_bytes = 37603, n.subdomain = 'web-exploitation', n.tags_raw = [], n.upstream_ref_raw = '', n.when_to_use = 'HTTP request smuggling, HRS, request smuggling, desync, CL.TE, TE.CL, TE.TE, h2.cl, h2.te, HTTP/2 downgrade, HTTP downgrade, h2c smuggling, pipelining, header folding, content-length transfer-encoding mismatch, frontend backend disagreement, multi-proxy stack, CDN frontend, reverse proxy, smuggling_desync challenge tag, hrs';
+', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:6e36c7b43da13a075334000a7089735b1daa8b98cd12112a736781d65ff25c96', n.description = 'HTTP Request Smuggling (HRS) — front-end / back-end parser disagreement attacks that desync the proxy stack. Covers CL.TE, TE.CL, TE.TE, CL.0, HTTP/2 downgrade (h2.cl, h2.te), pipelining, and connection-state pinning. Includes a confirm-desync gate, header obfuscation catalog, and minimal raw-socket Python harnesses (no smuggler.py available in sandbox).', n.mitre_attack_raw = ['T1190'], n.path = '/skills/standard/exploit/web/smuggling/SKILL.md', n.size_bytes = 37635, n.subdomain = 'web-exploitation', n.tags_raw = [], n.upstream_ref_raw = '', n.when_to_use = 'HTTP request smuggling, HRS, request smuggling, desync, CL.TE, TE.CL, TE.TE, h2.cl, h2.te, HTTP/2 downgrade, HTTP downgrade, h2c smuggling, pipelining, header folding, content-length transfer-encoding mismatch, frontend backend disagreement, multi-proxy stack, CDN frontend, reverse proxy, smuggling_desync challenge tag, hrs';
 MERGE (n:Skill {name: 'sql-injection'})
 SET n.aatmf_tactic_raw = [], n.allowed_tools = [], n.body = '# SQL Injection Hunting Playbook
 
@@ -39342,8 +39342,8 @@ After exhausting 3 bypass classes on the same endpoint: the endpoint is hardened
 
 **ALWAYS load the specialized sub-skill before executing any attack.** This overview provides routing only — the sub-skills contain the actual exploitation procedures, tool commands, bypass techniques, and decision trees needed for successful exploitation.
 
-For the agent loop (intake handoff verification, confirm-gate phase, verification, silent-stall recovery, three-strike rule) see the root workflow at `load_skill("/skills/standard/exploit/workflow.md")`.
-', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:f44a22b61e0264bce3f187faa7752ba0a153b50e0d18fea93eb402a117ed510f', n.description = 'Web application exploitation — the primary category skill for all web-based attacks. This is a routing skill: read this first to identify the attack type, then load the appropriate specialized sub-skill for detailed procedures. Covers 11 technique areas across injection, file access, authentication, and API exploitation.', n.mitre_attack_raw = ['T1190', 'T1059', 'T1203'], n.path = '/skills/standard/exploit/web/SKILL.md', n.size_bytes = 13086, n.subdomain = 'execution', n.tags_raw = ['web-application', 'exploitation', 'injection'], n.upstream_ref_raw = '', n.when_to_use = 'web exploit, web application, http, https, web vulnerability, injection, web attack, web service, api, cookie, session, authentication bypass, web shell, form, parameter, query string, POST, GET, request, response, web server, apache, nginx, flask, django, express, php, java web, asp.net, ruby on rails, spring, node.js, deserialization, SQL injection, sqlmap, SSTI, template injection, SSRF, IDOR, command injection, RCE, xss, cross-site scripting, xxe, xml, lfi, path traversal, file upload, graphql';
+The agent loop (intake handoff verification, confirm-gate phase, verification, silent-stall recovery, three-strike rule) is already loaded into your system prompt at agent boot — no `load_skill` call needed for it.
+', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:5d539018e215f83dd029e3e8b7fdc7f4874591e4a6b9297b7a4fd8c64f7c2d9b', n.description = 'Web application exploitation — the primary category skill for all web-based attacks. This is a routing skill: read this first to identify the attack type, then load the appropriate specialized sub-skill for detailed procedures. Covers 11 technique areas across injection, file access, authentication, and API exploitation.', n.mitre_attack_raw = ['T1190', 'T1059', 'T1203'], n.path = '/skills/standard/exploit/web/SKILL.md', n.size_bytes = 13099, n.subdomain = 'execution', n.tags_raw = ['web-application', 'exploitation', 'injection'], n.upstream_ref_raw = '', n.when_to_use = 'web exploit, web application, http, https, web vulnerability, injection, web attack, web service, api, cookie, session, authentication bypass, web shell, form, parameter, query string, POST, GET, request, response, web server, apache, nginx, flask, django, express, php, java web, asp.net, ruby on rails, spring, node.js, deserialization, SQL injection, sqlmap, SSTI, template injection, SSRF, IDOR, command injection, RCE, xss, cross-site scripting, xxe, xml, lfi, path traversal, file upload, graphql';
 MERGE (n:Skill {name: 'web-api-enumeration'})
 SET n.aatmf_tactic_raw = [], n.allowed_tools = ['Bash Read Write'], n.body = '# Web API Enumeration & Parameter Discovery
 
@@ -39722,7 +39722,7 @@ Sub-skills under this directory:
 | Auth mapping | `load_skill("/skills/standard/recon/web-recon/auth-mapping/SKILL.md")` | login flow analysis |
 | Cookie audit | `load_skill("/skills/standard/recon/web-recon/cookie-audit/SKILL.md")` | sink behind session, race-condition recon |
 
-For overall recon workflow, scope rules, and handoff format, see `load_skill("/skills/standard/recon/workflow.md")` (root workflow).
+Overall recon workflow, scope rules, and handoff format are loaded into your system prompt at agent boot — no `load_skill` call needed for them.
 
 ## Tag-Driven Fast Paths
 
@@ -39767,7 +39767,7 @@ fi
 ├── wpscan_<target>.json            # WordPress scan (if applicable)
 └── web_recon_<target>_summary.md   # Consolidated web findings
 ```
-', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:7150f842fb6ab5b8cfcfd608e8f1887032cdeaba70c420d184f39e0c74d710f5', n.description = 'Web application enumeration hub — directory/file fuzzing, vhost discovery, API enumeration, CMS scanning, WAF detection, auth surface mapping, cookie audit.', n.mitre_attack_raw = ['T1595.003', 'T1592.004'], n.path = '/skills/standard/recon/web-recon/SKILL.md', n.size_bytes = 2961, n.subdomain = 'reconnaissance', n.tags_raw = ['web-recon'], n.upstream_ref_raw = '', n.when_to_use = 'web recon, web application enumeration, web app fingerprint';
+', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:80faa734a2540c439603807061869e4c3cab63cae0cb6b0a31763a73c999a03c', n.description = 'Web application enumeration hub — directory/file fuzzing, vhost discovery, API enumeration, CMS scanning, WAF detection, auth surface mapping, cookie audit.', n.mitre_attack_raw = ['T1595.003', 'T1592.004'], n.path = '/skills/standard/recon/web-recon/SKILL.md', n.size_bytes = 2975, n.subdomain = 'reconnaissance', n.tags_raw = ['web-recon'], n.upstream_ref_raw = '', n.when_to_use = 'web recon, web application enumeration, web app fingerprint';
 MERGE (n:Skill {name: 'web-subdomain-takeover'})
 SET n.aatmf_tactic_raw = [], n.allowed_tools = ['Bash Read Write'], n.body = '# Subdomain Takeover (Dangling DNS / CNAME)
 
@@ -39967,7 +39967,7 @@ If the response chain shows TWO different `Server:` strings on subsequent reques
 MERGE (n:Skill {name: 'wireless-overview'})
 SET n.aatmf_tactic_raw = [], n.allowed_tools = ['Bash Read Write'], n.body = '# 802.11 Wireless Attack Suite — Operator Index
 
-> Load `workflow.md` first on every wireless iteration (hardware mode
+> Load your wireless workflow (loaded into your system prompt) first on every iteration (hardware mode
 > check, phase progression, scope rules, KG node contract). This file
 > is the routing layer on top of it.
 
@@ -39989,7 +39989,7 @@ SET n.aatmf_tactic_raw = [], n.allowed_tools = ['Bash Read Write'], n.body = '# 
 
 ## Hardware mode pointer
 
-Leaf skills inherit the mode check from `workflow.md`:
+Leaf skills inherit the mode check from the wireless workflow:
 
 ```
 mode = plan/roe.json:machine_enforcement.wireless.mode
@@ -40018,7 +40018,7 @@ After selecting the primary leaf, always check:
 
 ## KG node contract
 
-All wireless leaf skills write the same node types (mirrors `workflow.md`):
+All wireless leaf skills write the same node types (mirrors the wireless workflow):
 
 | Node kind | Typical props |
 |---|---|
@@ -40036,8 +40036,8 @@ All wireless leaf skills write the same node types (mirrors `workflow.md`):
 | `loud` | + broadcast deauth, evil-twin, KARMA, beacon flood, online WPS brute |
 
 > Evil-twin always requires explicit `permitted_actions: evil_twin` in
-> `plan/roe.json` regardless of posture — see `workflow.md` scope rules.
-', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:6d0bb8b60440d3acbd1bd0cdcbf68c36d2288273a585b15406a9c326fdbc748c', n.description = 'Top-level index for the Decepticon 802.11 wireless attack suite. Routes the WirelessOperator to the correct leaf skill based on the target AP\'s crypto column (PSK / SAE / MGT / WPS) and engagement posture. BLE, Zigbee, Z-Wave, LoRaWAN, and sub-GHz live under iot/ by design — link provided below to prevent duplication.', n.mitre_attack_raw = ['T1040', 'T1557', 'T1110.001'], n.path = '/skills/standard/wireless/SKILL.md', n.size_bytes = 3224, n.subdomain = 'wireless', n.tags_raw = ['wifi', '802.11', 'wpa2', 'wpa3', 'eap', 'evil-twin', 'deauth', 'wps'], n.upstream_ref_raw = '', n.when_to_use = 'Wi-Fi, 802.11, WPA2, WPA3, EAP, enterprise, evil-twin, deauth, WPS, PSK, SAE, wireless attack, airspace, WLAN, rogue AP';
+> `plan/roe.json` regardless of posture — see the wireless workflow scope rules in your system prompt.
+', n.built_at = '1970-01-01T00:00:00+00:00', n.commit_sha = '', n.content_sha256 = 'sha256:25c24e320abf482a136400a7cae99995a8e8085aa33e818731fc058944d24291', n.description = 'Top-level index for the Decepticon 802.11 wireless attack suite. Routes the WirelessOperator to the correct leaf skill based on the target AP\'s crypto column (PSK / SAE / MGT / WPS) and engagement posture. BLE, Zigbee, Z-Wave, LoRaWAN, and sub-GHz live under iot/ by design — link provided below to prevent duplication.', n.mitre_attack_raw = ['T1040', 'T1557', 'T1110.001'], n.path = '/skills/standard/wireless/SKILL.md', n.size_bytes = 3303, n.subdomain = 'wireless', n.tags_raw = ['wifi', '802.11', 'wpa2', 'wpa3', 'eap', 'evil-twin', 'deauth', 'wps'], n.upstream_ref_raw = '', n.when_to_use = 'Wi-Fi, 802.11, WPA2, WPA3, EAP, enterprise, evil-twin, deauth, WPS, PSK, SAE, wireless attack, airspace, WLAN, rogue AP';
 MERGE (n:Skill {name: 'wpa-enterprise-eap'})
 SET n.aatmf_tactic_raw = [], n.allowed_tools = ['Bash Read Write'], n.body = '# WPA-Enterprise / 802.1X / EAP
 

@@ -3,7 +3,7 @@
 Wireless attacks require real hardware (monitor-mode-capable Wi-Fi
 adapters, BLE sniffers, RTL-SDR / HackRF). The OSS Docker sandbox can't
 run them directly without USB passthrough. Two supported deployment
-modes documented in skills/standard/wireless/workflow.md:
+modes documented in agents/prompts/workflows/wireless_operator.md:
 
   1. **In-sandbox mode**: passthrough ``/dev/bus/usb`` to the sandbox
      container, run airmon-ng / hostapd-mana / etc. inside. Requires
@@ -149,7 +149,7 @@ SUBAGENT_SPEC = SubAgentSpec(
         "downgrade, WPA-Enterprise evil-twin RADIUS, evil-twin / KARMA "
         "/ Mana, deauth / disassoc, WPS Pixie Dust, BLE GATT, Zigbee "
         "Touchlink, sub-GHz replay. Requires hardware passthrough or "
-        "an SSH dropbox - see workflow.md."
+        "an SSH dropbox - see prompts/workflows/wireless_operator.md."
     ),
     factory=create_wireless_operator_agent,
     parent_agents=("decepticon",),

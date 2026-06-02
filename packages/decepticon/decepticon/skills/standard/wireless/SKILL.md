@@ -24,7 +24,7 @@ metadata:
 
 # 802.11 Wireless Attack Suite — Operator Index
 
-> Load `workflow.md` first on every wireless iteration (hardware mode
+> Load your wireless workflow (loaded into your system prompt) first on every iteration (hardware mode
 > check, phase progression, scope rules, KG node contract). This file
 > is the routing layer on top of it.
 
@@ -46,7 +46,7 @@ metadata:
 
 ## Hardware mode pointer
 
-Leaf skills inherit the mode check from `workflow.md`:
+Leaf skills inherit the mode check from the wireless workflow:
 
 ```
 mode = plan/roe.json:machine_enforcement.wireless.mode
@@ -75,7 +75,7 @@ After selecting the primary leaf, always check:
 
 ## KG node contract
 
-All wireless leaf skills write the same node types (mirrors `workflow.md`):
+All wireless leaf skills write the same node types (mirrors the wireless workflow):
 
 | Node kind | Typical props |
 |---|---|
@@ -93,4 +93,4 @@ All wireless leaf skills write the same node types (mirrors `workflow.md`):
 | `loud` | + broadcast deauth, evil-twin, KARMA, beacon flood, online WPS brute |
 
 > Evil-twin always requires explicit `permitted_actions: evil_twin` in
-> `plan/roe.json` regardless of posture — see `workflow.md` scope rules.
+> `plan/roe.json` regardless of posture — see the wireless workflow scope rules in your system prompt.

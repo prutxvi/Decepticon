@@ -15,11 +15,11 @@ Subclasses the Deep Agents SkillsMiddleware to provide:
 4. **Compact display with trigger keywords** — Clean descriptions with separate
    ``when_to_use`` trigger keywords for objective matching, MITRE tags inline.
 
-5. **Root workflow auto-load** — Each configured ``source`` directory is
-   probed for a ``workflow.md`` file; if present, its full body is injected
-   into the system prompt before the catalog. This forces the agent to start
-   every session with the agent-level workflow (phases, scope rules, handoff
-   format) loaded — no relying on the model to issue ``read_file`` first.
+Workflow.md loading is **no longer** a middleware responsibility. As of
+Skillogy Amendment v0.2.2, the per-role ``workflow.md`` files were renamed
+``<role>.md`` and moved to ``decepticon/agents/prompts/workflows/``;
+``PromptBuilder`` concatenates them into the cacheable static prefix at
+agent factory time. See ``decepticon/agents/prompts/builder.py``.
 
 This middleware replaces BOTH the old shared skill prompt fragment AND
 the base middleware's generic `SKILLS_SYSTEM_PROMPT`. All skill instructions
@@ -55,7 +55,6 @@ if TYPE_CHECKING:
 # Replaces both the old shared skill prompt fragment and the base middleware's
 # generic SKILLS_SYSTEM_PROMPT. Placeholders:
 #   {skills_locations} — `**Decepticon Skills**: /skills/standard/recon/` style headers
-#   {workflow}         — full body of <source>/workflow.md files (auto-loaded)
 #   {skills_list}      — catalog of sub-skills grouped by subdomain
 
 DECEPTICON_SKILLS_PROMPT = """
@@ -63,28 +62,23 @@ DECEPTICON_SKILLS_PROMPT = """
 ## Red Team Knowledge Base — Progressive Disclosure
 
 You have access to a curated library of red team skills — domain-specific knowledge
-covering techniques, tools, OPSEC guidance, and structured workflows for each phase
-of the kill chain.
+covering techniques, tools, and OPSEC guidance for each phase of the kill chain.
 
 {skills_locations}
 
-{workflow}
-
 ### Sub-Skills (Progressive Disclosure)
 
-The catalog below lists per-technique sub-skills. The workflow above is always
-loaded; sub-skills are loaded on demand via `load_skill()` when their triggers
-match your current objective.
+The catalog below lists per-technique sub-skills. Your phase workflow is
+loaded separately into your system prompt; sub-skills are loaded on demand
+via `load_skill()` when their triggers match your current objective.
 
 ### How It Works
-1. **Workflow above** — Always loaded. Defines the agent's loop, scope rules,
-   discipline, and handoff format. Read it before any tool call this turn.
-2. **Catalog below** — Each sub-skill shows: description, trigger keywords,
+1. **Catalog below** — Each sub-skill shows: description, trigger keywords,
    MITRE ATT&CK IDs, and a `load_skill()` path. This tells you WHAT expertise
    is available and WHEN it applies.
-3. **On-demand sub-skill loading** — When your task matches a trigger,
+2. **On-demand sub-skill loading** — When your task matches a trigger,
    `load_skill()` the full SKILL.md before acting on the technique.
-4. **Reference files** — Some skills have a `references/` subdirectory with
+3. **Reference files** — Some skills have a `references/` subdirectory with
    cheat sheets, templates, or quickstart guides. Access them via `load_skill()`.
 
 ### Catalog Format
@@ -113,10 +107,9 @@ Match the current objective against **triggers** — load the most specific matc
   FilesystemBackend (not the sandbox); only `load_skill` resolves it.
 
 ### SKILL-FIRST RULE (CRITICAL)
-The workflow above and the catalog below override your general knowledge.
-When a task matches a workflow phase or a sub-skill trigger, follow the
-workflow / load the skill BEFORE acting on memory. Operating from memory
-when a specialized skill exists is a critical failure.
+The catalog below overrides your general knowledge. When a task matches a
+sub-skill trigger, load the skill BEFORE acting on memory. Operating from
+memory when a specialized skill exists is a critical failure.
 
 ### When to Load (Sub-Skills)
 - **Before each new technique**: Read the relevant skill FIRST, then execute.
@@ -130,9 +123,6 @@ when a specialized skill exists is a critical failure.
 </SKILLS>"""
 
 
-_WORKFLOW_FILENAME = "workflow.md"
-
-
 class SkillsMiddleware(BaseSkillsMiddleware):
     """Red-team-aware skill middleware with phase grouping and MITRE ATT&CK tags.
 
@@ -141,7 +131,10 @@ class SkillsMiddleware(BaseSkillsMiddleware):
     - Skills grouped by subdomain (kill chain phase)
     - MITRE ATT&CK technique IDs shown inline
     - Compact display format for context efficiency
-    - Auto-load of ``<source>/workflow.md`` (full body, prepended to catalog)
+
+    Per-role workflow content is **not** loaded here — see
+    ``decepticon/agents/prompts/builder.py`` for the
+    ``prompts/workflows/<role>.md`` inline mechanism.
 
     Args:
         backend: Backend instance for file operations.
@@ -153,96 +146,10 @@ class SkillsMiddleware(BaseSkillsMiddleware):
         self.system_prompt_template = DECEPTICON_SKILLS_PROMPT
         self.tools = [build_load_skill_tool(backend, self.sources)]
 
-    # ── workflow.md auto-load ────────────────────────────────────────────────
-
-    def _read_workflow_for_source(self, backend: Any, source: str) -> str | None:
-        """Load <source>/workflow.md from the backend. Returns content or None."""
-        path = source.rstrip("/") + "/" + _WORKFLOW_FILENAME
-        try:
-            res = backend.read(path)
-        except Exception:
-            return None
-        if getattr(res, "error", None):
-            return None
-        data = getattr(res, "file_data", None)
-        # Truthy-but-not-a-dict (e.g. a backend returning a raw string in
-        # error paths) would crash on ``.get``; isinstance gate is the
-        # explicit contract check.
-        if not isinstance(data, dict):
-            return None
-        content = data.get("content", "")
-        if isinstance(content, list):  # legacy v1 (line-split) format
-            content = "\n".join(content)
-        return content if isinstance(content, str) and content.strip() else None
-
-    async def _aread_workflow_for_source(self, backend: Any, source: str) -> str | None:
-        """Async sibling of ``_read_workflow_for_source``."""
-        path = source.rstrip("/") + "/" + _WORKFLOW_FILENAME
-        try:
-            res = await backend.aread(path)
-        except Exception:
-            return None
-        if getattr(res, "error", None):
-            return None
-        data = getattr(res, "file_data", None)
-        if not isinstance(data, dict):
-            return None
-        content = data.get("content", "")
-        if isinstance(content, list):
-            content = "\n".join(content)
-        return content if isinstance(content, str) and content.strip() else None
-
-    def _format_workflow_section(self, parts: list[tuple[str, str]]) -> str:
-        """Wrap each loaded workflow.md body with a header naming its source."""
-        if not parts:
-            return ""
-        blocks: list[str] = ["### Always-Loaded Workflows", ""]
-        for source, body in parts:
-            label = source.rstrip("/").split("/")[-1].replace("-", " ").title()
-            path = source.rstrip("/") + "/" + _WORKFLOW_FILENAME
-            blocks.append(f"#### {label} Workflow — `{path}`")
-            blocks.append("")
-            blocks.append(body.strip())
-            blocks.append("")
-        return "\n".join(blocks).rstrip() + "\n"
-
-    # ── before_agent: parent loads catalog, we add workflow blob to state ───
-
-    def before_agent(self, state, runtime, config):  # type: ignore[no-untyped-def]
-        base_update = super().before_agent(state, runtime, config)
-        if "workflow_content" in state:
-            return base_update
-        backend = self._get_backend(state, runtime, config)
-        parts: list[tuple[str, str]] = []
-        for source in self.sources:
-            body = self._read_workflow_for_source(backend, source)
-            if body:
-                parts.append((source, body))
-        workflow_blob = self._format_workflow_section(parts)
-        merged = dict(base_update) if base_update else {}
-        merged["workflow_content"] = workflow_blob
-        return merged
-
-    async def abefore_agent(self, state, runtime, config):  # type: ignore[no-untyped-def]
-        base_update = await super().abefore_agent(state, runtime, config)
-        if "workflow_content" in state:
-            return base_update
-        backend = self._get_backend(state, runtime, config)
-        parts: list[tuple[str, str]] = []
-        for source in self.sources:
-            body = await self._aread_workflow_for_source(backend, source)
-            if body:
-                parts.append((source, body))
-        workflow_blob = self._format_workflow_section(parts)
-        merged = dict(base_update) if base_update else {}
-        merged["workflow_content"] = workflow_blob
-        return merged
-
-    # ── modify_request: include {workflow} placeholder ───────────────────────
+    # ── modify_request: render the skills catalog ─────────────────────────────
 
     def modify_request(self, request):  # type: ignore[no-untyped-def]
         skills_metadata = request.state.get("skills_metadata", [])
-        workflow_blob = request.state.get("workflow_content", "")
         skills_locations = self._format_skills_locations()
         skills_list = self._format_skills_list(skills_metadata)
         # The template can be edited at runtime by subclasses; missing or
@@ -252,7 +159,6 @@ class SkillsMiddleware(BaseSkillsMiddleware):
         try:
             skills_section = self.system_prompt_template.format(
                 skills_locations=skills_locations,
-                workflow=workflow_blob,
                 skills_list=skills_list,
             )
         except (KeyError, IndexError) as e:

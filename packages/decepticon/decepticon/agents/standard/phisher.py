@@ -18,7 +18,8 @@ required to start):
 
 Skills tree (under packages/decepticon/decepticon/skills/standard/phisher/):
 
-  - workflow.md              loop + scope + handoff format
+  - agents/prompts/workflows/phisher.md  loop + scope + handoff format
+    (inlined into the system prompt at factory time; not a skill to load)
   - pretext-engineering/     pretext design (LinkedIn / Hunter.io chains)
   - gophish-campaign/        gophish API, template authoring
   - evilginx2-proxy/         evilginx2 phishlets, lure links
