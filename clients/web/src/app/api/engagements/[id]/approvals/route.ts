@@ -169,7 +169,32 @@ export async function POST(
       ? body.redirect_args
       : null;
 
-  const { dir, decisions } = workspaceFor(engagement.name);
+  // A redirect with no args is silently treated as a non-redirect (deny) by
+  // the backend transport, so reject it here instead of recording a no-op.
+  if (
+    action === "redirect" &&
+    (redirectArgs === null || typeof redirectArgs !== "object" || Array.isArray(redirectArgs))
+  ) {
+    return NextResponse.json(
+      { error: "redirect action requires a redirect_args object" },
+      { status: 400 },
+    );
+  }
+
+  const { dir, requests, decisions } = workspaceFor(engagement.name);
+
+  const known = (await readJsonl(requests)).some(
+    (r) => r.kind === "approval_request" && r.request_id === requestId,
+  );
+  if (!known) {
+    return NextResponse.json({ error: "Unknown request_id" }, { status: 404 });
+  }
+  const alreadyDecided = (await readJsonl(decisions)).some(
+    (d) => d.kind === "approval_decision" && d.request_id === requestId,
+  );
+  if (alreadyDecided) {
+    return NextResponse.json({ error: "Request already decided" }, { status: 409 });
+  }
 
   // Decision line shape consumed by FileBackedApprovalTransport._scan_decisions.
   const line =
