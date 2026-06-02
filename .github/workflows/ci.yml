@@ -191,6 +191,13 @@ jobs:
           name: basedpyright-${{ github.run_id }}
           path: bp.json
           retention-days: 7
+      # SKILL.md schema validator (Phase 0 cleanup). Runs in warn mode —
+      # the report is surfaced in the CI log but the job does not block on
+      # violations while corpus cleanup is in flight. After Phase 0
+      # completes, swap to `make audit-skills-strict` to make the gate
+      # mandatory (separate PR).
+      - name: Skill corpus audit (warn mode)
+        run: make audit-skills
       # PRs run tests without coverage instrumentation — coverage adds ~3x
       # runtime and PR feedback latency matters more than coverage tracking
       # on every change. Coverage is enforced on main pushes (next step).
