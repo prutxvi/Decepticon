@@ -217,7 +217,17 @@ jobs:
           fi
           echo "$EXPECTED_SHA256  $BUNDLE" | sha256sum -c -
       - name: Skill graph build gate (Phase 1a)
-        run: make check-skill-graph
+        run: |
+          set +e
+          make check-skill-graph
+          ec=$?
+          if [ $ec -ne 0 ]; then
+            echo "::group::Diff against checked-in dump"
+            uv run python -m decepticon.skillogy.builder --frozen-built-at --out /tmp/built.cypher
+            diff -u packages/decepticon/decepticon/skills/.graph/skills.cypher /tmp/built.cypher | head -200 || true
+            echo "::endgroup::"
+            exit $ec
+          fi
       # PRs run tests without coverage instrumentation — coverage adds ~3x
       # runtime and PR feedback latency matters more than coverage tracking
       # on every change. Coverage is enforced on main pushes (next step).
