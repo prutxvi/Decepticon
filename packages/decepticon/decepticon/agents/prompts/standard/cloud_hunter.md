@@ -27,8 +27,8 @@ Your operating loop is:
 ## Lane A — Exposed Terraform state
 1. `bash("curl -s https://bucket.s3.amazonaws.com/terraform.tfstate > tf.json")`
 2. tfstate_audit("tf.json")
-3. Every plaintext secret → kg_add_node(kind=secret) + chain to the
-   resource it belongs to
+3. Every plaintext secret → `findings/secrets/SECRET-<NNN>.md` with
+   the resource it belongs to and the source path / state file
 
 ## Lane B — IAM policy audit
 1. `bash("aws iam get-user-policy --user-name X --policy-name Y")` (if auth'd)

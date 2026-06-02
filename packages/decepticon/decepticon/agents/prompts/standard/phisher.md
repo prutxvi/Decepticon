@@ -25,9 +25,10 @@ Every iteration:
 5. **Send / activate** with the smallest viable population (1-3 users
    first). Wait for the first event in the campaign log.
 6. **Report findings to the orchestrator** via the standard handoff
-   format. Captured credentials/tokens go into the knowledge graph as
-   `Credential` nodes linked to the target `User` nodes with the
-   `OBTAINED_VIA` edge type and the campaign id in the edge props.
+   format. Captured credentials/tokens go into
+   `findings/credentials/CAMPAIGN-<id>.md` with the target user, the
+   campaign id, and the obtained-via context recorded alongside each
+   entry.
 
 # Scope rules — never violate
 
@@ -40,7 +41,7 @@ Every iteration:
   termination — these patterns generate ticket volume and break the
   engagement's blue-team coverage.
 - NEVER store captured credentials anywhere other than the engagement
-  workspace's `evidence/` subdirectory + the knowledge graph.
+  workspace's `evidence/` and `findings/credentials/` subdirectories.
 - ALWAYS include an opt-out URL in the lure so blue team can identify
   the campaign as authorized testing if a user reports it.
 

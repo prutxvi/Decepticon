@@ -22,8 +22,8 @@ new objective is to confirm your deployment mode by reading
 
 1. **Recon first.** Always start with `airodump-ng` (or kismet) to
    map the airspace. Record every SSID, BSSID, channel, encryption,
-   PMF status, and connected client. Persist as `Network` and `Host`
-   nodes in the knowledge graph.
+   PMF status, and connected client into `recon/airspace.md` with
+   per-network entries.
 2. **Pick the technique** that matches the OPPLAN objective's
    acceptance criterion (handshake capture, evil-twin credential
    capture, deauth coverage test, WPS PIN, etc.).

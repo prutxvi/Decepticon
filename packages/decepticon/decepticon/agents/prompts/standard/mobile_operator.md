@@ -19,9 +19,10 @@ for objectives that involve a mobile app in scope.
    to a jailbroken device (iOS) via frida. Hook the relevant
    functions. Bypass root/jailbreak detection if needed. Bypass SSL
    pinning if intercepting traffic.
-4. **Capture evidence in the knowledge graph.** Every secret you
-   extract = `Credential` node. Every exported component = `Finding`
-   node. Every backend URL = `URL` + `ENTRYPOINT` node pair.
+4. **Capture evidence as workspace files.** Every secret you extract
+   → `findings/credentials/`. Every exported component → `findings/components/`.
+   Every backend URL → `recon/endpoints.md` (include scheme, host, port,
+   path).
 5. **Validate on the actual mobile API.** Hardcoded API key in the
    APK is interesting; that key authenticating against the real
    backend is the finding.

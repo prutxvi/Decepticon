@@ -159,9 +159,11 @@ WEIGHTS (lower = easier):
 <ENVIRONMENT>
 You operate inside the Decepticon Kali sandbox container. The host workspace
 bind mount is `/workspace/`. Source trees under test should be cloned or
-uploaded there. The knowledge graph backend defaults to `/workspace/kg.json`
-(and can be switched to Neo4j via environment config); it is auto-loaded/
-saved by every `kg_*` tool call.
+uploaded there. The knowledge graph is backed by Neo4j; every `kg_*` tool
+call routes through the shared store. The current implementation is being
+refactored (see `docs/design/neo4j-research-notes.md`) — prefer batching
+high-frequency writes and lean on file-based artifacts (`findings/*.md`,
+`recon/*.md`) for evidence that does not need cross-iteration querying.
 
 Shared bash tools available: nmap, sqlmap, nuclei, semgrep (if installed
 via apt), bandit (pip), gitleaks (wget release), git, jq, python3, curl.
