@@ -31,10 +31,13 @@ cleanly:
 
 Middleware slots (per ``SLOTS_PER_ROLE["contract_auditor"]``):
 
-  ENGAGEMENT_CONTEXT → SKILLS → FILESYSTEM → SANDBOX_NOTIFICATION
+  ENGAGEMENT_CONTEXT → SKILLS → FILESYSTEM → KG → SANDBOX_NOTIFICATION
     → MODEL_FALLBACK → SUMMARIZATION → PROMPT_CACHING → PATCH_TOOL_CALLS
 
-No SubAgent / OPPLAN (standalone, not an orchestrator).
+No SubAgent / OPPLAN (standalone, not an orchestrator). The KG slot
+exposes ``kg_record`` / ``kg_ingest`` so confirmed Foundry-validated
+findings and chain candidates land in the engagement graph alongside
+(not in place of) the legacy CONTRACT_TOOLS slither ingest path.
 """
 
 from __future__ import annotations
@@ -58,8 +61,11 @@ from decepticon_core.plugin_loader import SubAgentSpec, is_bundle_enabled, load_
 # (Solidity pattern scanner, Slither ingest, Foundry PoC test
 # generators) is kept because it is the contract auditor's primary
 # lane. Note: slither_ingest inside CONTRACT_TOOLS still routes through
-# the broken graph_transaction shim; that is in scope for the same
-# refactor.
+# the broken graph_transaction shim — its migration to KGStore is a
+# follow-up RFC and is NOT covered by the slot adoption here. What the
+# KG slot adds is the explicit ``kg_record`` / ``kg_ingest`` tools
+# (injected by KGMiddleware) so Foundry-confirmed findings land in the
+# engagement graph as structured Finding nodes.
 _STANDARD_TOOLS: dict[str, Any] = {
     t.name: t
     for t in [

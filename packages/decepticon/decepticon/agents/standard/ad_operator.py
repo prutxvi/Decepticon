@@ -26,10 +26,14 @@ cleanly:
 
 Middleware slots (per ``SLOTS_PER_ROLE["ad_operator"]``):
 
-  ENGAGEMENT_CONTEXT → SKILLS → FILESYSTEM → SANDBOX_NOTIFICATION
+  ENGAGEMENT_CONTEXT → SKILLS → FILESYSTEM → KG → SANDBOX_NOTIFICATION
     → MODEL_FALLBACK → SUMMARIZATION → PROMPT_CACHING → PATCH_TOOL_CALLS
 
-No SubAgent / OPPLAN (standalone, not an orchestrator).
+No SubAgent / OPPLAN (standalone, not an orchestrator). The KG slot
+exposes ``kg_record`` / ``kg_ingest`` so the operator can persist
+BloodHound-derived principals, paths, and confirmed AD findings into
+the engagement graph alongside (not in place of) the legacy AD_TOOLS
+ingest path.
 """
 
 from __future__ import annotations
@@ -54,7 +58,12 @@ from decepticon_core.plugin_loader import SubAgentSpec, is_bundle_enabled, load_
 # GPO / shadow-creds audits, Kerberos hash classification) is kept
 # because BloodHound integration is the AD operator's primary lane.
 # Note: AD_TOOLS themselves still go through the broken graph_transaction
-# shim internally; that is in scope for the same refactor.
+# shim internally — their migration to KGStore needs a dedicated
+# BloodHound-schema RFC and is NOT part of the slot adoption here.
+# What the KG slot adds is the explicit ``kg_record`` / ``kg_ingest``
+# tools (injected by KGMiddleware) so the operator can write confirmed
+# findings, credentials, and manually-traced paths to the engagement
+# graph alongside whatever AD_TOOLS legacy ingest writes.
 _STANDARD_TOOLS: dict[str, Any] = {
     t.name: t
     for t in [

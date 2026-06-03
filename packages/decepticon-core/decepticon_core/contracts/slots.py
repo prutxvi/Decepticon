@@ -160,16 +160,21 @@ SLOTS_PER_ROLE: dict[str, frozenset[MiddlewareSlot]] = {
     "recon": _BASH_AGENT_SLOTS,
     "exploit": _BASH_AGENT_SLOTS,
     "postexploit": _BASH_AGENT_SLOTS,
-    # Analyst is the only OSS role that runs the KG middleware — its
-    # workflow is the persistent-graph use case the spec calls out
+    # Three OSS roles run the KG middleware — the persistent-graph use
+    # cases the spec calls out
     # (docs/design/2026-06-03-kg-middleware-redesign.md § 4.10).
-    # ad_operator and contract_auditor stayed narrow in the prior
-    # cutover; their KG slot adoption is a follow-up.
+    # ad_operator records BloodHound-derived principals / paths and
+    # confirmed AD findings; contract_auditor records Foundry-confirmed
+    # smart-contract vulnerabilities and chain candidates. The opt-in
+    # ``kg_record`` / ``kg_ingest`` tools complement (do not replace)
+    # the legacy AD_TOOLS / CONTRACT_TOOLS surfaces — the legacy
+    # ingest paths still route through the ``graph_transaction`` shim
+    # and migrate to KGStore in a separate RFC.
     "analyst": _BASH_AGENT_SLOTS | {MiddlewareSlot.KG},
     "reverser": _BASH_AGENT_SLOTS,
-    "contract_auditor": _BASH_AGENT_SLOTS,
+    "contract_auditor": _BASH_AGENT_SLOTS | {MiddlewareSlot.KG},
     "cloud_hunter": _BASH_AGENT_SLOTS,
-    "ad_operator": _BASH_AGENT_SLOTS,
+    "ad_operator": _BASH_AGENT_SLOTS | {MiddlewareSlot.KG},
     "phisher": _BASH_AGENT_SLOTS,
     "mobile_operator": _BASH_AGENT_SLOTS,
     "wireless_operator": _BASH_AGENT_SLOTS,
