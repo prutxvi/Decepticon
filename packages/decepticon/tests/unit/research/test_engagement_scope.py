@@ -155,48 +155,10 @@ class TestWithEngagementProperty:
         assert out["engagement"] == "engagement-c"
 
 
-class TestNeo4jUpsertCypherShape:
-    def test_upsert_node_cypher_sets_engagement(self) -> None:
-        """The upsert template sets n.engagement = $engagement on every write."""
-        from pathlib import Path
-
-        source = (
-            Path(
-                __file__,
-            ).parent.parent.parent.parent
-            / "decepticon"
-            / "tools"
-            / "research"
-            / "neo4j_store.py"
-        )
-        text = source.read_text(encoding="utf-8")
-        assert "n.engagement = $engagement" in text, (
-            "upsert_node Cypher template must set n.engagement = $engagement"
-        )
-        assert "r.engagement = $engagement" in text, (
-            "upsert_edge Cypher template must set r.engagement = $engagement"
-        )
-        assert "n.engagement = row.engagement" in text, (
-            "batch_upsert_nodes Cypher must set n.engagement = row.engagement"
-        )
-        assert "r.engagement = row.engagement" in text, (
-            "batch_upsert_edges Cypher must set r.engagement = row.engagement"
-        )
-
-    def test_upsert_node_python_calls_with_engagement_property(self) -> None:
-        """The upsert path must wrap props in with_engagement_property()."""
-        from pathlib import Path
-
-        source = (
-            Path(
-                __file__,
-            ).parent.parent.parent.parent
-            / "decepticon"
-            / "tools"
-            / "research"
-            / "neo4j_store.py"
-        )
-        text = source.read_text(encoding="utf-8")
-        assert text.count("with_engagement_property(") >= 4, (
-            "every upsert path (single+batch, node+edge) must call with_engagement_property()"
-        )
+# ``TestNeo4jUpsertCypherShape`` previously grepped ``neo4j_store.py``
+# for its Cypher templates to assert ``n.engagement = $engagement``
+# everywhere. That module has been removed; the new ``KGStore``
+# (``decepticon.middleware.kg_internal.store``) enforces engagement
+# scoping via its V001 ``(key, engagement)`` composite uniqueness and
+# the mandatory ``engagement`` kwarg on every public method — covered
+# by the KG middleware's own integration tests.

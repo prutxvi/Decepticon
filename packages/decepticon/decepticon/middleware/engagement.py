@@ -108,9 +108,10 @@ def _hydrate_engagement_state(state: Any) -> dict[str, Any] | None:
     value is ignored.
 
     Also propagates the engagement label into the per-context
-    ``_active_engagement`` so Neo4j writes through
-    ``decepticon.tools.research.neo4j_store`` auto-tag with the right
-    engagement (see ``docs/security/neo4j-hardening.md``).
+    ``_active_engagement`` so KG writes through ``KGStore``
+    (and the legacy ``_state`` compat shim that wraps it) carry the
+    right engagement scope on every record_observations / execute_*
+    call (see ``docs/security/neo4j-hardening.md``).
     """
     get = state.get if hasattr(state, "get") else (lambda _k, _d=None: None)
     configurable = _configurable_from_runnable_config()
