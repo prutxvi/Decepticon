@@ -36,6 +36,12 @@ from decepticon_core.types.kg import (
 # back when rebuilding the in-memory graph, but they don't belong on
 # ``Node.props`` / ``Edge.props`` — those carry the agent-supplied
 # props only. Strip them before constructing the Pydantic model.
+#
+# ``_legacy_id`` is the SHA1 the in-memory ``Node`` carried before
+# persistence. The legacy ``_state`` shim stores it so edges (whose
+# ``src`` / ``dst`` are SHA1s) can resolve their endpoints on round-trip.
+# We strip it from ``Node.props`` on load and instead restore it onto
+# ``Node.id`` directly, preserving the legacy graph's identity model.
 _RESERVED_NODE_PROPS = frozenset(
     {
         "engagement",
@@ -45,6 +51,7 @@ _RESERVED_NODE_PROPS = frozenset(
         "lastupdated",
         "created_by",
         "source_episode_id",
+        "_legacy_id",
     }
 )
 _RESERVED_EDGE_PROPS = frozenset(
@@ -103,8 +110,15 @@ def load_engagement_graph(engagement: str) -> KnowledgeGraph:
                 continue
             key = row.get("key") or ""
             label = row.get("label") or key or kind_raw
-            props = _coerce_props(row.get("props"), _RESERVED_NODE_PROPS)
+            raw_props = row.get("props") or {}
+            props = _coerce_props(raw_props, _RESERVED_NODE_PROPS)
             node = Node.make(kind, str(label), key=str(key), **props)
+            # Restore the legacy SHA1 id when the node was persisted
+            # by the legacy shim — keeps edge.src / edge.dst lookups
+            # consistent across round-trip.
+            legacy_id = raw_props.get("_legacy_id") if isinstance(raw_props, dict) else None
+            if isinstance(legacy_id, str) and legacy_id:
+                node.id = legacy_id
             node.created_at = float(row.get("created_at") or 0.0)
             node.updated_at = float(row.get("updated_at") or 0.0)
             graph.nodes[node.id] = node
