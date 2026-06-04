@@ -40,15 +40,14 @@ the rewrite addresses six of the load-bearing traps catalogued in
      never partial-ingest from a failed run, and we never feed the
      upgradeability block through the detector pipeline.
 
-NodeKind values **stay on the legacy generic family** (Contract,
-SourceFile, Vulnerability, CodeLocation) so the existing contract-
-auditor tools and prompts keep working through the
-``_state`` / ``kg_adapter`` reading path. The Solidity-specific kinds
-added in V003 (Function / StateVar / Event / CustomError / Enum /
-Struct / Pragma) are reserved for a dedicated follow-up PR that
-re-emits each non-contract element with its proper label and
-migrates the analysis side in lockstep — see the Slither RFC for
-the plan.
+Every Solidity element lands under its **dedicated V003 NodeKind**
+(``Function`` / ``StateVar`` / ``Event`` / ``CustomError`` /
+``Enum`` / ``Struct`` / ``Pragma``). ``Contract`` and ``SourceFile``
+were already on dedicated labels. The ``element_type`` prop is
+preserved on every node so consumers that still filter by
+``element_type`` (e.g. AST ``node`` entries that fall back to
+``CodeLocation``) keep working. Slither RFC §4.6 endgame for the
+contract-auditor side.
 """
 
 from __future__ import annotations
@@ -74,21 +73,25 @@ _IMPACT_TO_SEVERITY: dict[str, Severity] = {
 }
 
 
-# Element types Slither emits in ``finding.elements[]``. Mapped to a
-# KGStore node ``kind`` (legacy family for opt-F point) plus a
-# semantic ``element_type`` prop so downstream queries can still
-# distinguish a function from a state variable without a new label.
+# Element types Slither emits in ``finding.elements[]``. Each maps
+# to its dedicated Solidity NodeKind from V003 (Option A). AST
+# ``node`` and ``modifier`` entries fall back to ``CODE_LOCATION``
+# / ``SOLIDITY_FUNCTION`` respectively — they don't carry a
+# distinct V003 label and folding them into the closest semantic
+# kind keeps Cypher queries readable. The ``element_type`` prop
+# survives on every node so downstream queries can still
+# distinguish a modifier from a regular function.
 _ELEMENT_KIND_MAP: dict[str, NodeKind] = {
     "contract": NodeKind.CONTRACT,
-    "function": NodeKind.CODE_LOCATION,
-    "variable": NodeKind.CODE_LOCATION,
+    "function": NodeKind.SOLIDITY_FUNCTION,
+    "modifier": NodeKind.SOLIDITY_FUNCTION,
+    "variable": NodeKind.SOLIDITY_STATE_VAR,
     "node": NodeKind.CODE_LOCATION,
-    "pragma": NodeKind.CODE_LOCATION,
-    "event": NodeKind.CODE_LOCATION,
-    "custom_error": NodeKind.CODE_LOCATION,
-    "enum": NodeKind.CODE_LOCATION,
-    "struct": NodeKind.CODE_LOCATION,
-    "modifier": NodeKind.CODE_LOCATION,
+    "pragma": NodeKind.SOLIDITY_PRAGMA,
+    "event": NodeKind.SOLIDITY_EVENT,
+    "custom_error": NodeKind.SOLIDITY_CUSTOM_ERROR,
+    "enum": NodeKind.SOLIDITY_ENUM,
+    "struct": NodeKind.SOLIDITY_STRUCT,
     "file": NodeKind.SOURCE_FILE,
 }
 

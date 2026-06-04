@@ -290,8 +290,7 @@ class TestRecursiveParentWalk:
         pragma = next(
             v
             for v in store.observations
-            if v["kind"] == "CodeLocation"
-            and (v.get("props") or {}).get("element_type") == "pragma"
+            if v["kind"] == "Pragma" and (v.get("props") or {}).get("element_type") == "pragma"
         )
         assert pragma["props"].get("parent_contract") is None
         assert pragma["props"].get("directive") == "solidity ^0.8.0"
@@ -329,8 +328,7 @@ class TestLinesPreservedAsList:
         fn = next(
             v
             for v in store.observations
-            if v["kind"] == "CodeLocation"
-            and (v.get("props") or {}).get("element_type") == "function"
+            if v["kind"] == "Function" and (v.get("props") or {}).get("element_type") == "function"
         )
         assert fn["props"].get("lines") == [42, 43, 44, 45, 47, 48]
         assert fn["props"].get("first_line") == 42
