@@ -14,12 +14,24 @@ from decepticon.tools.contracts.foundry import (
     generate_reentrancy_test,
 )
 from decepticon.tools.contracts.patterns import scan_solidity_source
-from decepticon.tools.contracts.slither import ingest_slither_json
-from decepticon.tools.research._state import _load, _save
+from decepticon.tools.contracts.slither import (
+    ingest_slither_json as _ingest_slither_json_impl,
+)
+from decepticon_core.utils.engagement_scope import get_active_engagement
 
 
 def _json(data: Any) -> str:
     return json.dumps(data, indent=2, default=str, ensure_ascii=False)
+
+
+def _resolve_engagement() -> str:
+    """Engagement label for Slither ingest writes.
+
+    Falls back to the reserved ``_legacy`` label when the
+    ``EngagementContextMiddleware`` contextvar is unset — matches the
+    convention used by the AD ingest path.
+    """
+    return get_active_engagement() or "_legacy"
 
 
 @tool
@@ -52,19 +64,22 @@ def solidity_scan_file(path: str) -> str:
 
 @tool
 def slither_ingest(path: str) -> str:
-    """Ingest a Slither ``--json -`` output file into the KnowledgeGraph.
+    """Ingest a Slither ``--json -`` output file into the engagement KG.
 
-    Workflow: run ``slither . --json out.json`` then call this tool with
-    the path to out.json.
+    Writes flow directly through ``KGStore.record_observations`` — a
+    single atomic batch per file. Workflow: run ``slither . --json
+    out.json`` then call this tool with the path to ``out.json``.
     """
     try:
         data = Path(path).read_text(encoding="utf-8")
     except OSError as e:
         return _json({"error": str(e)})
-    graph, kg_path = _load()
-    count = ingest_slither_json(data, graph)
-    _save(graph, kg_path)
-    return _json({"ingested": count, "stats": graph.stats()})
+    engagement = _resolve_engagement()
+    try:
+        count = _ingest_slither_json_impl(data, engagement=engagement)
+    except ValueError as exc:
+        return _json({"error": str(exc)})
+    return _json({"ingested": count})
 
 
 @tool

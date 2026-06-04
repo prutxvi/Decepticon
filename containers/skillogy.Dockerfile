@@ -19,6 +19,7 @@ RUN apt-get update \
 # top level so ``python -m decepticon.skillogy`` works without the rest
 # of the decepticon framework being present.
 COPY packages/decepticon/decepticon/skillogy ./decepticon/skillogy
+COPY packages/decepticon/decepticon/skill_audit ./decepticon/skill_audit
 
 # CI-built graph dump. The builder emits MERGE-only Cypher so re-runs
 # against an already-loaded Neo4j are idempotent — the boot script

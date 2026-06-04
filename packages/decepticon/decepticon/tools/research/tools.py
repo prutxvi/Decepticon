@@ -1403,10 +1403,22 @@ def kg_scan_solidity(
 
 @tool
 def kg_ingest_slither(path: str) -> str:
-    """Ingest Slither JSON output into the knowledge graph."""
-    with graph_transaction() as graph:
-        ingested = ingest_slither_file(path, graph)
-        return _json({"ingested": ingested, "stats": graph.stats()})
+    """Ingest Slither JSON output into the engagement KG.
+
+    Writes flow directly through ``KGStore.record_observations`` —
+    a single atomic batch per file. The engagement label is resolved
+    from the ``EngagementContextMiddleware`` contextvar; falls back
+    to the reserved ``_legacy`` label outside the standard middleware
+    stack (matches the convention used by the rest of RESEARCH_TOOLS).
+    """
+    from decepticon_core.utils.engagement_scope import get_active_engagement
+
+    engagement = get_active_engagement() or "_legacy"
+    try:
+        ingested = ingest_slither_file(path, engagement=engagement)
+    except ValueError as exc:
+        return _json({"error": str(exc)})
+    return _json({"ingested": ingested})
 
 
 # ── Binary triage ingestion ────────────────────────────────────────────
