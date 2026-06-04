@@ -482,3 +482,174 @@ class TestZipIngest:
         store = _FakeKGStore()
         stats = ingest_bloodhound_zip(zip_path, engagement="t", store=store)
         assert stats.domains == 1
+
+
+# ── ADCS ingest (separate top-level files per kind) ─────────────────
+
+
+class TestAdcsIngest:
+    """BHCE 5.x emits ADCS objects as their own top-level files
+    (``certtemplates_*.json`` / ``enterprisecas_*.json`` etc.) — NOT
+    as embedded blocks under ``domains[]``. These tests pin the
+    file-per-kind dispatch + the ADCS-specific edge synthesis."""
+
+    def test_cert_template_lands_under_ad_cert_template_label(self) -> None:
+        bh = {
+            "meta": {"type": "certtemplates"},
+            "data": [
+                {
+                    "ObjectIdentifier": "CT-GUID-1",
+                    "Properties": {
+                        "name": "User",
+                        "enrolleesuppliessubject": True,
+                        "authenticationenabled": True,
+                    },
+                }
+            ],
+        }
+        store = _FakeKGStore()
+        merge_bloodhound_json(bh, engagement="t", store=store, type_hint="certtemplates")
+        node = store.nodes_by_key().get("bh::CertTemplate::CT-GUID-1")
+        assert node is not None
+        assert node["kind"] == "ADCertTemplate"
+        assert node["props"].get("bh_type") == "CertTemplate"
+
+    def test_enterprise_ca_published_to_template_edge(self) -> None:
+        bh = {
+            "meta": {"type": "enterprisecas"},
+            "data": [
+                {
+                    "ObjectIdentifier": "ECA-1",
+                    "Properties": {"caname": "CorpCA"},
+                    "EnabledCertTemplates": [
+                        {"ObjectIdentifier": "CT-GUID-1", "ObjectType": "CertTemplate"}
+                    ],
+                }
+            ],
+        }
+        store = _FakeKGStore()
+        merge_bloodhound_json(bh, engagement="t", store=store, type_hint="enterprisecas")
+        published = store.edges_of_kind("PUBLISHED_TO")
+        assert any(
+            "ECA-1" in s and "CT-GUID-1" in d and p.get("bh_right") == "PublishedTo"
+            for s, d, p in published
+        )
+
+    def test_enterprise_ca_hosts_ca_service_edge(self) -> None:
+        bh = {
+            "meta": {"type": "enterprisecas"},
+            "data": [
+                {
+                    "ObjectIdentifier": "ECA-1",
+                    "Properties": {"caname": "CorpCA"},
+                    "HostingComputer": "S-1-5-21-1-1-1-1001",
+                }
+            ],
+        }
+        store = _FakeKGStore()
+        merge_bloodhound_json(bh, engagement="t", store=store, type_hint="enterprisecas")
+        hosts = store.edges_of_kind("HOSTS_CA_SERVICE")
+        assert any(
+            "S-1-5-21-1-1-1-1001" in s and "ECA-1" in d and p.get("bh_right") == "HostsCAService"
+            for s, d, p in hosts
+        )
+
+    def test_issuance_policy_oid_group_link_edge(self) -> None:
+        bh = {
+            "meta": {"type": "issuancepolicies"},
+            "data": [
+                {
+                    "ObjectIdentifier": "POL-GUID-1",
+                    "Properties": {
+                        "displayname": "High Assurance",
+                        "certtemplateoid": "1.3.6.1.4.1.311.21.8",
+                    },
+                    "GroupLink": {
+                        "ObjectIdentifier": "S-1-5-21-1-1-1-513",
+                        "ObjectType": "Group",
+                    },
+                }
+            ],
+        }
+        store = _FakeKGStore()
+        merge_bloodhound_json(bh, engagement="t", store=store, type_hint="issuancepolicies")
+        link_edges = store.edges_of_kind("OID_GROUP_LINK")
+        assert any(
+            "POL-GUID-1" in s and "S-1-5-21-1-1-1-513" in d and p.get("bh_right") == "OIDGroupLink"
+            for s, d, p in link_edges
+        )
+
+    def test_root_ca_lands_under_dedicated_label(self) -> None:
+        bh = {
+            "meta": {"type": "rootcas"},
+            "data": [
+                {
+                    "ObjectIdentifier": "ROOT-1",
+                    "Properties": {"domain": "corp.local"},
+                }
+            ],
+        }
+        store = _FakeKGStore()
+        merge_bloodhound_json(bh, engagement="t", store=store, type_hint="rootcas")
+        node = store.nodes_by_key().get("bh::RootCA::ROOT-1")
+        assert node is not None
+        assert node["kind"] == "ADRootCA"
+
+    def test_nt_auth_store_lands_under_dedicated_label(self) -> None:
+        bh = {
+            "meta": {"type": "ntauthstores"},
+            "data": [
+                {
+                    "ObjectIdentifier": "NTA-1",
+                    "Properties": {
+                        "domain": "corp.local",
+                        "certthumbprints": ["AABBCC"],
+                    },
+                }
+            ],
+        }
+        store = _FakeKGStore()
+        merge_bloodhound_json(bh, engagement="t", store=store, type_hint="ntauthstores")
+        node = store.nodes_by_key().get("bh::NTAuthStore::NTA-1")
+        assert node is not None
+        assert node["kind"] == "ADNTAuthStore"
+
+    def test_aiaca_lands_under_dedicated_label(self) -> None:
+        bh = {
+            "meta": {"type": "aiacas"},
+            "data": [
+                {
+                    "ObjectIdentifier": "AIA-1",
+                    "Properties": {"domain": "corp.local"},
+                }
+            ],
+        }
+        store = _FakeKGStore()
+        merge_bloodhound_json(bh, engagement="t", store=store, type_hint="aiacas")
+        node = store.nodes_by_key().get("bh::AIACA::AIA-1")
+        assert node is not None
+        assert node["kind"] == "ADAIACA"
+
+    def test_stats_counters_for_adcs_kinds(self) -> None:
+        bh = {
+            "meta": {"type": "certtemplates"},
+            "data": [
+                {"ObjectIdentifier": "CT-GUID-A", "Properties": {"name": "A"}},
+                {"ObjectIdentifier": "CT-GUID-B", "Properties": {"name": "B"}},
+            ],
+        }
+        store = _FakeKGStore()
+        stats = merge_bloodhound_json(bh, engagement="t", store=store, type_hint="certtemplates")
+        assert stats.certtemplates == 2
+
+    def test_zip_filename_hint_dispatches_certtemplates(self, tmp_path: Path) -> None:
+        import json as _json
+
+        payload = {"data": [{"ObjectIdentifier": "CT-1", "Properties": {"name": "DomainUser"}}]}
+        zip_path = tmp_path / "bh.zip"
+        with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_STORED) as zf:
+            zf.writestr("certtemplates_20260605.json", _json.dumps(payload))
+        store = _FakeKGStore()
+        stats = ingest_bloodhound_zip(zip_path, engagement="t", store=store)
+        assert stats.certtemplates == 1
+        assert any(obs["kind"] == "ADCertTemplate" for obs in store.observations)

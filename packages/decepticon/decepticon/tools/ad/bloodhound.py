@@ -64,6 +64,14 @@ class ImportStats:
     gpos: int = 0
     ous: int = 0
     containers: int = 0
+    # ADCS kinds — SharpHound emits each as its own top-level file
+    # (``certtemplates_*.json`` / ``enterprisecas_*.json`` / etc.).
+    certtemplates: int = 0
+    enterprisecas: int = 0
+    rootcas: int = 0
+    aiacas: int = 0
+    ntauthstores: int = 0
+    issuancepolicies: int = 0
     edges: int = 0
 
     def to_dict(self) -> dict[str, int]:
@@ -83,6 +91,16 @@ _BH_TYPE_SINGULAR: dict[str, str] = {
     "gpos": "GPO",
     "ous": "OU",
     "containers": "Container",
+    # ADCS kinds are emitted by SharpHound as separate top-level files
+    # (``certtemplates_*.json`` / ``enterprisecas_*.json`` / etc.) —
+    # NOT as embedded blocks under ``domains[]``. The cert-template
+    # `ObjectIdentifier` is the GUID; CA-class kinds use the SID.
+    "certtemplates": "CertTemplate",
+    "enterprisecas": "EnterpriseCA",
+    "rootcas": "RootCA",
+    "aiacas": "AIACA",
+    "ntauthstores": "NTAuthStore",
+    "issuancepolicies": "IssuancePolicy",
 }
 
 
@@ -137,12 +155,16 @@ _BH_EDGE_MAP: dict[str, tuple[EdgeKind, float]] = {
 
 
 def _node_kind_for_bh(type_name: str) -> NodeKind:
-    """Map BloodHound object type to the legacy generic NodeKind family.
+    """Map BloodHound object type to the right NodeKind.
 
-    AD analysis tools (``delegation``/``gpo``/``dcsync``/...) match on
-    ``bh_type`` props, not on these kinds, so the choice here is about
-    cross-domain chain analysis — picking ``USER`` lets a path planner
-    treat a BloodHound user and a web-app credential as the same kind.
+    Generic identity kinds (User / Computer / Group / Domain / GPO /
+    OU / Container) stay on the legacy NodeKind family so the AD
+    analysis tools (``delegation`` / ``gpo`` / ``dcsync`` / etc.)
+    keep matching on their ``bh_type`` props. ADCS kinds use the
+    dedicated ``AD_*`` family from V003 — they had no legacy NodeKind
+    equivalent (overloading them onto ``GROUP`` would silently break
+    BHCE 5.x semantics) so this is where Option A from the BloodHound
+    RFC first lands in code.
     """
     return {
         "User": NodeKind.USER,
@@ -154,6 +176,13 @@ def _node_kind_for_bh(type_name: str) -> NodeKind:
         "GPO": NodeKind.GROUP,
         "OU": NodeKind.GROUP,
         "Container": NodeKind.GROUP,
+        # ADCS kinds use the dedicated V003 NodeKind values.
+        "CertTemplate": NodeKind.AD_CERT_TEMPLATE,
+        "EnterpriseCA": NodeKind.AD_ENTERPRISE_CA,
+        "RootCA": NodeKind.AD_ROOT_CA,
+        "AIACA": NodeKind.AD_AIA_CA,
+        "NTAuthStore": NodeKind.AD_NT_AUTH_STORE,
+        "IssuancePolicy": NodeKind.AD_ISSUANCE_POLICY,
     }.get(type_name, NodeKind.HOST)
 
 
@@ -563,6 +592,63 @@ def _ingest_gp_links(state: _IngestState, src_key: str, obj: dict[str, Any]) -> 
         )
 
 
+def _ingest_enterprise_ca_edges(state: _IngestState, src_key: str, obj: dict[str, Any]) -> None:
+    """``EnterpriseCA`` extras: ``EnabledCertTemplates[]`` and
+    ``HostingComputer``.
+
+    ``EnabledCertTemplates`` is a list of ``TypedPrincipal`` pointing
+    at the CertTemplate GUID; flips into ``EnterpriseCA --PUBLISHED_TO-->
+    CertTemplate``. ``HostingComputer`` is the SID of the Windows host
+    running the CA service; flips into ``Computer --HOSTS_CA_SERVICE-->
+    EnterpriseCA`` so a host-compromise chain naturally reaches the CA."""
+    for entry in obj.get("EnabledCertTemplates") or []:
+        if not isinstance(entry, dict):
+            continue
+        template_id = entry.get("ObjectIdentifier")
+        if not isinstance(template_id, str) or not template_id:
+            continue
+        template_key = _ensure_placeholder(state, sid=template_id, default_type="CertTemplate")
+        state.add_edge(
+            src_key=src_key,
+            dst_key=template_key,
+            kind=EdgeKind.PUBLISHED_TO,
+            weight=0.4,
+            props={"bh_right": "PublishedTo"},
+        )
+
+    hosting_computer = obj.get("HostingComputer")
+    if isinstance(hosting_computer, str) and hosting_computer:
+        host_key = _ensure_placeholder(state, sid=hosting_computer, default_type="Computer")
+        state.add_edge(
+            src_key=host_key,
+            dst_key=src_key,
+            kind=EdgeKind.HOSTS_CA_SERVICE,
+            weight=0.4,
+            props={"bh_right": "HostsCAService"},
+        )
+
+
+def _ingest_issuance_policy_link(state: _IngestState, src_key: str, obj: dict[str, Any]) -> None:
+    """``IssuancePolicy.GroupLink`` (``TypedPrincipal`` pointing at a
+    Group SID) is the core of ESC13 — it grants membership in the
+    target group to whoever obtains a cert tagged with this policy.
+    Flipped into ``IssuancePolicy --OID_GROUP_LINK--> Group``."""
+    link = obj.get("GroupLink")
+    if not isinstance(link, dict):
+        return
+    group_sid = link.get("ObjectIdentifier")
+    if not isinstance(group_sid, str) or not group_sid:
+        return
+    group_key = _ensure_placeholder(state, sid=group_sid, default_type="Group")
+    state.add_edge(
+        src_key=src_key,
+        dst_key=group_key,
+        kind=EdgeKind.OID_GROUP_LINK,
+        weight=0.3,
+        props={"bh_right": "OIDGroupLink"},
+    )
+
+
 def _ingest_trusts(state: _IngestState, src_key: str, obj: dict[str, Any]) -> None:
     """Trap 4: Trust 4-way split. Replaces the legacy single
     ``TrustedBy`` edge."""
@@ -626,17 +712,16 @@ def _merge_one_payload(state: _IngestState, data: dict[str, Any], *, type_hint: 
         if not isinstance(obj, dict):
             continue
         _ingest_object(state, obj, type_singular)
+        src_key = _key_for_object(type_singular, obj.get("ObjectIdentifier", ""))
         if type_singular in ("Domain", "OU", "Container"):
-            _ingest_child_objects(
-                state, _key_for_object(type_singular, obj.get("ObjectIdentifier", "")), obj
-            )
-            _ingest_gp_links(
-                state, _key_for_object(type_singular, obj.get("ObjectIdentifier", "")), obj
-            )
+            _ingest_child_objects(state, src_key, obj)
+            _ingest_gp_links(state, src_key, obj)
         if type_singular == "Domain":
-            _ingest_trusts(
-                state, _key_for_object(type_singular, obj.get("ObjectIdentifier", "")), obj
-            )
+            _ingest_trusts(state, src_key, obj)
+        if type_singular == "EnterpriseCA":
+            _ingest_enterprise_ca_edges(state, src_key, obj)
+        if type_singular == "IssuancePolicy":
+            _ingest_issuance_policy_link(state, src_key, obj)
         if hasattr(state.stats, counter_attr):
             setattr(state.stats, counter_attr, getattr(state.stats, counter_attr) + 1)
 
@@ -735,7 +820,18 @@ def ingest_bloodhound_zip(
                 continue
             type_hint = None
             base = Path(name).stem.lower()
+            # Order matters: ``certtemplates`` must be checked before
+            # ``containers`` (substring overlap on ``t``) — but the
+            # two don't share a prefix so it's only a concern if we
+            # add ``certtemplate`` (singular) later. ADCS hints are
+            # also checked first so the more-specific match wins.
             for hint in (
+                "certtemplates",
+                "enterprisecas",
+                "rootcas",
+                "aiacas",
+                "ntauthstores",
+                "issuancepolicies",
                 "users",
                 "computers",
                 "groups",
@@ -745,7 +841,12 @@ def ingest_bloodhound_zip(
                 "containers",
             ):
                 if hint in base:
-                    type_hint = hint.capitalize()
+                    # Plural file name keeps the ``meta.type`` form;
+                    # ``_BH_TYPE_SINGULAR`` does the singular conversion
+                    # inside the payload merge. Pass the plural string
+                    # directly so ``_merge_one_payload`` picks the
+                    # right entry.
+                    type_hint = hint
                     break
             _merge_payload(state, data, type_hint=type_hint)
 
