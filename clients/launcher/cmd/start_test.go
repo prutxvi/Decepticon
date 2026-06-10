@@ -148,6 +148,10 @@ func TestApplyAutoUpdate_RoutingMatrix(t *testing.T) {
 		{"0", 0, 0, "0 → skip"},
 		{"no", 0, 0, "no → skip"},
 		{"off", 0, 0, "off → skip"},
+		// Unrecognized / garbage values default to prompt, not silent auto-update
+		{"disabled", 0, 1, "unrecognized value disabled → interactive prompt"},
+		{"skip", 0, 1, "unrecognized value skip → interactive prompt"},
+		{"garbage", 0, 1, "unrecognized value garbage → interactive prompt"},
 	}
 	for _, tc := range cases {
 		t.Run(tc.description, func(t *testing.T) {

@@ -47,16 +47,17 @@ var (
 // See the inline comment in start() (section 2.5) for the value table
 // and rationale for default-on behaviour.
 func applyAutoUpdate(env map[string]string, version string) {
-	switch strings.ToLower(strings.TrimSpace(config.Get(env, "AUTO_UPDATE", ""))) {
-	case "false", "0", "no", "off":
-		// self-update disabled
-	case "prompt", "ask", "interactive":
-		if _, err := promptUpdateFn(version); err != nil {
-			ui.Warning("Update check: " + err.Error())
-		}
-	default:
+	val := strings.ToLower(strings.TrimSpace(config.Get(env, "AUTO_UPDATE", "")))
+	switch val {
+	case "", "true", "1", "yes", "on":
 		if _, err := autoUpdateFn(version); err != nil {
 			ui.Warning("Auto-update: " + err.Error())
+		}
+	case "false", "0", "no", "off":
+		// self-update disabled
+	default:
+		if _, err := promptUpdateFn(version); err != nil {
+			ui.Warning("Update check: " + err.Error())
 		}
 	}
 }
