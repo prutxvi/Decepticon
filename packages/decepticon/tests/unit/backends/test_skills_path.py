@@ -1,3 +1,5 @@
+"""test_skills_path module."""
+
 import os
 
 from decepticon.backends import SKILLS_LOCAL_PATH
