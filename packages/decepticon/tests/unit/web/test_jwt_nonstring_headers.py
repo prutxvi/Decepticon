@@ -1,3 +1,5 @@
+"""test_jwt_nonstring_headers module."""
+
 from __future__ import annotations
 
 import base64
