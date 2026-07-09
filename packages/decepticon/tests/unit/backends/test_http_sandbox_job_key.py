@@ -1,3 +1,5 @@
+"""test_http_sandbox_job_key module."""
+
 import time as _t
 from unittest.mock import MagicMock, patch
 
