@@ -1,3 +1,5 @@
+"""test_jwt_jku_x5u_flagging module."""
+
 from __future__ import annotations
 
 from decepticon.tools.web.jwt import forge_token, parse_token
