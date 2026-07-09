@@ -1,3 +1,5 @@
+"""test_gemini_handler_session_cookies module."""
+
 from __future__ import annotations
 
 import importlib.util
