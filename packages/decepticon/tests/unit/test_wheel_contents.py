@@ -1,3 +1,5 @@
+"""test_wheel_contents module."""
+
 import glob
 import subprocess
 import zipfile
