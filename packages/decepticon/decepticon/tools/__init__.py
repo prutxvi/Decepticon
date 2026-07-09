@@ -1,3 +1,5 @@
+"""__init__ module."""
+
 from decepticon.tools.ad.tools import AD_TOOLS
 from decepticon.tools.bash import (
     BASH_TOOLS,
