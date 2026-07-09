@@ -1,3 +1,5 @@
+"""__init__ module."""
+
 from decepticon.llm.factory import LLMFactory, create_llm
 from decepticon.llm.router import ModelRouter
 from decepticon_core.types.llm import (
