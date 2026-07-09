@@ -1,3 +1,5 @@
+"""__init__ module."""
+
 from decepticon.tools.bash.bash import (
     bash,
     bash_kill,
