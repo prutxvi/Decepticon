@@ -1,3 +1,5 @@
+"""test_http_branches module."""
+
 from __future__ import annotations
 
 import json
