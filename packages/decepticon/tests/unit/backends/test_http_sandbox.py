@@ -1,3 +1,5 @@
+"""test_http_sandbox module."""
+
 from __future__ import annotations
 
 import base64
