@@ -133,3 +133,7 @@ docs/superpowers/
 .DS_Store
 *.log
 output/
+
+*.swp
+*.swo
+*~
