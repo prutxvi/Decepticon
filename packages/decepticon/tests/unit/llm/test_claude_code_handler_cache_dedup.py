@@ -1,3 +1,5 @@
+"""test_claude_code_handler_cache_dedup module."""
+
 from __future__ import annotations
 
 import importlib.util
