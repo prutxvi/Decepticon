@@ -1,3 +1,5 @@
+"""test_rule_match_uppercase_selection module."""
+
 from __future__ import annotations
 
 from decepticon.blue_cell.rule_match import DetectionRule, RuleMatcher, _evaluate_condition
