@@ -1,3 +1,5 @@
+"""test_audit_sink module."""
+
 from __future__ import annotations
 
 import json
