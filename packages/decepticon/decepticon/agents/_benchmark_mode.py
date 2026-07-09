@@ -1,3 +1,5 @@
+"""_benchmark_mode module."""
+
 import os
 
 
