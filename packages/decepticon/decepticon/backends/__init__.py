@@ -1,3 +1,5 @@
+"""__init__ module."""
+
 import importlib.resources
 from collections.abc import Mapping
 from typing import Any
