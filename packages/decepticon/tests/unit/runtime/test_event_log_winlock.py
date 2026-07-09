@@ -1,3 +1,5 @@
+"""test_event_log_winlock module."""
+
 from __future__ import annotations
 
 import os
