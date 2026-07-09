@@ -1,3 +1,5 @@
+"""test_app_consttime_auth module."""
+
 from __future__ import annotations
 
 import contextlib
