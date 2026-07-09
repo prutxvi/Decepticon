@@ -1,3 +1,5 @@
+"""test_no_neo4j_at_import module."""
+
 import subprocess
 import sys
 
