@@ -1,3 +1,5 @@
+"""test_sarif_export_props_attr module."""
+
 from __future__ import annotations
 
 from decepticon.tools.research.sarif_export import (
