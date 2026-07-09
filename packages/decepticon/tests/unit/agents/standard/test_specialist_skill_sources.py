@@ -1,3 +1,5 @@
+"""test_specialist_skill_sources module."""
+
 from __future__ import annotations
 
 from pathlib import Path
