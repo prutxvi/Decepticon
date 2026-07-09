@@ -1,3 +1,5 @@
+"""test_cloud_tools module."""
+
 from __future__ import annotations
 
 import json
