@@ -1,3 +1,5 @@
+"""test_command_targets_scope_bypass module."""
+
 from decepticon.middleware._command_targets import extract_targets
 from decepticon_core.types.roe import MachineEnforcement, evaluate_target
 
