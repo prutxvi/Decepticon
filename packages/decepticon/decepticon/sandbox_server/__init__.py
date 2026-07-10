@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Sandbox daemon — the server peer of `HTTPSandbox`.
 
 Runs inside the sandbox container, wraps a `LocalShellBackend` (which
