@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Decepticon server-side custom HTTP surface mounted on LangGraph platform.
 
 LangGraph Platform's ``langgraph.json`` allows mounting a user-defined
