@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Standard bundle — OSS-shipped agents.
 
 Contains the official ``decepticon`` main agent and its 8 subagents
