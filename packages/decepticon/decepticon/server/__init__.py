@@ -14,3 +14,5 @@ graphs, so it can mutate ``langgraph_api.graph.GRAPHS`` and call
 ``register_graph()`` directly — that's what makes runtime plugin
 activation possible without a container restart.
 """
+
+__all__ = []
