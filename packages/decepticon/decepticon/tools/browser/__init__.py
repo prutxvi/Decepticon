@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Persistent Playwright browser sessions for the Decepticon agent.
 
 Exposes ``browser_action(action, **kwargs)`` — a single multiplex
