@@ -20,3 +20,5 @@ def get_tools(role: str | None = None, **_: object) -> list[ToolProtocol]:
     """Plugin factory called by the framework's tool loader."""
     del role
     return [HelloTool()]
+
+__all__ = []
