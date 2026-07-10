@@ -1,3 +1,4 @@
+from __future__ import annotations
 """ExploitBench-style YAML configs for the Decepticon benchmark runner.
 
 Each file in this directory is a thin port of an upstream
