@@ -1,3 +1,4 @@
+from __future__ import annotations
 """OSS-shipped plugin-shape bundle — vulnresearch family.
 
 Contains the ``vulnresearch`` main agent and its 5 subagents (scanner,
