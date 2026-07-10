@@ -23,3 +23,5 @@ def get_callbacks(role: str | None = None, **_: object) -> list[HelloCallback]:
     """Plugin factory called by the framework's callback loader."""
     del role
     return [HelloCallback()]
+
+__all__ = []
