@@ -17,3 +17,5 @@ def get_agent() -> object:
 
 # LangGraph platform discovers ``graph`` as the module-level attribute.
 graph = None
+
+__all__ = []
