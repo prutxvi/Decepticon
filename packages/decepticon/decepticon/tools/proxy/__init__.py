@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Caido intercepting-proxy integration.
 
 Provides LangChain ``@tool`` wrappers so an agent can capture, view,
