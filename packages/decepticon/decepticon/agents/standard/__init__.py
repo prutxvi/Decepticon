@@ -8,3 +8,5 @@ agent. Each subagent module exposes a ``SUBAGENT_SPEC`` declaring
 ``bundle="standard"`` and ``parent_agents=("decepticon",)`` so the
 plugin loader attaches them when the main agent is constructed.
 """
+
+__all__ = []
