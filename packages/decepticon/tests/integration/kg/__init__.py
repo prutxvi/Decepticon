@@ -8,3 +8,5 @@ package never fails on a stack that does not have Neo4j up.
 """
 
 from __future__ import annotations
+
+__all__ = []
