@@ -28,3 +28,5 @@ if not _os.environ.get("DECEPTICON_SKIP_BOOT"):
 
     _boot.run()
     compat.register_legacy_imports()
+
+__all__ = []
