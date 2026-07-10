@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Unit tests for decepticon.llm.factory."""
 
 import asyncio

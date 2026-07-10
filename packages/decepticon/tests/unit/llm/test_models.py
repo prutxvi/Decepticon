@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Unit tests for decepticon_core.types.llm — tier-based, credentials-aware mapping."""
 
 import pytest
