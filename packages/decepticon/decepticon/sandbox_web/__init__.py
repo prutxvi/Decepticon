@@ -1,3 +1,4 @@
+from __future__ import annotations
 """insane-search engine — generic WAF-profile-based fetch chain.
 
 No site-specific logic lives here. Site specifics belong to runtime hints or
