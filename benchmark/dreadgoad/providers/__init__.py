@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Benchmark provider plug-in surface.
 
 Concrete providers (DreadGOADProvider, etc.) implement
