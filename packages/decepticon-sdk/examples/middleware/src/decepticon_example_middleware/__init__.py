@@ -20,3 +20,5 @@ def get_middleware(role: str | None = None, **_: object) -> list[MiddlewareProto
     """Plugin factory called by the framework's middleware loader."""
     del role
     return [HelloMiddleware()]
+
+__all__ = []
