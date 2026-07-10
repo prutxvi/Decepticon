@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Background job tracker — pure-Python unit tests + start/poll integration."""
 
 from unittest.mock import MagicMock, patch

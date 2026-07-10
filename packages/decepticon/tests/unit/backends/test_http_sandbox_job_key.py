@@ -1,3 +1,4 @@
+from __future__ import annotations
 """test_http_sandbox_job_key module."""
 
 import time as _t

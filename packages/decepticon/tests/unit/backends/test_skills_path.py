@@ -1,3 +1,4 @@
+from __future__ import annotations
 """test_skills_path module."""
 
 import os
