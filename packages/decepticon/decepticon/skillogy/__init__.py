@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Skillogy - skill-as-a-service for Decepticon.
 
 Skillogy externalizes Decepticon's skill catalog out of the agent process
