@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Skill corpus audit + canonical schema enforcement.
 
 Provides the validator CLI used in Phase 0 cleanup. The same modules
