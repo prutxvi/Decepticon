@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Decepticon middleware - custom AgentMiddleware implementations."""
 
 from decepticon.middleware.budget import BudgetEnforcementMiddleware

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Push background-job completion notices into the agent message stream.
 
 When a tmux session's background command finishes, this middleware:
