@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Unit tests for decepticon_core.utils.config"""
 
 from decepticon_core.utils.config import DecepticonConfig, load_config
