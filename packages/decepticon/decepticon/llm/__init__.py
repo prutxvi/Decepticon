@@ -1,3 +1,4 @@
+from __future__ import annotations
 """__init__ module."""
 
 from decepticon.llm.factory import LLMFactory, create_llm
