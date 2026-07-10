@@ -1,3 +1,4 @@
+from __future__ import annotations
 """DreadGOAD benchmark runner.
 
 Drives any LangGraph-registered agent through an Active Directory attack
