@@ -1,3 +1,4 @@
+from __future__ import annotations
 """test_wheel_contents module."""
 
 import glob
