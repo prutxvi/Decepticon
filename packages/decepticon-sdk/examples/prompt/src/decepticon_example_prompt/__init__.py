@@ -12,3 +12,5 @@ def get_contribution() -> PromptContribution:
         mode="append",
         roles=("recon",),
     )
+
+__all__ = []
