@@ -1,3 +1,4 @@
+from __future__ import annotations
 """_benchmark_mode module."""
 
 import os

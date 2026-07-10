@@ -1,3 +1,4 @@
+from __future__ import annotations
 # Standard bundle — decepticon main agent + 16 official subagents + soundwave.
 # Plugins bundle — vulnresearch main agent + its 5 subagents (community-plugin
 # shape demonstrated from inside OSS). See decepticon/agents/plugins/__init__.py.
