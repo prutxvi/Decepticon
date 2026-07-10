@@ -11,3 +11,5 @@ group in ``pyproject.toml``. This makes vulnresearch the canonical
 reference for the community-plugin contract — see
 ``decepticon/plugin_loader.py`` for the loader.
 """
+
+__all__ = []
