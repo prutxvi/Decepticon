@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Decepticon — AI-powered autonomous red team testing framework."""
 
 import os as _os
