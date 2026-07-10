@@ -1,3 +1,4 @@
+from __future__ import annotations
 """bash_output / bash_kill / bash_status tool unit tests."""
 
 import asyncio

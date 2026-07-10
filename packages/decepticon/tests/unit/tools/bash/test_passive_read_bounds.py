@@ -1,3 +1,4 @@
+from __future__ import annotations
 """LRU + TTL bounds on the passive-read stale-poll tracker.
 
 The tracker dict was previously unbounded: one entry per (workspace, session)

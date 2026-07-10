@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Stale-poll guard tests for the bash tool.
 
 The guard injects a [STALE] reminder after `_STALE_PASSIVE_READS` consecutive

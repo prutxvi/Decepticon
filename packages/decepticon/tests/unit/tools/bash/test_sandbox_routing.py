@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Per-engagement sandbox routing — the isolation property that lets one SHARED
 langgraph process serve many engagements, each on its OWN sandbox.
 
