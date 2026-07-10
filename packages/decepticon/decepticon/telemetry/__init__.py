@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Optional OpenTelemetry helpers for Decepticon.
 
 Default off. When ``OTEL_ENABLED`` is set and the ``opentelemetry`` packages
