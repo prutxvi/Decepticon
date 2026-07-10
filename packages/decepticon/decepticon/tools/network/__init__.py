@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Network Reconnaissance Tools for Decepticon.
 
 This module provides network reconnaissance capabilities including:
