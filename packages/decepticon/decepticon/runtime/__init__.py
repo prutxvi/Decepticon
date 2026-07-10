@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Runtime infrastructure for the Decepticon orchestrator process.
 
 Each runtime module (event log, graceful shutdown, recording, CART, ...)
