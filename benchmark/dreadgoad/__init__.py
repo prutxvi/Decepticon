@@ -8,3 +8,5 @@ workspace tarball, cost breakdown), and writes a per-agent grid summary.
 
 See ``benchmark/dreadgoad/README.md`` for the operator guide.
 """
+
+__all__ = []
