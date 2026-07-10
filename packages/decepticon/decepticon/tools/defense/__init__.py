@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Defense tool bundle — push Detector/Patcher output to live blue-team stacks.
 
 The Offensive Vaccine pipeline generates Sigma rules, YARA signatures, and
