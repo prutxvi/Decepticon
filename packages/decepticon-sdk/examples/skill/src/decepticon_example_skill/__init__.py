@@ -12,3 +12,5 @@ def get_skill_sources(role: str | None = None) -> list[str]:
     """Plugin factory called by the framework's skill loader."""
     del role
     return ["/skills/decepticon_example_skill/"]
+
+__all__ = []
