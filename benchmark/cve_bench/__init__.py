@@ -1,3 +1,4 @@
+from __future__ import annotations
 """CVE-Bench harness for Decepticon.
 
 Sibling to the XBOW provider. Sprint scope (S5): harness + offline dry
