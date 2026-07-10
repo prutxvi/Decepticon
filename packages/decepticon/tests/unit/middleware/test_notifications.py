@@ -1,3 +1,4 @@
+from __future__ import annotations
 """SandboxNotificationMiddleware injects <system-reminder> for completed jobs."""
 
 import asyncio

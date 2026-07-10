@@ -1,3 +1,4 @@
+from __future__ import annotations
 """test_command_targets_scope_bypass module."""
 
 from decepticon.middleware._command_targets import extract_targets
