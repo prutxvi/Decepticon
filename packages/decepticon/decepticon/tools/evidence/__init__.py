@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Engagement evidence tools — capture, bundle, and export operational artifacts.
 
 The Decepticon sandbox already captures every tmux session's full stream
