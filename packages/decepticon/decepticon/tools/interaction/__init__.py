@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Operator-interaction tools — agent-driven CLI prompts.
 
 Tools in this package pause graph execution and surface a structured prompt
