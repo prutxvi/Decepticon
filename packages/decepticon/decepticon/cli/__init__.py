@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Decepticon Python CLI surface — invoked as ``python -m decepticon.cli``.
 
 The CLI lives here (rather than in ``clients/launcher/``) for two reasons:
