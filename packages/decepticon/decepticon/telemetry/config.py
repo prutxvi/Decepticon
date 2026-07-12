@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Telemetry consent + configuration resolution.
 
 The PRODUCT default is opt-out: the launcher's onboard wizard asks for consent
