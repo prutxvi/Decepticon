@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """AI-attack-surface classification for recon ingest (ADR-0007).
 
 The ``llm-redteam`` plugin can attack an exposed Ollama / framework
