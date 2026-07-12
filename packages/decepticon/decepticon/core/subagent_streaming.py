@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Sub-agent streaming — live event emission during sub-agent execution.
 
 When the Decepticon orchestrator delegates to a sub-agent via task(),
