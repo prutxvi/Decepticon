@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Defense Brief — the customer-facing detection-coverage deliverable.
 
 Reads the engagement knowledge graph that Blue Cell (``DetectionFired`` /
