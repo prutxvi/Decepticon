@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ELF / PE / Mach-O header identification.
 
 A minimal parser — we only extract the information an agent needs to
