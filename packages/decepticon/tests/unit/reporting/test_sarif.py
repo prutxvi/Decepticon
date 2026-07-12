@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the SARIF v2.1.0 renderer + ``report_sarif`` tool."""
 
 from __future__ import annotations
