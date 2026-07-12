@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression tests for ModelOverrideMiddleware.
 
 The middleware re-binds the agent's LLM to a user-supplied LiteLLM model
