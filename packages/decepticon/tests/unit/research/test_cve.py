@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the CVE/EPSS scoring helpers (offline-only)."""
 
 from __future__ import annotations
