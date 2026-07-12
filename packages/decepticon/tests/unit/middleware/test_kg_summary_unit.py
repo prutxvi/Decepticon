@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for :mod:`kg_internal.summary` — driver-free.
 
 Covers section rendering, section omission when empty, severity
