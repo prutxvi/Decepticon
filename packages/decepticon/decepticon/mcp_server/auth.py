@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bearer-token authentication for the MCP bridge's network transport.
 
 The bridge can launch authorized engagements, so binding the streamable-http
