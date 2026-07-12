@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CART — Continuous Automated Red Teaming.
 
 CART is the loop that turns a one-shot engagement into infrastructure-as-code:
