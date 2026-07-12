@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """LRU + TTL bounds on the passive-read stale-poll tracker.
 
