@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for config/http_client.py.
 
 The module wraps httpx with built-in connect-retry transports so OAuth
