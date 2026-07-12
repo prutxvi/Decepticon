@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LiteLLM custom handler for GitHub Copilot subscription.
 
 Routes requests through the GitHub Copilot chat API using the user's
