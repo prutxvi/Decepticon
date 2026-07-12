@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Introspection-parser + query-generator coverage for
 ``decepticon.tools.web.graphql``.
 
