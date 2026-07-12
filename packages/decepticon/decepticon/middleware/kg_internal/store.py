@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KGStore — engagement-scoped Neo4j wrapper for the KG middleware.
 
 Replaces the broken ``decepticon.tools.research._state.graph_transaction``
