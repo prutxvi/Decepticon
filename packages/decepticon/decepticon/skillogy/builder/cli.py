@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``python -m decepticon.skillogy.builder`` — assemble the full
 graph from seeds + SKILL.md + MITRE STIX and emit ``skills.cypher``.
 
