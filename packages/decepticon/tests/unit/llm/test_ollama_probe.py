@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the container-side Ollama probe at config/ollama_probe.py.
 
 config/ isn't a Python package — load via importlib, same pattern as
