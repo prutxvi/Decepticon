@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KnowledgeGraph findings → SARIF v2.1.0 export.
 
 The inverse of :mod:`decepticon.tools.research.sarif` (which ingests SARIF
