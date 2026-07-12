@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression tests for the StreamingRunnable no-state fallback.
 
 Originally, when ``stream()``/``astream()`` yielded nothing, the wrapper
