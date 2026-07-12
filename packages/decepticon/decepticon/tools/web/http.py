@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """HTTP request/response history with replay + diff.
 
 A Burp-lite for the agent: every outgoing request is recorded to a
