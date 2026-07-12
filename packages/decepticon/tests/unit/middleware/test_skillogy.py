@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.middleware.skillogy`` (Phase 1a, Amendment v0.2.2).
 
 Covers:
