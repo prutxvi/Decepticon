@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Scoped sub-agent task specification.
 
 This module defines the data contract the orchestrator uses to hand a
