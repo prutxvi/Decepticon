@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-cli telemetry`` — inspect and control usage telemetry.
 
 Subcommands:
