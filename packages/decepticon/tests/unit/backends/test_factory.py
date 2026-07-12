@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.backends.factory.build_sandbox_backend``."""
 
 from __future__ import annotations
