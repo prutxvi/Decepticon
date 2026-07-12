@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the blue_cell_scan detection-coverage tool.
 
 Exercises the real BlueCellTap + RuleMatcher against the bundled ruleset and
