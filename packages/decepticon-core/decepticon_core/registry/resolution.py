@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Role resolution snapshot — returned by ``PluginRegistry.introspect_role()``.
 
 Per spec §16.4 #1 the dataclass uses ``frozen=True`` with tuple-typed
