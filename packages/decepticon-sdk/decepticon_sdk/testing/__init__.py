@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Test fakes for hermetic plugin tests.
 
 Each fake satisfies the corresponding ``decepticon_core.protocols``
