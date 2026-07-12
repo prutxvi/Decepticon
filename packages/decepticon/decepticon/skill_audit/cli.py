@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Command-line entry: scan a skill corpus, print a report, exit 0/1.
 
 Two modes:
