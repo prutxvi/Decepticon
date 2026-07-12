@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Rebuild the PostHog dashboard into a purpose-aligned view:
    *How OSS users use the Decepticon red-team harness, and what tactics they run.*
 
