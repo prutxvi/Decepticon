@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Agent system prompt assembly pipeline.
 
 Structured prompt composition with:
