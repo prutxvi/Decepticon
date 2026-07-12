@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """No-Site-Name Rule checker.
 
 Run in CI / pre-commit. Scans engine/** for hard-coded site names or
