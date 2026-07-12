@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``strip_terminal_noise`` — the pipe-pane session-log sanitizer.
 
 ``read_session_log_diff`` (the ``bash_output`` backing) returns the raw
