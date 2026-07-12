@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Active Directory GPO abuse path analysis.
 
 Analyzes BloodHound data for GPO-based attack paths:
