@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Caido proxy LangChain tool wrappers.
 
 Each ``@tool`` shell-invokes the Caido CLI (configurable via the
