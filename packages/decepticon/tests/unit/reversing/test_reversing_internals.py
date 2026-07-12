@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Extended characterization tests for reversing sub-modules.
 
 Covers behaviour NOT already exercised by test_binary_strings_packer.py:
