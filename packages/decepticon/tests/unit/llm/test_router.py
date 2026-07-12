@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Unit tests for decepticon.llm.router — thin wrapper over LLMModelMapping."""
 
