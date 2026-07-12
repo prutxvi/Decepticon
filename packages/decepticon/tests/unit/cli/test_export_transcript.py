@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon-cli export-transcript``."""
 
 from __future__ import annotations
