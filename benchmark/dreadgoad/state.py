@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Persistent benchmark-grid state for crash resilience.
 
 A grid run can be interrupted (Ctrl+C, network glitch, AWS quota
