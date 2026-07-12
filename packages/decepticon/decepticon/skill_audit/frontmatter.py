@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SKILL.md YAML frontmatter parsing.
 
 The corpus uses a leading ``---`` delimited YAML block followed by the
