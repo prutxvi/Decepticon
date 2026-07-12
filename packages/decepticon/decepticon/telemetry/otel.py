@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """OpenTelemetry trace helpers (opt-in, no-op when disabled).
 
 Every public helper degrades gracefully through two failure modes:
