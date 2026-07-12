@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KGStore-mock-based tests for ``tools.ad.adcs_post``.
 
 The synthesis runs as raw Cypher inside ``KGStore.execute_write``, so
