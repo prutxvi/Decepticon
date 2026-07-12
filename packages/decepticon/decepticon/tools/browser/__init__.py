@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Persistent Playwright browser sessions for the Decepticon agent.
 
