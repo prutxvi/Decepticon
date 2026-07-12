@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SkillogyMiddleware — Phase 1a Brain Anatomy thin wrapper around the
 skillogy service (Neo4j-backed). Replaces the file-system-backed
 SkillsMiddleware in agents wired with ``DECEPTICON_SKILL_BACKEND=
