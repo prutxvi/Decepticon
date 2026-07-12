@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the browser-tier fallback executor (local node Playwright).
 
 The in-sandbox executor shells the node real-Chrome templates; there is no
