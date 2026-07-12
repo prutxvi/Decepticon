@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Neo4j-backed storage for the skillogy service.
 
 Replaces the in-memory ``SkillRegistry`` (deleted in Amendment v0.2.2
