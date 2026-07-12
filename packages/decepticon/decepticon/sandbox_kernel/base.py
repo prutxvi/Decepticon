@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Shared sandbox implementation — used by both DockerSandbox
 (agent-side, ``docker exec`` transport) and LocalSandbox (sandbox-side,
 direct subprocess inside the daemon container).
