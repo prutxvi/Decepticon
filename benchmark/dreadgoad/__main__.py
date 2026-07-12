@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CLI entry-point for the DreadGOAD benchmark runner.
 
 Subcommands:
