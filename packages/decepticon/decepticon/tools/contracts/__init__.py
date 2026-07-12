@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Smart contract audit package.
 
 Offline pattern scanner + Slither JSON ingestion + Foundry harness
