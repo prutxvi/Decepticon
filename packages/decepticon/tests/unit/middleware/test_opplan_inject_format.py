@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_opplan_inject_format module."""
 
 from __future__ import annotations
