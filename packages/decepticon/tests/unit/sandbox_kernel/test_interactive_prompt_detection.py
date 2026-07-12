@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``_looks_like_interactive_prompt``.
 
 Stall detection in :mod:`decepticon.sandbox_kernel.tmux` used to label any
