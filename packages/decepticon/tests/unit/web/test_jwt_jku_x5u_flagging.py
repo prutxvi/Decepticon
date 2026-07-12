@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_jwt_jku_x5u_flagging module."""
 
 from __future__ import annotations
