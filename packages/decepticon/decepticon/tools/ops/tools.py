@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain ``@tool`` wrappers for the opscontrol daemon.
 
 These are scoped to the orchestrator (``decepticon`` agent) per
