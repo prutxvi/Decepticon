@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Standalone LiteLLM custom handler for Claude Code OAuth authentication.
 
 Supports all Anthropic subscription tiers:
