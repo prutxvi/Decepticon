@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Agent system prompt assembly pipeline.
 
 Re-export shim. The implementation lives in two sibling modules:
