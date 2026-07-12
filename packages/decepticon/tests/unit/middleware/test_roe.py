@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the RoE guardrail middleware + machine-readable schema."""
 
 from __future__ import annotations
