@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the boot-time embedding backfill (ADR-0011).
 
 Exercises the orchestration in ``embed_ingest.ingest_embeddings`` against a
