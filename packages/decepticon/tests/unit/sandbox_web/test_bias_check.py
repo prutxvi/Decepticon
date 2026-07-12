@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the No-Site-Name bias checker — and the gate itself.
 
 ``test_engine_tree_is_clean`` is the live CI gate: it asserts the shipped
