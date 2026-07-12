@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the engine CLI (scope_check wiring, fetch/search envelopes)."""
 
 from __future__ import annotations
