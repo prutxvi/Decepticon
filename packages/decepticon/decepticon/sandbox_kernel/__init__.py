@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Shared sandbox kernel — utilities used by the agent-side HTTP client
 and the in-container HTTP daemon.
