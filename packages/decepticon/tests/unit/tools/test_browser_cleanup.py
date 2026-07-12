@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for bounded, logged cleanup in ``decepticon.tools.browser.tools``."""
 
 from __future__ import annotations
