@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.telemetry.redact — the identifier masking engine.
 
 Safety-critical: the whole research corpus depends on these never leaking a real
