@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for binary identification, strings, packer, ROP, symbols."""
 
 from __future__ import annotations
