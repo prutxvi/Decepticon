@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """web_search provider allowlist + result parsing.
 
 ``web_search`` is OSINT: it queries an **allowlisted** search provider (not an
