@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Convert the YAML seeds (Phase, AssetType, MoC) into graph records.
 
 Kept separate from ``seeds.py`` (which only parses YAML) so the loader
