@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_auth_branches module."""
 
 from __future__ import annotations
