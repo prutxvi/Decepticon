@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """JWT (RFC 7519) parse, forge, and crack helpers.
 
 This is a *research* toolkit, not a production JWT library: correctness
