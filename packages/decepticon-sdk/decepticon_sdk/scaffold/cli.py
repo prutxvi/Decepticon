@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-sdk plugin new`` — typer-based scaffold CLI.
 
 Generates a buildable plugin package for one of the six supported
