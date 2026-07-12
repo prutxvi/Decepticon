@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """PoC validator + CVSS estimator.
 
 Takes a PoC script (bash, python, curl invocation, http request text) and
