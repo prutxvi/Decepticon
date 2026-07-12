@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Consecutive-failure terminal guard for ``StreamingRunnable``.
 
 Returning a generic per-failure error state (instead of re-raising) is
