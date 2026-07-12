@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Middleware slot registry — the plugin-override foundation.
 
 Every Decepticon agent factory composes its middleware stack from a
