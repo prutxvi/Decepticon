@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Recon Agent — autonomous reconnaissance and intelligence gathering.
 
 Specialist (non-orchestrator) bash-using agent. Standard middleware
