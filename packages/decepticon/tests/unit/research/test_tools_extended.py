@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Extended unit tests for tools/research/tools.py — pure helpers, parsers,
 Tier-2 ingesters, KG CRUD tools, and error-path coverage.
 
