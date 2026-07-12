@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Classified string extraction from a binary blob.
 
 ``strings(1)``-equivalent plus category tagging. Every string is
