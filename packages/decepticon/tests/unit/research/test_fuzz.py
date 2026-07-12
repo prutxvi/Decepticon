@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for fuzzing orchestration helpers."""
 
 from __future__ import annotations
