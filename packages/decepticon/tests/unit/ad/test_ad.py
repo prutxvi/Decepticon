@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for AD package: Kerberos classification, ADCS, DCSync.
 
 BloodHound ingest tests previously sat here and in
