@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Adapter — read engagement-scoped KG data from the new KGStore and
 build an in-memory :class:`KnowledgeGraph` for the reporting renderers.
 
