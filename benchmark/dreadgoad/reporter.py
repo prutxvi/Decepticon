@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Benchmark output layout.
 
 Output layout::
