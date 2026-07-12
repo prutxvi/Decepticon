@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cloud metadata endpoint catalogue.
 
 One place listing every metadata endpoint worth hitting when an SSRF
