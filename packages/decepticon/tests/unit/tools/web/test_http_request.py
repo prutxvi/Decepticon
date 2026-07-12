@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression: ``http_request`` must work inside a running event loop.
 
 The tool previously drove its async HTTP session via
