@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """BloodHound 5.x JSON → KGStore observations (engagement-scoped).
 
 SharpHound / AzureHound / BloodHound.py emit one JSON file per object
