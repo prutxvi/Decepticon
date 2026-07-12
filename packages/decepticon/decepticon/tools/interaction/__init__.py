@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Operator-interaction tools — agent-driven CLI prompts.
 
