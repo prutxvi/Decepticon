@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Vulnresearch Orchestrator — five-stage modular vulnerability pipeline.
 
 Mirrors :mod:`decepticon.agents.decepticon` (the red-team orchestrator)
