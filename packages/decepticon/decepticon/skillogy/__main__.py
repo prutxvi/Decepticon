@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``python -m decepticon.skillogy`` — run the Skillogy server.
 
 Phase 1a (Amendment v0.2.2) boot sequence:
