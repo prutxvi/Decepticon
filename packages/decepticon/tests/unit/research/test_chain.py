@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for attack-chain construction — chain.py.
 
 All Neo4j / store calls are mocked via monkeypatch. No external services needed.
