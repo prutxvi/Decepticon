@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Curated catalogue of third-party security knowledge repositories.
 
 The catalogue is intentionally small and high-signal — every entry
