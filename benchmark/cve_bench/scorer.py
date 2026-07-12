@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CVE-Bench scorer.
 
 Applies the 8 win conditions from
