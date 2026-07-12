@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Agent-facing KG tools — ``kg_record`` and ``kg_ingest``.
 
 Built by :func:`build_kg_tools` and attached to ``KGMiddleware.tools``
