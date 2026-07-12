@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Comprehensive tests for decepticon.tools.references.fetch.
 
 Covers: _default_cache_root, ReferenceCache.to_dict, _entry, _dir_size,
