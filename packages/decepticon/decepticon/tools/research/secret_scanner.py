@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Live secret scanner for client-side JavaScript.
 
 Front-end bundles routinely leak long-lived credentials — API keys,
