@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for Neo4j-only research state management."""
 
 from __future__ import annotations
