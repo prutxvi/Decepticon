@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Broad-spectrum scanner tools — Stage 1 of the vulnresearch pipeline.
 
 Scale target: 10^5–10^6 files. The scanner must stay cheap — no LLM
