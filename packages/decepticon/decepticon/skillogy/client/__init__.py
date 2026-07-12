@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Skillogy REST client (Phase 1a, Amendment v0.2.2)."""
 
