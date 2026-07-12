@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tool protocol — matches the langchain ``@tool``-decorated callable shape.
 
 Plugin authors ship tools either as langchain ``@tool`` callables or
