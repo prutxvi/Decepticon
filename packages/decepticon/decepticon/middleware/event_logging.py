@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """EventLogMiddleware — persist engagement events to ``events.jsonl`` live.
 
 ``decepticon.runtime.event_log.EventLog`` is the append-only writer for an
