@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.agents.task_spec`` — scoped sub-agent handoff."""
 
 from __future__ import annotations
