@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the skillogy embedding helper (ADR-0011).
 
 The helper underpins hybrid retrieval but must degrade silently: with no
