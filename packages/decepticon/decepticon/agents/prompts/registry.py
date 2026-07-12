@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Language / locale registry and operator-language policy.
 
 Holds the country-code → ISO 639-1 alias map, the ISO 639-1 → language-name
