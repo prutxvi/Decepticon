@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Network-isolation invariants for ``docker-compose.yml``.
 
 These assertions encode the structural security boundaries that no
