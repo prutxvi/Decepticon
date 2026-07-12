@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Container-side Ollama reachability + tool-capability probe.
 
 Two checks: ``GET /api/tags`` for reachability (with diagnostics for
