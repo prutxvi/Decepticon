@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.mcp_server.auth — the bearer gate on the HTTP transport."""
 
 from __future__ import annotations
