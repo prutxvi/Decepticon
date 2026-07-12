@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Smoke tests for the new Tier-1 @tool wrappers in references/tools.py.
 
 We invoke each @tool through its ``.invoke`` hook (LangChain tool
