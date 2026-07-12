@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the ``ops_start`` / ``ops_stop`` / ``ops_status`` tools.
 
 We monkeypatch :class:`OpsControlClient` so the tool layer can be
