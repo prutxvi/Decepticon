@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Characterization tests for ``sandbox_kernel.tmux``.
 
 These tests pin the *current* observable behavior of the pure parsing
