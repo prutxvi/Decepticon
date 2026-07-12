@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Reference repository fetcher + local search.
 
 Clones (or pulls) any of the catalogued repositories into the per-user
