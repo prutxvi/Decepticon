@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LiteLLM custom handler for xAI SuperGrok subscription.
 
 Routes requests through Grok's API using X Premium+ / SuperGrok
