@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Layer-2 RoE egress guardrail — compile scope rules into a network boundary.
 
 The parser-side :class:`~decepticon.middleware.roe.RoEGuardrailMiddleware`
