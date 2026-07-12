@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_offload_bracket_prefix module."""
 
 from __future__ import annotations
