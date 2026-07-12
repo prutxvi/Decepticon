@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cypher migrations for the KG schema.
 
 Each migration is a ``V###__description.cypher`` file. Applied in
