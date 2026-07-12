@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_reversing_robustness module."""
 
 from __future__ import annotations
