@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """OsintOperator Agent - passive OSINT / recon-intelligence lane.
 
 OSINT skills already exist in the repo at
