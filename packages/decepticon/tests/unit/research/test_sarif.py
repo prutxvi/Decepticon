@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for SARIF → KnowledgeGraph ingestion."""
 
 from __future__ import annotations
