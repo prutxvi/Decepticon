@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Skillogy graph builder — CI-time compiler that turns SKILL.md +
 seeds + MITRE STIX into ``skills/.graph/skills.cypher``.
