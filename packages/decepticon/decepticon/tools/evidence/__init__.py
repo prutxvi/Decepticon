@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Engagement evidence tools — capture, bundle, and export operational artifacts.
 
