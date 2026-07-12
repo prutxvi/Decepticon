@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Extended unit tests for cve.py — Cache, rehydrate, async lookups.
 
 All network calls are mocked. Tests run offline.
