@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Defense-in-depth APOC safety check for Cypher strings.
 
 The primary security boundary is the Neo4j server's own procedure
