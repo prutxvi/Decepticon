@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Prompt fragments contributed to one or more roles."""
 
 from __future__ import annotations
