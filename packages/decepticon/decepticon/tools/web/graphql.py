@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """GraphQL introspection + query auto-generation.
 
 Pure-Python — no ``graphql-core`` dependency. We hand-parse the
