@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Patcher Agent — Stage 4 of the vulnresearch pipeline.
 
 The Patcher generates minimal diffs for validated findings and proves
