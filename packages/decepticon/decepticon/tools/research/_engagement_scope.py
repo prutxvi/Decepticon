@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Research-package re-export of engagement scope helpers.
 
 The contextvar and validator moved to
