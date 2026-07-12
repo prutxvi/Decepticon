@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain @tool wrappers for the binary reversing package."""
 
 from __future__ import annotations
