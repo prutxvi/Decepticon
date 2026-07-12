@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Skill loading tools for Decepticon agents."""
 
 from __future__ import annotations
