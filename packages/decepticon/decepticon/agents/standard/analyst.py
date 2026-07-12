@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Analyst Agent — vulnerability research specialist.
 
 The Analyst is Decepticon's high-value discovery lane: source code review,
