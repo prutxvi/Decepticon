@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the runtime plugin-bundle activation API.
 
 ``decepticon/server/plugins_api.py`` is mounted into the LangGraph
