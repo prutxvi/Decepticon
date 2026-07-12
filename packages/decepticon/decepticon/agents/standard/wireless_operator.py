@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """WirelessOperator Agent - Wi-Fi / BLE / Zigbee / sub-GHz lane.
 
 Wireless attacks require real hardware (monitor-mode-capable Wi-Fi
