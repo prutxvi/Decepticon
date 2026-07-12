@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Middleware protocol — matches the langchain agent middleware shape.
 
 Plugin authors implementing custom middleware conform to this Protocol
