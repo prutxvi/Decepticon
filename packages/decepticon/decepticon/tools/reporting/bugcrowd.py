@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bugcrowd CSV submission writer.
 
 Bugcrowd accepts bulk finding imports as CSV with columns:
