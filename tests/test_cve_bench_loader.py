@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Loader tests — deterministic, no network, no docker."""
 
 from __future__ import annotations
