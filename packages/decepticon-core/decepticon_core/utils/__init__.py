@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Utility modules for the Decepticon contract layer.
 
 Pure stdlib + pydantic helpers — config loaders, logging setup. Imported
