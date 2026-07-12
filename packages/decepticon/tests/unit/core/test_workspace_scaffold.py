@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Workspace scaffold behavior for engagement document saves."""
 
 from __future__ import annotations
