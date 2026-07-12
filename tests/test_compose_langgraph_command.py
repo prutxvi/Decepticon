@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Verify docker-compose.yml's langgraph command honors LANGGRAPH_STRICT_ASYNC.
 
 Renders the compose file via ``docker compose config`` with and without
