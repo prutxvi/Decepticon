@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for MITRE ID format validation."""
 
 from __future__ import annotations
