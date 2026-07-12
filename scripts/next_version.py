@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Compute the next semantic version from conventional-commit messages.
 
 Consumed by ``.github/workflows/auto-tag.yml`` to decide whether a merge to
