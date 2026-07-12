@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Ghidra headless and radare2 script generators.
 
 The agent picks a recon template, drops it to disk inside the sandbox,
