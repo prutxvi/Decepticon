@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.tools.skills`` — skill loader tool and its helpers."""
 
 from __future__ import annotations
