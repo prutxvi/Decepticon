@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Sandbox tmux-session env passthrough — proxy + DECEPTICON_* allowlist.
 
 The bash tool routes commands through tmux shells managed by
