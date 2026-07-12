@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Phase 0 — official public-API router (the SANCTIONED exception to No-Site-Name).
 
 Per SKILL.md R5, platforms that publish official no-auth public endpoints get a
