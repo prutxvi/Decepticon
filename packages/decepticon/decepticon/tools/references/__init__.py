@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """External knowledge reference integration.
 
 Cataloges curated third-party security research resources the agents
