@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Custom callback handler contributed to Decepticon."""
 
 from __future__ import annotations
