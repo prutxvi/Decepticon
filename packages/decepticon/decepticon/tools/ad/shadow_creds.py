@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Shadow Credentials (msDS-KeyCredentialLink) attack path analysis.
 
 Detects principals that can write msDS-KeyCredentialLink on target
