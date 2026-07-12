@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Extract target hosts/IPs from common red-team commands.
 
 Purpose: feed the RoE evaluator. Given a shell command issued via the
