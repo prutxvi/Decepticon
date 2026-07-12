@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """YARA → Microsoft Defender XDR + CrowdStrike Falcon custom-detection push.
 
 Microsoft Defender XDR exposes "Custom Detection Rules" via Graph Security
