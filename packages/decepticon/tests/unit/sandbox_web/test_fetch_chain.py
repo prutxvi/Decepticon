@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the fetch chain — grid logic + the Decepticon RoE per-hop
 scope gate.
 
