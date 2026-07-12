@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """MITRE ATT&CK Enterprise STIX importer.
 
 Phase 1a only loads Enterprise v19.1. The importer accepts a local
