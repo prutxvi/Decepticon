@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Heuristic prompt-injection detector for tool output.
 
 Catches the obvious LLM-jailbreak payload classes that ride on
