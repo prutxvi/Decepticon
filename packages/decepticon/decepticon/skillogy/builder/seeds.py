@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Typed loader for the seed YAML in ``builder/seeds/``.
 
 Each top-level seed (Phase, AssetType, MoC) is exposed as a frozen
