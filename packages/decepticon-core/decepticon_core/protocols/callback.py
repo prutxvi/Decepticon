@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Callback protocol — matches the langchain ``BaseCallbackHandler`` shape.
 
 Plugin-shipped callback handlers register via the ``decepticon.callbacks``
