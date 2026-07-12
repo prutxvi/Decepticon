@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CLI entrypoint for the open-web engine — invoked INSIDE the sandbox.
 
 The agent tools (``web_search`` / ``web_fetch``) dispatch this over the bash
