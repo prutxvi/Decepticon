@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Finding export + report generation.
 
 - ``hackerone``   — HackerOne markdown template renderer
