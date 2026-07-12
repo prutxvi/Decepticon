@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Drive Decepticon engagements through the LangGraph SDK.
 
 A thin async bridge: MCP tool calls are translated into LangGraph runs
