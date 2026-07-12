@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Agent-facing lifecycle tools for ADR-0006's opscontrol daemon.
 
 The orchestrator calls :func:`ops_start` / :func:`ops_stop` /
