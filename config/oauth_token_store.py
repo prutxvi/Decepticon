@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Shared OAuth token store helpers for LiteLLM custom handlers.
 
 Mounted into the LiteLLM container alongside the per-provider handler
