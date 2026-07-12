@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Stability snapshot — every public ``decepticon-sdk`` name imports.
 
 Spec §6.3 lists the SDK single-import surface that plugin authors
