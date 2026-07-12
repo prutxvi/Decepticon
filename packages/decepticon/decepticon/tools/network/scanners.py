@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Network Scanning Tools.
 
 Provides network scanning capabilities using various techniques:
