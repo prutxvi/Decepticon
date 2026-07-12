@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Filesystem tool-surface helpers for Decepticon middleware."""
 
 from __future__ import annotations
