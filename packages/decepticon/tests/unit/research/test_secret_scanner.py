@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the live JavaScript secret scanner.
 
 All network egress is mocked: probes route through an
