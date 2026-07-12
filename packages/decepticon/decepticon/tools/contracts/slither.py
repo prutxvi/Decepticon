@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Slither ``--json`` → KGStore observations (engagement-scoped).
 
 Slither (https://github.com/crytic/slither) is the de-facto Solidity
