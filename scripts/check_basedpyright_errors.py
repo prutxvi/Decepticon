@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Parse a basedpyright JSON report and fail iff there are error-level diagnostics.
 
 Warnings and information are reported as a count but do not fail the gate —
