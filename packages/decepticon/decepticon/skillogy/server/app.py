@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """FastAPI REST app for Skillogy — Phase 1a, Neo4j-backed.
 
 REST endpoints (graph-backed; the legacy in-memory dict registry is gone):
