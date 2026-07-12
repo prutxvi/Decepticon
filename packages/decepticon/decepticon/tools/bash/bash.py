@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bash tool for the Decepticon agent.
 
 Thin wrapper around HTTPSandbox.execute_tmux(). All tmux session
