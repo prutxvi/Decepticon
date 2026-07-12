@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Compat shim — content moved to ``decepticon_core.types.engagement``.
 
 Phase 1 of the core/framework/sdk split relocated pure-pydantic types
