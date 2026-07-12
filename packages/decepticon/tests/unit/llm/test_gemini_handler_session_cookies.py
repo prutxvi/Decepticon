@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_gemini_handler_session_cookies module."""
 
 from __future__ import annotations
