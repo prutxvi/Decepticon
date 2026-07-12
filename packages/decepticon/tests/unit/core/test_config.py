@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Unit tests for decepticon_core.utils.config"""
 
