@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin override + safety-gate tests for the agent-assembly pipeline.
 
 These pin the contract the 16 agent factories rely on:
