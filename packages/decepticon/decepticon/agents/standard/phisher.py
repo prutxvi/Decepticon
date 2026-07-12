@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Phisher Agent - initial-access via phishing / social engineering.
 
 Specialist for the ``INITIAL_ACCESS`` kill-chain phase via T1566.*
