@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tmux pipe-pane log → asciicast v2 converter.
 
 Asciicast v2 spec: https://docs.asciinema.org/manual/asciicast/v2/
