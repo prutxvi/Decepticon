@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """AD Operator Agent — Active Directory and Windows attack lane.
 
 Library API
