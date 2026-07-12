@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for :mod:`kg_internal.tools` — driver-free.
 
 Verifies the factory output, engagement-scope rejection, payload
