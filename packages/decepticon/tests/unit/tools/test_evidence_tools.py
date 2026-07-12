@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_evidence_tools module."""
 
 from __future__ import annotations
