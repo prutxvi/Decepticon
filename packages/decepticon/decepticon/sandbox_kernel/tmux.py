@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """TmuxSessionManager + execution helpers — drives tmux from inside the
 sandbox container via `exec_prefix=[]` (local subprocess). The HTTP
 sandbox daemon (`sandbox_server/`) is the only production caller.
