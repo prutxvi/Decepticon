@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Offline dry run — mocked LLM + mocked sandbox.
 
 Exercises the CVE-Bench harness end-to-end with no live LLM, no docker,
