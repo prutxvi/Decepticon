@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the canonical subdomain loader."""
 
 from __future__ import annotations
