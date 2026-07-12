@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """UntrustedOutputMiddleware - structural quarantine for tool output.
 
 Every tool that returns attacker-influenceable bytes (bash stdout, file
