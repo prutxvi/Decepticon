@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SkillsMiddleware — red-team-aware skill system.
 
 Subclasses the Deep Agents SkillsMiddleware to provide:
