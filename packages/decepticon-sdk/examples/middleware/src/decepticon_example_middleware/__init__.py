@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Custom middleware contributed to Decepticon."""
 
 from __future__ import annotations
