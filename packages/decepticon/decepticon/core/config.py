@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Compat shim — content moved to ``decepticon_core.utils.config``.
 
 See ``decepticon.core.schemas`` for the rationale and the PEP 562
