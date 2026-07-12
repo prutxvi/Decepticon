@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Packer / obfuscation detection via entropy + signature matching.
 
 High entropy (>7.0 bits/byte) across the whole binary is a strong
