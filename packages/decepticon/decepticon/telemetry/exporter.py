@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Batch exporter — queue Tier-A events and ship them to the gateway.
 
 Design constraints:
