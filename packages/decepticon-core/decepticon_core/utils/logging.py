@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Decepticon logging — stdlib wrapper with optional structured JSON output.
 
 Use plain text logs for local dev, JSON for production / containers / CI.
