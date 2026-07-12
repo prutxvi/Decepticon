@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Per-host curl_cffi Session pool + root warmup + browser→curl cookie bridge.
 
 Why (multi-AI review 2026-06-21):
