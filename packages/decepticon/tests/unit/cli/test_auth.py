@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for headless auth introspection: factory.auth_inventory + the CLI."""
 
 from __future__ import annotations
