@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Extended unit tests for bounty.py — scope check and report generation.
 
 Mocks KG _load/_save via monkeypatch so no Neo4j or Docker is needed.
