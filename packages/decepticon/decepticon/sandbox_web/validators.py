@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Generic challenge / success validator (v2).
 
 Layers (all generic, never site-specific):
