@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KGMiddleware — owner of the Neo4j-backed attack graph for an agent run.
 
 Mirrors :class:`OPPLANMiddleware` (decepticon/middleware/opplan.py): state
