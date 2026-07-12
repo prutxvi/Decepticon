@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SARIF → KnowledgeGraph ingestion.
 
 SARIF (Static Analysis Results Interchange Format — OASIS standard) is the
