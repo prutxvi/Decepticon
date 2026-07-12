@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Active Directory / Windows offensive tooling.
 
 - ``bloodhound`` — import BloodHound JSON dumps into the KnowledgeGraph
