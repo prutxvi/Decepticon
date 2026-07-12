@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for OPPLAN backend persistence, structured JSON, cycle guards, and the
 strict-sequential ``after_model`` rule.
 
