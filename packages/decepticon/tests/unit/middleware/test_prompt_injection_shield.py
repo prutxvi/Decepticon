@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.middleware.prompt_injection_shield."""
 
 from __future__ import annotations
