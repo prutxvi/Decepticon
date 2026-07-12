@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin discovery for Decepticon.
 
 Decepticon supports adding tools, middleware, agents, and callback handlers
