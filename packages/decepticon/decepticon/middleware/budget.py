@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """BudgetEnforcementMiddleware — per-engagement and per-agent USD spend caps.
 
 Decepticon engagements can spin for hours with multiple specialist sub-agents
