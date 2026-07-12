@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Detection rule matcher for the Blue Cell agent.
 
 Minimal viable Sigma-flavored rule engine. Accepts:
