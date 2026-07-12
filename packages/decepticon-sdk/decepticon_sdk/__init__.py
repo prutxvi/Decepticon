@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """decepticon-sdk — plugin author entrypoint for the Decepticon framework.
 
 A complete Decepticon plugin can be written importing only from this
