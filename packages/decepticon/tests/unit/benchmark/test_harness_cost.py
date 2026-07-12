@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for Harness._query_cost — /spend/logs summation.
 
 Kept in a separate file from test_harness.py so it doesn't inherit the
