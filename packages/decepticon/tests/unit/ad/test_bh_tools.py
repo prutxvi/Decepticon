@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the BHCE-backed ``bhce_*`` LangChain tool surface.
 
 The tools wrap :mod:`decepticon.tools.ad.bhce_client`; here we stub the
