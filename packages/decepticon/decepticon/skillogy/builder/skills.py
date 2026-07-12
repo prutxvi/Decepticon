@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SKILL.md → :Skill nodes + explicit edges.
 
 Reuses ``decepticon.skill_audit.frontmatter`` for parsing and
