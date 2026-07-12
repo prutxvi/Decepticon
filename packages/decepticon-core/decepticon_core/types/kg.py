@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KnowledgeGraph — Neo4j-native attack graph.
 
 Models the full attack surface as a directed graph with typed nodes and
