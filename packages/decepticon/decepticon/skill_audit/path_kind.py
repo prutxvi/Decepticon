@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Path-based inference of whether a SKILL.md describes an offensive skill.
 
 Replaces the v0.1 spec's ``metadata.kind`` check. The frontmatter field
