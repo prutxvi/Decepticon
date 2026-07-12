@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Embedding helper for skillogy hybrid retrieval (ADR-0011).
 
 Used by BOTH boot-ingest (embed each ``:Skill`` once into Neo4j) and query-time
