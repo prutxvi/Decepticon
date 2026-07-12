@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """IotOperator Agent - IoT / embedded-device attack lane.
 
 IoT skills already exist in the repo at
