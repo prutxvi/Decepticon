@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Integration tests — require live infrastructure.
 
 Tests in this tree (compose Neo4j, langgraph, sandbox, etc.) skip
