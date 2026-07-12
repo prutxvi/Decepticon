@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """xbow module."""
 
 from __future__ import annotations
