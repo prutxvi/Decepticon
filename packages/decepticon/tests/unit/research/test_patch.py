@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the patch generation + verification module."""
 
 from __future__ import annotations
