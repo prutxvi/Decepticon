@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Inline templates for the ``decepticon-sdk plugin new`` scaffolder.
 
 Each plugin ``kind`` maps to a ``ScaffoldTemplate`` that knows the
