@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Machine-readable Rules of Engagement schema.
 
 The human-readable RoE (``roe.json:in_scope``, ``out_of_scope``,
