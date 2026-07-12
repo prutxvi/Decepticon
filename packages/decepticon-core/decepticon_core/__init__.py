@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """decepticon-core — contract layer for the Decepticon agent framework.
 
 Pure types, protocols, plugin contracts, and registry primitives. This
