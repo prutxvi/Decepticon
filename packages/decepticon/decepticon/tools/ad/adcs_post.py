@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ADCS post-process — BHCE-server-equivalent edge synthesis.
 
 BloodHound CE's server walks the ingested raw graph and synthesises
