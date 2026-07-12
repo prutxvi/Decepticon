@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """OAuth 2.0 / OIDC flow auditor.
 
 Checks a callback URL (the one the authorization server redirects to)
