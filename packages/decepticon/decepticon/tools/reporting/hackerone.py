@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """HackerOne-style markdown report renderer.
 
 Produces a single-file markdown document following the H1 convention:
