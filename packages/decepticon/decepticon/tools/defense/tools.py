@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain ``@tool`` wrappers for the defense exporter bundle.
 
 Each tool follows the Decepticon convention: returns a JSON string so the
