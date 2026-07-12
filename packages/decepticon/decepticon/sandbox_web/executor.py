@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Capability-matched executor for fallback attempts.
 
 The fetch_chain's probe/grid phase uses curl_cffi directly. When curl can't
