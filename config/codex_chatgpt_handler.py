@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LiteLLM custom handler for Codex / ChatGPT OAuth authentication.
 
 Uses the Codex CLI credential store as the source of truth:
