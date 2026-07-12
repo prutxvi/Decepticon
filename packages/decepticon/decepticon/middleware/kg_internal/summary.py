@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KG summary block builder for system-prompt injection.
 
 ``KGMiddleware`` calls :func:`build_summary` in ``before_agent`` (or
