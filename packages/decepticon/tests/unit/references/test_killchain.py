@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the kill-chain phase → tool mapper."""
 
 from __future__ import annotations
