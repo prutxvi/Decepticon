@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CVE → public PoC link index.
 
 Reads the cached ``trickest/cve`` repo (per-CVE markdown files grouped
