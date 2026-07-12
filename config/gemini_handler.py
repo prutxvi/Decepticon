@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LiteLLM custom handler for Google Gemini Advanced subscription.
 
 Routes requests through Gemini's web backend using OAuth2 bearer tokens from
