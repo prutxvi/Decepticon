@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Focused contribution dataclasses for plugin authors.
 
 Per spec §7.2 Principle 3, the kitchen-sink ``PluginBundle`` of the
