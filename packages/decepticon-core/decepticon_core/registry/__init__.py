@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Registry primitives — pluggable role / skill / plugin catalogs.
 
 Submodules:
