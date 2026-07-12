@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain ``@tool`` surface for the real BHCE v9.2.2 backend.
 
 These are the *new* AD attack-graph tools per ADR-0005, replacing the
