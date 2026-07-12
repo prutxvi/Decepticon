@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.telemetry.sanitizer — mapping + Tier-C no-leak gate."""
 
 from __future__ import annotations
