@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for OAuth analyser + cookie session helpers."""
 
 from __future__ import annotations
