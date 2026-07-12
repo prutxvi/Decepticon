@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Reverser Agent — binary analysis, firmware triage, exploit dev.
 
 Specialises in taking an opaque binary (ELF, PE, Mach-O, firmware
