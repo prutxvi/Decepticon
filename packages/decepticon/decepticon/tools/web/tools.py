@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain @tool wrappers for the web exploitation suite."""
 
 from __future__ import annotations
