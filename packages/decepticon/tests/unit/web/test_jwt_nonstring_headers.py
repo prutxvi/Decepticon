@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_jwt_nonstring_headers module."""
 
 from __future__ import annotations
