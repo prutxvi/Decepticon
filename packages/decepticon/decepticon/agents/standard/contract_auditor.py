@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Contract Auditor Agent — Solidity / EVM smart contract audit.
 
 Walks a Foundry / Hardhat repo, runs the offline pattern scanner,
