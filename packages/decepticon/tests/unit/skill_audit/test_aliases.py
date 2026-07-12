@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for subdomain alias resolution."""
 
 from __future__ import annotations
