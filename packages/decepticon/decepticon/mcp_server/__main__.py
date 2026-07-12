@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-mcp`` / ``python -m decepticon.mcp_server`` entrypoint.
 
 The MCP SDK is an optional dependency, so the import of the server module is
