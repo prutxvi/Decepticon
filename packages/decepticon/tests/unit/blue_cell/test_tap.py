@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.blue_cell.tap — pure transforms and BlueCellTap batch reads.
 
 All filesystem IO uses tmp_path. No network, no docker, no credentials required.
