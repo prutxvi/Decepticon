@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ProxyKeyOverrideMiddleware.
 
 The middleware re-binds the agent's LLM to a per-run LiteLLM virtual key
