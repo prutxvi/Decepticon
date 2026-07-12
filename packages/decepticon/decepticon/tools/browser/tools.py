@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``browser_action`` — single multiplex tool for persistent Playwright.
 
 Sub-actions: ``launch``, ``goto``, ``click``, ``type``, ``scroll``,
