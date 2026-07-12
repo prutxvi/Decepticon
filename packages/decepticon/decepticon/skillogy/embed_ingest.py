@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Boot-time embedding backfill for skillogy hybrid retrieval (ADR-0011).
 
 Runs once per container boot, AFTER the ``skills.cypher`` dump has been loaded
