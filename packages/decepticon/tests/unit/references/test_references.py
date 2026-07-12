@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the references package: catalog, payloads, fetch, tools."""
 
 from __future__ import annotations
