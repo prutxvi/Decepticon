@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Extended tests for decepticon.tools.defense — push functions, edge cases.
 
 Coverage additions on top of test_defense.py (which handles the basic converter
