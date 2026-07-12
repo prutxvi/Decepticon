@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Startup orphan-reap for tmux sessions left by a previously-killed daemon.
 
 If the daemon is SIGKILLed, its tmux sessions/sockets survive but the new
