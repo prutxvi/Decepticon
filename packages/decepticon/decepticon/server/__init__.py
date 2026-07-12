@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Decepticon server-side custom HTTP surface mounted on LangGraph platform.
 
