@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Pure-pydantic types for the Decepticon contract layer.
 
 Four submodules:
