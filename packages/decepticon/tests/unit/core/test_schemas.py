@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Smoke tests for the eight engagement-planning schemas.
 
 The five new schemas (ThreatProfile, CleanupPlan, AbortPlan, ContactPlan,
