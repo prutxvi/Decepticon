@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for SKILL.md frontmatter parsing."""
 
 from __future__ import annotations
