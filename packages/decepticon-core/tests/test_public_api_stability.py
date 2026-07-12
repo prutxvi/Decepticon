@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Stability snapshot — every public ``decepticon-core`` name imports.
 
 Locks in the public surface so accidental removal / rename fails CI.
