@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Protocol-specific Reconnaissance Tools.
 
 Provides specialized tools for various network protocols:
