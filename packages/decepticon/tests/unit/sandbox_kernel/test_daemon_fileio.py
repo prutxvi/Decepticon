@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """File-IO tests for ``DaemonSandbox`` (``upload_files`` / ``download_files``).
 
 The daemon runs only inside the Linux sandbox container and addresses files
