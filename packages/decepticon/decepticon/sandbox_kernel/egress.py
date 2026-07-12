@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Sandbox-side RoE egress applier + nftables/DNS renderer.
 
 This module lives in ``sandbox_kernel`` (not the framework) because it
