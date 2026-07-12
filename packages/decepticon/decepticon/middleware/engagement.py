@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """EngagementContextMiddleware — surface launcher- and harness-set context to the LLM.
 
 Two channels feed this middleware:
