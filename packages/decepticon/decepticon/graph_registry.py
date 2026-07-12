@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangGraph Platform graph registry — OSS built-ins merged with plugins.
 
 LangGraph Platform expects a graph manifest (``langgraph.json``) or the
