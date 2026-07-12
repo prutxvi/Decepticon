@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Buttercup benchmark provider — replays the AIxCC Buttercup OSS suite.
 
 Buttercup is Trail of Bits' AIxCC Final entry (2nd place, $3M prize),
