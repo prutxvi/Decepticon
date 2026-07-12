@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Dual-stack-resilient HTTP wrappers for LiteLLM OAuth handlers.
 
 OAuth handlers call provider APIs that publish both A and AAAA DNS records.
