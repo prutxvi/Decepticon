@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LiteLLM custom handler for Perplexity Pro subscription.
 
 Routes requests through Perplexity's API using Pro subscription session tokens.
