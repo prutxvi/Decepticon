@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """PromptInjectionShield — agent self-defense against hostile tool output.
 
 Decepticon agents ingest the output of every tool call back into their own
