@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bug bounty tools — scope checking and report generation.
 
 Provides two tools for bug bounty workflows:
