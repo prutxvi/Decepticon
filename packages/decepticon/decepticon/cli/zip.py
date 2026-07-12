@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-cli zip`` - package and restore engagement workspaces.
 
 An engagement's durable state lives under ``<workspace>/engagements/<id>/``
