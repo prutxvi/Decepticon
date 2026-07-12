@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Decepticon engagement MCP server.
 
 Exposes Decepticon engagement control — list graphs, start/monitor/cancel an
