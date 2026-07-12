@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Subprocess wrapper around the upstream DreadGOAD Go CLI.
 
 Configures DREADGOAD_CLI_PATH (env, default ``./cli/dreadgoad``). The
