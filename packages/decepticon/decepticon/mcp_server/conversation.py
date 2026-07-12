@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Parse LangGraph ThreadState into agent-friendly transcript + engagement state.
 
 Pure functions (no I/O) so they unit-test against representative state dicts.
