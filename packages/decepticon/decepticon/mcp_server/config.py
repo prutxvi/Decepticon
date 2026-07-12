@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Environment-driven configuration for the engagement MCP server.
 
 The bridge drives a *running* Decepticon LangGraph server. The default URL
