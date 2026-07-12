@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Infra-free coverage for ``decepticon.middleware.budget`` internals.
 
 ``test_budget.py`` covers cache set/get/eviction and the ``_enforce``
