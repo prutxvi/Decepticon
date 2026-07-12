@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Dual-engine technology-stack fingerprinting over a single live URL.
 
 The :func:`detect_tech_stack` tool grabs one HTTP response (following
