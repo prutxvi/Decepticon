@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Knowledge-graph backend health diagnostics."""
 
 from __future__ import annotations
