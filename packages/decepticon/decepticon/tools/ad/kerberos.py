@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Kerberos ticket and hash analysis.
 
 Two primary inputs the agent encounters:
