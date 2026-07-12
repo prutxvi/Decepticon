@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Filesystem backend protocol — matches the deepagents Backend shape.
 
 The Decepticon framework composes a ``CompositeBackend`` per agent
