@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Decepticon configuration — defaults + environment variable overrides.
 
 LLM model assignments are defined in decepticon_core.types.llm (LLMModelMapping).
