@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Custom tool contributed to Decepticon."""
 
 from __future__ import annotations
