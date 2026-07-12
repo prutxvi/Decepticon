@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Live integration tests for :class:`KGMiddleware` against compose Neo4j.
 
 End-to-end check of the four hooks on a real KGStore — before_agent
