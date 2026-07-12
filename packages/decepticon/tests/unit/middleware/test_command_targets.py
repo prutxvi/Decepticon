@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for ``decepticon.middleware._command_targets``.
 
 This module extracts the host/IP/CIDR targets out of a red-team command so
