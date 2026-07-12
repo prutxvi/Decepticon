@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Ghidra headless integration for deep binary analysis.
 
 Drives ``analyzeHeadless`` and the Ghidra MCP bridge to give the
