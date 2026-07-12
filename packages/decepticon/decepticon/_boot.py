@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Framework boot — runs once at ``import decepticon`` time.
 
 Hooks into the framework's import to:
