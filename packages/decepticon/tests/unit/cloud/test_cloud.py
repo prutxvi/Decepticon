@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for cloud exploitation package (AWS, k8s, terraform, metadata)."""
 
 from __future__ import annotations
