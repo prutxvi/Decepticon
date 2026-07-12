@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bash tool prompt — single source for all agents.
 
 Tool documentation lives here. Workflow guidance (when to delegate vs. when
