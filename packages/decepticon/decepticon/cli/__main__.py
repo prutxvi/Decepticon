@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``python -m decepticon.cli`` dispatcher."""
 
 from __future__ import annotations
