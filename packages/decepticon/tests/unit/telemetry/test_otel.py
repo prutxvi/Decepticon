@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.telemetry.otel`` — opt-in OTLP trace export.
 
 When ``OTEL_ENABLED`` is unset the helpers must produce zero spans. When
