@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the open-web engine's 4-layer validator."""
 
 from __future__ import annotations
