@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Adaptive poll-interval backoff in the tmux execute loops.
 
 Every poll is a full ``tmux capture-pane -S -`` subprocess. The loops back
