@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for ``decepticon.tools.interaction.ask_user_question``."""
 
 from __future__ import annotations
