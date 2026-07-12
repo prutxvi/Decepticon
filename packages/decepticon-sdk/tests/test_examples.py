@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Smoke tests for the six example plugins under ``examples/``.
 
 Closes spec §14 acceptance #8: each ``packages/decepticon-sdk/examples/*``
