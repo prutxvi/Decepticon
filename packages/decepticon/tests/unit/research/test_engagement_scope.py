@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the per-engagement scoping context-var + Neo4j auto-tagging."""
 
 from __future__ import annotations
