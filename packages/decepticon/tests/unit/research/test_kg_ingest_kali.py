@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the Tier 2 kg_ingest_* functions (Kali tool output parsers)."""
 
 from __future__ import annotations
