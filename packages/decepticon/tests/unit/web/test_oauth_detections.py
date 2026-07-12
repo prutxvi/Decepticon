@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Detection-branch coverage for ``decepticon.tools.web.oauth``.
 
 ``analyze_oauth_callback`` is an offline OAuth 2.0 / OIDC flow auditor. Each
