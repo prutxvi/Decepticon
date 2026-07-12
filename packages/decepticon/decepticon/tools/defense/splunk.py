@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Sigma → Splunk Saved Search converter + HEC publisher.
 
 The Splunk path is the simplest of the SIEM exporters: we translate a Sigma
