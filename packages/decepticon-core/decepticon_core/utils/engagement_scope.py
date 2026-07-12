@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Per-engagement active-label contextvar.
 
 The active-engagement label identifies which red-team engagement the
