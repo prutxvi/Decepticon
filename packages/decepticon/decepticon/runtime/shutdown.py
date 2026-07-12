@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bounded graceful shutdown on SIGINT / SIGTERM (Windows: console events).
 
 On first signal the handler best-effort persists operator-visible state
