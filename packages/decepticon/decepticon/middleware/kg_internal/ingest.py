@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Scanner adapter registry + dispatcher + built-in adapters.
 
 The single ``kg_ingest`` tool (PR-B.3) routes here via
