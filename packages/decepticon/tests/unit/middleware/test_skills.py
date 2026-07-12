@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for SkillsMiddleware defensive paths (issue #157 regression).
 
 The base ``SkillsMiddleware`` is exercised through deepagents' own tests,
