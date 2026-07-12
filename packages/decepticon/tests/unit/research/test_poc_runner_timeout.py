@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for sandbox_runner timeout + typed-error classification."""
 
 from __future__ import annotations
