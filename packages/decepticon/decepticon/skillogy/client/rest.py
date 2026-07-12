@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """REST client for the Phase 1a Skillogy service (Amendment v0.2.2).
 
 Mirrors the ``Neo4jBackend`` surface exactly — same method names, same
