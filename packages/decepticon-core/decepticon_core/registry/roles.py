@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Role registry — pluggable agent-role catalog.
 
 OSS roles are pre-registered at framework boot from
