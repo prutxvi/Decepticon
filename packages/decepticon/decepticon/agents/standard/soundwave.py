@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Soundwave Agent — engagement document writer.
 
 Generates the eight planning documents (RoE / CONOPS / Deconfliction /
