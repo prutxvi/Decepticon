@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the Defense Brief deliverable (tools/defense/brief.py).
 
 Exercises the coverage math, MTTD stats, detected/gap technique split, the
