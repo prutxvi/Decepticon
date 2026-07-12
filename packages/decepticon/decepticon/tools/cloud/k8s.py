@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Kubernetes manifest analyser.
 
 Scans a parsed YAML (dict or list of dicts) for the canonical cluster
