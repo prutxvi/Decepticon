@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Legacy compat shim — KGStore-backed implementation of the old
 ``Neo4jStore`` surface.
 
