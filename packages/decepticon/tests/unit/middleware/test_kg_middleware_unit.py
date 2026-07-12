@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for :class:`KGMiddleware` — driver-free.
 
 Covers each hook (``before_agent``, ``wrap_model_call``,
