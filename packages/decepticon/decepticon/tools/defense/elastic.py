@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Sigma → Elastic Detection Engine rule (Kibana Detection API push).
 
 Elastic's Detection Engine accepts a JSON rule via
