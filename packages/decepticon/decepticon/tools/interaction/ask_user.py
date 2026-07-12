@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ask_user_question — structured multiple-choice prompt for the operator.
 
 Pauses the running graph via ``langgraph.types.interrupt`` and emits a
