@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """AWS-focused analysers: IAM policies, S3 buckets, EC2 user-data.
 
 IAM privilege escalation detection follows the canonical Rhino
