@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the web_search / web_fetch management-side tool wrappers."""
 
 from __future__ import annotations
