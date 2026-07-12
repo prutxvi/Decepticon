@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin contracts — the surface plugin authors implement against.
 
 Submodules:
