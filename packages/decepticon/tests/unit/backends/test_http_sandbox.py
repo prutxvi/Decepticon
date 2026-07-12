@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_http_sandbox module."""
 
 from __future__ import annotations
