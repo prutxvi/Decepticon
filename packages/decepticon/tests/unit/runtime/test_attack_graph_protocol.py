@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Structural tests for :class:`AttackGraphProtocol`.
 
 The protocol is the CART ↔ KGMiddleware contract — any object that
