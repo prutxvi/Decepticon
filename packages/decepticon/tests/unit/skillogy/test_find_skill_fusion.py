@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the reciprocal-rank fusion in hybrid find_skill (ADR-0011).
 
 ``_rrf_fuse`` is the pure-Python core of hybrid retrieval — it merges the
