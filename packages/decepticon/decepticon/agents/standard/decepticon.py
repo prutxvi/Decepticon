@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Decepticon — autonomous red team coordinator agent.
 
 Engagement-ready agent that builds the OPPLAN from existing RoE/CONOPS
