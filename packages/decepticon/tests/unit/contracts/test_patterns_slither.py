@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the Solidity pattern scanner + Slither ingestion."""
 
 from __future__ import annotations
