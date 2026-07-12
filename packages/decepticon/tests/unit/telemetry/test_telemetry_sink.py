@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.telemetry.sink — consent-gated end-to-end behavior."""
 
 from __future__ import annotations
