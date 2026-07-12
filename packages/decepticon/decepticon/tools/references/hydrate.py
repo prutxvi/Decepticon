@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """One-shot reference cache hydration.
 
 Clones (or ``git pull``s) every reference repo that an indexer under
