@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Foundry test harness generator.
 
 Given a finding from the pattern scanner or Slither, emit a minimal
