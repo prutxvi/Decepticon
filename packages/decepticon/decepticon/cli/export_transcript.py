@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-cli export-transcript`` - render an engagement's event log.
 
 Reads the append-only ``events.jsonl`` for one engagement and renders it as a
