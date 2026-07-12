@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``web_search`` / ``web_fetch`` agent tools — management-side wrappers.
 
 These are thin wrappers: they dispatch the open-web engine
