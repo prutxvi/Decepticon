@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the corpus scanner + CLI rendering."""
 
 from __future__ import annotations
