@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the WAF-product detector (ranking, not single verdict)."""
 
 from __future__ import annotations
