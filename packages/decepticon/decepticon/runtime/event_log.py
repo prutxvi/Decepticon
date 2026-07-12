@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Append-only engagement event log with cross-platform file locking.
 
 The orchestrator (and the future ``resume <engagement_id>`` command) needs
