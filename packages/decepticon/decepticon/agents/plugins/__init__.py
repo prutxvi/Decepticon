@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """OSS-shipped plugin-shape bundle — vulnresearch family.
 
