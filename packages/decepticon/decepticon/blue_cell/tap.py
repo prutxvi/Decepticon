@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """BlueCellTap - normalize sandbox + target telemetry into a single stream.
 
 The sandbox already pipes every tmux pane to ``<workspace>/.sessions/<name>.log``
