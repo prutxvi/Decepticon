@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for dynamic LiteLLM model config generation."""
 
 from __future__ import annotations
