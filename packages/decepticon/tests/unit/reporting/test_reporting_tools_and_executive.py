@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Comprehensive tests for reporting/tools.py wrappers and executive.py helpers.
 
 Covers:
