@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for PayloadsAllTheThings ingestion."""
 
 from __future__ import annotations
