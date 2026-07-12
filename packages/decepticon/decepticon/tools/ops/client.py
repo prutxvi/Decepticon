@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """HTTP-over-Unix-socket client for the opscontrol daemon.
 
 ADR-0006 §1' / §6: the daemon listens on a Unix domain socket bind-
