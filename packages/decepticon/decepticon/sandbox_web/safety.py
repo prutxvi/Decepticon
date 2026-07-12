@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SSRF / redirect safety guard for an agent-facing fetcher.
 
 curl_cffi follows redirects but does NOT validate the destination (confirmed
