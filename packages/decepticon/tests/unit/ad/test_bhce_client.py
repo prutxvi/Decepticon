@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the BHCE v9.2.2 REST client.
 
 The signature test vectors are NOT computed by re-running our own
