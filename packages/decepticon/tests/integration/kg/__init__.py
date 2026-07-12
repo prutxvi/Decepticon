@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KGStore + migration runner + KGMiddleware (PR-B) integration tests.
 
 Require a reachable Neo4j 5.x — typically the ``decepticon-neo4j``
