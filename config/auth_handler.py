@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Auth provider dispatcher for ``auth/`` model slugs.
 
 Routes incoming requests to the correct subscription handler based on the
