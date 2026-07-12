@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Background-job tracking — used by the bash tool / SandboxNotificationMiddleware.
 
 Originally lived inline in ``decepticon/backends/docker_sandbox.py``. Moved
