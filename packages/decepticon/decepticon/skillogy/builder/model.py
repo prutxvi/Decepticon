@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cypher node + edge model used by the builder.
 
 Each node and edge becomes one or more ``MERGE`` statements in the
