@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LLM protocol — minimum bound-language-model surface.
 
 The framework's ``LLMFactory`` produces bound langchain chat models;
