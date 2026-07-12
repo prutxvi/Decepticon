@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-cli auth`` — headless provider/auth introspection.
 
 The interactive ``decepticon onboard`` wizard (Go launcher) is the place to
