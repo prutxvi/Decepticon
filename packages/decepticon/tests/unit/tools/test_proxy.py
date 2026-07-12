@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.tools.proxy`` — Caido CLI tool wrappers."""
 
 from __future__ import annotations
