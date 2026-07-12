@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Safety registry — plugin-extended safety-critical tool / middleware names.
 
 Closes spec §16.4 #4. The framework's ``_check_safety_gate`` consults
