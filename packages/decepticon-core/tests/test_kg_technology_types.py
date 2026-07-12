@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression tests for the Technology KG vocabulary (ADR-0007).
 
 AI-surface and tech-detection recon classifiers (HTTP header, port
