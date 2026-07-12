@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """runner module."""
 
 from __future__ import annotations
