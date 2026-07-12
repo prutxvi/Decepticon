@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Active Directory Certificate Services — ESC1-ESC13 scanner.
 
 The agent runs ``certipy find --json`` and pastes the output in; this
