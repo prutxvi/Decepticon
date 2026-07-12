@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Per-dispatch task spec for CART live-replay.
 
 When :class:`decepticon.runtime.cart.ReplayRunner` flips from dry-run to
