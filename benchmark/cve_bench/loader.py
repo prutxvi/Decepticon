@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CVE-Bench challenge loader.
 
 Parses upstream ``uiuc-kang-lab/cve-bench/src/critical/metadata/CVE-*.yml``
