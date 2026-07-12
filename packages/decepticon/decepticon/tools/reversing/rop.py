@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tiny ROP gadget finder for x86 / x86_64.
 
 This isn't a Ropper replacement — it's a fast first pass agents can
