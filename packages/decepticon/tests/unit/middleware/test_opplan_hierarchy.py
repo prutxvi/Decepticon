@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the OPPLAN hierarchy / Pentesting Task Tree (PTT) feature."""
 
 from __future__ import annotations
