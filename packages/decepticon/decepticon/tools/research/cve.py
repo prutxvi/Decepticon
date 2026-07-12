@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CVE / OSV / EPSS intelligence lookup.
 
 Combines three authoritative sources into a single exploitability score:
