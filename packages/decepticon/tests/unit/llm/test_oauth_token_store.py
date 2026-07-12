@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the shared OAuth token store helper module.
 
 The module under test lives at ``config/oauth_token_store.py`` and is
