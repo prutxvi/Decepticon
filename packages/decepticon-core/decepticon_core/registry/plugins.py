@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin registry — central read-only view of discovered plugins.
 
 Closes gaps §8 #4 (collision detection) and §8 #7 (introspection API).
