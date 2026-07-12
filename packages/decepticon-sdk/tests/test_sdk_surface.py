@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """decepticon-sdk surface tests.
 
 Verifies the single-import contract from spec §6.3: a complete plugin
