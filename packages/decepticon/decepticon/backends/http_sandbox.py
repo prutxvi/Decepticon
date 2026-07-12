@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """HTTP-transport sandbox backend.
 
 `HTTPSandbox` is a `BaseSandbox` subclass that forwards every operation
