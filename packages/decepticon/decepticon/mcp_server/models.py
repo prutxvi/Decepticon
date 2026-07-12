@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Typed result models for the Decepticon engagement MCP server.
 
 These models are the structured payloads the MCP tools in
