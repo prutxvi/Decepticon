@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression guard: reporting tools must reach the agents that need them.
 
 Historical context: ``REPORTING_TOOLS`` shipped and were unit-tested but
