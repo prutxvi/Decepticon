@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Execution-level tests for the primary→fallback chain.
 
 ``tests/unit/llm/test_factory.py`` already covers how ``LLMFactory``
