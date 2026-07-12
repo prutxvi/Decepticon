@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Skill source paths contributed by this plugin.
 
 The framework reads ``/skills/<bundle>/<role>/`` paths via the
