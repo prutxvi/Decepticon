@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for SkillogyMiddleware (middleware.skillogy)."""
 
 from __future__ import annotations
