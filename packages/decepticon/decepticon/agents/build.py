@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Agent build helpers — the bridge between the slot registry, the
 plugin loader, and the per-agent factory functions.
 
