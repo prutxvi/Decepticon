@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for CVE → PoC index."""
 
 from __future__ import annotations
