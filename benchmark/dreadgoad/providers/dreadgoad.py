@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """DreadGOAD benchmark provider.
 
 Expands a ``BenchmarkConfig`` into ``len(config.agents) × config.rounds``
