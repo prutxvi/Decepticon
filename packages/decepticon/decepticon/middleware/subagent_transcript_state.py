@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SubagentTranscriptState — durable sub-agent transcript channel.
 
 Sub-agent activity (start / message / tool_call / tool_result / end) is
