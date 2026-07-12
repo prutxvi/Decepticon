@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Coverage for the pure envelope-shaping helpers in
 ``decepticon.middleware.untrusted_output``.
 
