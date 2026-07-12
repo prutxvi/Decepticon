@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.mcp_server.engagements (LangGraph SDK bridge).
 
 Uses an in-memory fake LangGraph client rather than a mock — the fake records
