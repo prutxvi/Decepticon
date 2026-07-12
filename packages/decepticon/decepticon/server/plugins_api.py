@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Runtime plugin bundle activation API.
 
 Mounted into the LangGraph platform via ``langgraph.json`` ``http.app``.
