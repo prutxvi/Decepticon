@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """MobileOperator Agent - Android / iOS application attack lane.
 
 Mobile skills already exist in the repo at
