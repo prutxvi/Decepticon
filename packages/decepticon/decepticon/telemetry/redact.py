@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Identifier masking for the research reasoning corpus.
 
 Captures attacker reasoning **as-is** (no summarization, no reshaping — that
