@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Live integration tests for the kg_ingest dispatcher + adapters.
 
 Writes scanner-output fixture files to ``tmp_path``, invokes
