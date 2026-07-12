@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for web_search providers (allowlist + DDG parsing)."""
 
 from __future__ import annotations
