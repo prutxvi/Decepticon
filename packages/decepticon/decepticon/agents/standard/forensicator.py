@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Forensicator Agent - DFIR / forensics + purple-team validation lane.
 
 DFIR skills already exist in the repo at
