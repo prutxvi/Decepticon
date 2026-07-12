@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Anti-drift guards for the agent registries.
 
 Three independent registries must stay in lock-step or an agent silently
