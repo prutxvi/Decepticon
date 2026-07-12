@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_audit_sink module."""
 
 from __future__ import annotations
