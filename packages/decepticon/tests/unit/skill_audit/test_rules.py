@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for composed validation rules R-missing-required, R-bad-subdomain,
 R-bad-mitre-format, R-no-attribution."""
 
