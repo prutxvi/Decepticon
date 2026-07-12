@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Wiring tests for the Blue Cell standard agent.
 
 Pin the contract PR2 establishes: the role is registered end-to-end (slots,
