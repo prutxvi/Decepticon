@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.middleware._injection_detector.
 
 Characterization tests pinning the current behavior of the heuristic
