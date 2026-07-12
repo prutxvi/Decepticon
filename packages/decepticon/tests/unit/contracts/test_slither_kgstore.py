@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KGStore-mock-based tests for the Slither ingest rewrite.
 
 These replace the legacy ``TestSlitherIngest`` / ``TestSlitherIngestTool``
