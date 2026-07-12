@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.tools.research.sarif_export."""
 
 from __future__ import annotations
