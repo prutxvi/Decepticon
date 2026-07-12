@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Export the masked red-team reasoning corpus from PostHog as training JSONL.
 
 The gateway ships identifier-masked ``trajectory.step`` events to PostHog (event
