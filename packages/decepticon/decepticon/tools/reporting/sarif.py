@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SARIF v2.1.0 report renderer for the engagement knowledge graph.
 
 Emits a SARIF log that GitHub code scanning, DefectDojo, and other
