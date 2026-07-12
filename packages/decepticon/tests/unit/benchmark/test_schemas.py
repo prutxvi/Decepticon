@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for benchmark.schemas Pydantic models."""
 
 from __future__ import annotations
