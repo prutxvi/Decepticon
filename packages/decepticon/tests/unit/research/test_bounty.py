@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for bug bounty tools — pure functions and constants.
 
 NOTE: The full tool surface (``bounty_scope_check``, ``format_bounty_report``)
