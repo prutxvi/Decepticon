@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain @tool wrappers for the Active Directory package.
 
 Deprecation notice (ADR-0005, 2026-06-05).  The in-house BloodHound
