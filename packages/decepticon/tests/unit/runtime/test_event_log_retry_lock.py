@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cross-platform unit tests for the bounded lock-retry helper.
 
 The Windows ``_acquire_lock`` branch previously spun forever on
