@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """MCP tool registration — interactive engagement control (list / steer / watch).
 
 These tools make the MCP surface feel like the Decepticon CLI from a phone:
