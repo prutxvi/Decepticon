@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.mcp_server.findings (KG -> summary/SARIF)."""
 
 from __future__ import annotations
