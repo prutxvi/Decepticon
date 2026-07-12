@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Pipe-pane logs are engagement-scoped and manager dict is lock-protected."""
 
