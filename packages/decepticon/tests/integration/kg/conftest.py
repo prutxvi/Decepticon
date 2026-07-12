@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Shared fixtures for KG integration tests against live Neo4j.
 
 The fixtures skip every test cleanly when the env vars are not set or
