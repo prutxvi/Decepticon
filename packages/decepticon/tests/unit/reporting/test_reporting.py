@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for reporting: HackerOne markdown, Bugcrowd CSV, executive, timeline."""
 
 from __future__ import annotations
