@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cloud exploitation package.
 
 Offline analysers for the cloud artifact formats an agent typically
