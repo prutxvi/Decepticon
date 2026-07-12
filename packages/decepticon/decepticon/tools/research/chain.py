@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Attack-chain planner — Neo4j Cypher-native path search.
 
 Given a Neo4j attack graph, compute multi-hop exploitation paths from
