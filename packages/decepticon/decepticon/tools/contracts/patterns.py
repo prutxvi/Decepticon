@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Solidity pattern scanner — offline DeFi bug heuristics.
 
 Regex-level detection is imprecise but *useful as a first pass*: every
