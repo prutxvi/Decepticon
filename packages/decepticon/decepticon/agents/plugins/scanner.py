@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Scanner Agent — Stage 1 of the vulnresearch pipeline.
 
 Broad-spectrum triage over large codebases (10^4 – 10^6 files). Runs on
