@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Scorer tests — verify each of the 8 win-condition predicates in isolation."""
 
 from __future__ import annotations
