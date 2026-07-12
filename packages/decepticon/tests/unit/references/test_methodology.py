@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the AllAboutBugBounty methodology retriever."""
 
 from __future__ import annotations
