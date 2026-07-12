@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the dual-engine technology-stack detector.
 
 The HTTP layer is mocked with ``httpx.MockTransport`` (the repo's convention
