@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """MITRE ATT&CK / ATLAS ID format validation.
 
 Phase 1a only loads ATT&CK Enterprise into the graph, but the corpus
