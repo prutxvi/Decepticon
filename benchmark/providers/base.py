@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """base module."""
 
 from __future__ import annotations
