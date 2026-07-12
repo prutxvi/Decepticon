@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Live integration tests for the agent-facing KG tools.
 
 Builds ``kg_record`` and ``kg_ingest`` against the compose Neo4j and
