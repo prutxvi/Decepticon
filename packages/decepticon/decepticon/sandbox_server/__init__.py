@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Sandbox daemon — the server peer of `HTTPSandbox`.
 
