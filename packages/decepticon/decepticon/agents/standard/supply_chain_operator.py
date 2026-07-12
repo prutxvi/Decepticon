@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SupplyChainOperator Agent - software supply-chain attack lane.
 
 Supply-chain skills already exist in the repo at
