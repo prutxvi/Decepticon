@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Composed validation rules.
 
 Each rule corresponds to one entry in the violation report. The CLI
