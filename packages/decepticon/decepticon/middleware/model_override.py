@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Runtime model override — power for the CLI ``/model`` command.
 
 Reads ``model_override`` from the agent runtime context (set by the CLI
