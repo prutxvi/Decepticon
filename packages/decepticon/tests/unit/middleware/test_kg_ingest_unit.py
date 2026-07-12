@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for :mod:`kg_internal.ingest` — driver-free.
 
 Covers the adapter registry, dispatcher error paths, and each built-in
