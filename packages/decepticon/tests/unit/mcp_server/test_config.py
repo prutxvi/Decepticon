@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.mcp_server.config (env-driven settings)."""
 
 from __future__ import annotations
