@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for benchmark.harness.Harness.
 
 Marked ``slow`` because several tests exercise the harness's wall-clock
