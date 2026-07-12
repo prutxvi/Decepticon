@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """DCSync capability indicator from a BloodHound graph.
 
 Once a BloodHound export has been ingested, the agent can ask this
