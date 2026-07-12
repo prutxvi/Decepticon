@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.tools.browser`` — Playwright session manager + multiplex tool."""
 
 from __future__ import annotations
