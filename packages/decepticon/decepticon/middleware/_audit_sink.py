@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """HMAC-chained append-only audit log for RoE decisions.
 
 Every RoE evaluation (pass or refuse) emits one record. Records are
