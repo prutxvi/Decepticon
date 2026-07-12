@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Thin Python client for the BloodHound Community Edition v9.2.2 REST API.
 
 ADR: docs/adr/0005-bloodhound-via-bhce-rest-client.md
