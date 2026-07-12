@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Defensive-wrap behavior for the SUMMARIZATION slot.
 
 The summarization middleware issues a live LLM call inside the agent
