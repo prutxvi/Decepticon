@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.telemetry.config — consent resolution + identity."""
 
 from __future__ import annotations
