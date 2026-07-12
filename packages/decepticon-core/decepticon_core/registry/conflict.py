@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin conflict warning.
 
 Issued when ``PluginRegistry.detect_collisions()`` sees two plugins
