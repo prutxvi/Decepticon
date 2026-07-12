@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the Layer-2 egress policy compiler.
 
 The compiler translates a ``MachineEnforcement`` block (the same scope
