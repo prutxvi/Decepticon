@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Claude 4.x compatibility layer for Decepticon system prompts.
 
