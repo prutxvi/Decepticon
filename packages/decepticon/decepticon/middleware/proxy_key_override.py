@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Per-run LiteLLM virtual-key override — multi-tenant cost attribution.
 
 In a SHARED langgraph serving many orgs, the baked-in model authenticates to
