@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Shared LangGraph state-channel reducers.
 
 A reducer is REQUIRED on any agent-state channel that more than one
