@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for benchmark.providers.mhbench.MHBenchProvider.
 
 These tests cover every pure / file-IO surface of the MHBench provider:
