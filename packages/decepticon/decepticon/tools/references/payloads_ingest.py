@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """PayloadsAllTheThings ingestion.
 
 Walks a cached clone of ``swisskyrepo/PayloadsAllTheThings`` and yields
