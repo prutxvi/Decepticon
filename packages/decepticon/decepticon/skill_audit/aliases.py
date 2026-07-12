@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Subdomain alias resolution.
 
 This is intentionally a small, explicit map. It absorbs corpus drift
