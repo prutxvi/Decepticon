@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for scripts/next_version.py (auto-tag version computation)."""
 
 from __future__ import annotations
