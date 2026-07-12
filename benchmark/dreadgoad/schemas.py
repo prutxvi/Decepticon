@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Typed contracts shared across the DreadGOAD benchmark runner.
 
 All inputs (``BenchmarkConfig``, ``Scenario``) are frozen dataclasses so
