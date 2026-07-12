@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Middleware slot enum and per-role applicability mapping.
 
 The Decepticon agent factories assemble their middleware stack by
