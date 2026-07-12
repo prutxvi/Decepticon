@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.agents.prompts.claude4_compat.
 
 Loaded via importlib so the test suite does not require the full
