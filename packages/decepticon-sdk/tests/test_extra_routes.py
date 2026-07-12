@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Spec §14 acceptance — make_agent_backend(extra_routes=).
 
 Verifies acceptance criterion #11 from
