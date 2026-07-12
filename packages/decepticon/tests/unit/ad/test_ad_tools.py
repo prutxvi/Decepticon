@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for AD attack-path analysis helpers: gpo, delegation, shadow_creds.
 
 All tests are fully offline — no network, no Neo4j, no subprocess.  Graph
