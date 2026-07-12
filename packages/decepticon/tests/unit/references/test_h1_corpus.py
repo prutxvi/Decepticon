@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for HackerOne disclosed-report corpus indexer."""
 
 from __future__ import annotations
