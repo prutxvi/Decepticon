@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Sandbox transport protocol — matches the ``HTTPSandbox`` shape.
 
 The framework's bash execution + filesystem operations all route
