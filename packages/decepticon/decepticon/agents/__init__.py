@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 # Standard bundle — decepticon main agent + 16 official subagents + soundwave.
 # Plugins bundle — vulnresearch main agent + its 5 subagents (community-plugin
