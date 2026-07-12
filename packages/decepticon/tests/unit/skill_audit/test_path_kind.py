@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for path-based offensive/non-offensive inference."""
 
 from __future__ import annotations
