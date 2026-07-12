@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for ``_classify_provider_error`` + fatal-vs-retryable labelling.
 
 Background: ``_reraise_with_actionable_message`` already handles 400/401/404/429,
