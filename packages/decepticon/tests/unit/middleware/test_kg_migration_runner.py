@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for :mod:`kg_internal.migration_runner`.
 
 Covers the statement splitter, ``list_applied`` against a fake store,
