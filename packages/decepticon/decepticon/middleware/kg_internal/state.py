@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KGState — agent-state extension owned by ``KGMiddleware``.
 
 Three ``NotRequired`` fields stash KG-relevant context for the agent's
