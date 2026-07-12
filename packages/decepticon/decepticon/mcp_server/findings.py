@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Read persisted engagement findings and summarise them as SARIF.
 
 The orchestrator persists its KnowledgeGraph to a conventional workspace
