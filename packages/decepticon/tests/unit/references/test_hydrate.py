@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the hydration helper.
 
 We don't hit the network — we call the internal helper with a
