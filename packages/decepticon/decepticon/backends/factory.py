@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Backend factory — HTTP-transport sandbox builder.
 
 The agent code shouldn't know how the sandbox is deployed; it just asks
