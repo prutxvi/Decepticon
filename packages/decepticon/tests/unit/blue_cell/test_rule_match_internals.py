@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Edge-case + loader coverage for ``decepticon.blue_cell.rule_match``.
 
 ``test_rule_match.py`` exercises the happy-path matching behaviour. This
