@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """PluginRegistry behavior — entry-point walk + collision detection.
 
 Closes spec §14 acceptance #9: ``PluginRegistry.detect_collisions()``
