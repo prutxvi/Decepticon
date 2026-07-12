@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Skill source registry — path validation + collision detection.
 
 Closes gap §8 #12 from the consumption audit: plugin-registered
