@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin scaffolding CLI — ``decepticon-sdk plugin new --kind=...``.
 
 Phase 3 of the core/framework/sdk split (per
