@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cross-package import discipline (spec §11.4).
 
 ``decepticon-core`` is the contract layer. By design it must NEVER
