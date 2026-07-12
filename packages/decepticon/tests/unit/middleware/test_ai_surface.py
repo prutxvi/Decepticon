@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the AI-surface classifiers (ADR-0007).
 
 ``technology_for_port`` / ``technology_for_path`` turn a scanned port or a
