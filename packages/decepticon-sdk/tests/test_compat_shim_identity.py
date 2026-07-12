@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """PEP 562 compat shim identity preservation.
 
 Closes the test coverage gap flagged in the design review (Nit #4 of
