@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cookie / session entropy + framework fingerprint.
 
 Each cookie the agent sees is analysed for:
