@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Per-test isolation for process-wide sandbox class state.
 
 ``SandboxBase._log_offsets`` and ``_jobs`` are deliberately class-level —
