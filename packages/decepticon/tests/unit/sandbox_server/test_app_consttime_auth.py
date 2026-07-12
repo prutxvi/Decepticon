@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_app_consttime_auth module."""
 
 from __future__ import annotations
