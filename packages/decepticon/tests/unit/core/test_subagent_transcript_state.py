@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Durable sub-agent transcript persistence.
 
 ``StreamingRunnable`` emits sub-agent activity as transient LangGraph custom
