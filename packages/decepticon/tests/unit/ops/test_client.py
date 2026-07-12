@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for ``decepticon.tools.ops.client``.
 
 We exercise the client against an :class:`httpx.MockTransport` rather
