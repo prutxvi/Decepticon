@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Additional coverage for decepticon.cli.scan — uncovered paths from test_scan.py.
 
 Covers:
