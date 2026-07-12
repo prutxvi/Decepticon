@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Push opscontrol workload state transitions into the agent message stream.
 
 Mirror of :mod:`decepticon.middleware.notifications` (which handles bash
