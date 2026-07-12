@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cloud Hunter Agent — AWS/Azure/GCP/k8s exploitation lane.
 
 Library API
