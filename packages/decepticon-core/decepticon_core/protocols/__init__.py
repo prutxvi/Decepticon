@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin-author Protocols for the Decepticon contract layer.
 
 Each Protocol declares the duck-type interface plugin authors must
