@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """End-to-end tests for KGStore + migration runner against live Neo4j.
 
 Exercised classes:
