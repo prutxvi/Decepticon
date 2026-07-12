@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Verifier Agent — Stage 3 of the vulnresearch pipeline.
 
 Given a ``VULNERABILITY`` node from the Detector, the Verifier crafts a
