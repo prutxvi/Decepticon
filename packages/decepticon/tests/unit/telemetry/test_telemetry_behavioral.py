@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ground-truth signal capture: findings, phase, HITL, consent."""
 
 from __future__ import annotations
