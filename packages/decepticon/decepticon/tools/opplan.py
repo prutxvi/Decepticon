@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """OPPLAN tools and backend persistence helpers."""
 
 from __future__ import annotations
