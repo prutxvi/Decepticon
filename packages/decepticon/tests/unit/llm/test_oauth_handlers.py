@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the LiteLLM custom OAuth handlers under ``config/``.
 
 These modules live in the LiteLLM container's ``/app`` and import ``litellm``
