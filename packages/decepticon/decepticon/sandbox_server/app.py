@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """FastAPI application for the sandbox HTTP daemon.
 
 Wraps a `DaemonSandbox` (the `SandboxBase` subclass that runs every
