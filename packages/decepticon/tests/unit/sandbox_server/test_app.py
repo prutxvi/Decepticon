@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the sandbox HTTP daemon FastAPI app.
 
 The daemon (``decepticon/sandbox_server/app.py``) is a thin transport
