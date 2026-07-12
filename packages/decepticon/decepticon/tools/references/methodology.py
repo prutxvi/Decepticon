@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """AllAboutBugBounty chapter retriever.
 
 Walks a cached clone of ``daffainfo/AllAboutBugBounty`` and indexes
