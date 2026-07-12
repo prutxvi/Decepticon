@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Daemon entry point.
 
 Run with `python -m decepticon.sandbox_server` (and that is what the
