@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """FilesystemMiddleware without `execute`, scoped to the active engagement."""
 
 from __future__ import annotations
