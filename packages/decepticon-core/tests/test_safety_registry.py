@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """SafetyRegistry enforcement — closes spec §16.4 #4 additive-only.
 
 Verifies the registry merges plugin contributions with the OSS
