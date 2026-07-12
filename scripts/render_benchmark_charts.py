@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Render PNG charts for the XBOW benchmark write-ups.
 
 Outputs go to assets/benchmark/. Re-run after updating numbers:
