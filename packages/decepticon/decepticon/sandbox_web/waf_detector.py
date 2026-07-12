@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """WAF-product detection from a live response.
 
 Returns a *ranking* of (profile_id, confidence) pairs — never a single verdict.
