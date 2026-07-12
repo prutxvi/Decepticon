@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the sandbox-side egress applier.
 
 The applier runs inside the sandbox container. These tests inject the
