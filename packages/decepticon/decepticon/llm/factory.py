@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LLM Factory — creates ChatModel instances via LiteLLM proxy.
 
 All LLM calls route through the LiteLLM Docker proxy for provider abstraction.
