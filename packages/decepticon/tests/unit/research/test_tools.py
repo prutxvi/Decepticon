@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for LangChain research tool wrappers."""
 
 from __future__ import annotations
