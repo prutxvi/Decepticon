@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-cli audit`` - engagement audit ledger utilities."""
 
 from __future__ import annotations
