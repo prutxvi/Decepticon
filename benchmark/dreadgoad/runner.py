@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Grid orchestrator.
 
 Walks every scenario produced by the configured provider, calls
