@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Agent protocol — minimum compiled-agent surface.
 
 Plugins shipping a custom main agent or sub-agent return an object
