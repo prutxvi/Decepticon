@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Abstract base for benchmark providers.
 
 A provider owns:
