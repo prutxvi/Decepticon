@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_specialist_skill_sources module."""
 
 from __future__ import annotations
