@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the Blue Cell detection-rule matcher."""
 
 from __future__ import annotations
