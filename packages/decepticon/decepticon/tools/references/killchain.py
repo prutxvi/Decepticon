@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Kill-chain phase → tool mapper.
 
 Two data sources, merged transparently:
