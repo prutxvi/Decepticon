@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LLM model definitions — tier-based, credentials-aware mappings.
 
 Three orthogonal axes control model selection:
