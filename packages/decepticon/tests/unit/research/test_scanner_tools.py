@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the scanner tools (Stage 1 of the vulnresearch pipeline)."""
 
 from __future__ import annotations
