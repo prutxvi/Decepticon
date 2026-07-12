@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Binary reversing and firmware analysis package.
 
 Pure-Python implementations that run without Ghidra / radare2 installed:
