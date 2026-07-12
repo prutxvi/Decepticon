@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Hand-rolled Python message types that mirror skillogy.proto.
 
 These dataclasses exist so the package is functional today without a
