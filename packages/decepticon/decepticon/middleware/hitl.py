@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """HITLApprovalMiddleware — human-in-the-loop checkpoint approval for high-impact tool calls.
 
 Autonomous execution on real client infrastructure cannot be all-or-nothing.
