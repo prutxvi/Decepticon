@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_sarif_export_props_attr module."""
 
 from __future__ import annotations
