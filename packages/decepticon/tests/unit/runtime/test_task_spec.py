@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.runtime.task_spec."""
 
 from __future__ import annotations
