@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.runtime.event_log`` — append-only engagement log."""
 
 from __future__ import annotations
