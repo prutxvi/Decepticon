@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Web exploitation tool suite.
 
 A structured toolbelt for HTTP/S black-box work that goes beyond bash:
