@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """KGStore-mock-based tests for the BloodHound ingest rewrite.
 
 These replace the legacy ``test_ad_bloodhound_tools.py`` / portions of
