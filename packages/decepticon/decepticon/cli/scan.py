@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``decepticon-cli scan`` — headless / CI security scan entry.
 
 Modeled after Strix's CLI for surface familiarity, with Decepticon's
