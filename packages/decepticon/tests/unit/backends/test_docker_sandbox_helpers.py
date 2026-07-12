@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Pure-function tests for sandbox tmux helpers.
 
 These tests cover the parsing and formatting helpers that don't need a
