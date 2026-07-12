@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.runtime.shutdown`` — bounded graceful shutdown.
 
 Signal-handling behavior MUST run in subprocesses, never in the pytest
