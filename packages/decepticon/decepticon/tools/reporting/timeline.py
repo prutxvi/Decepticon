@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Graph-to-timeline extractor.
 
 Walks the KnowledgeGraph ``created_at`` / ``updated_at`` fields and
