@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for :class:`KGStore` — driver-free.
 
 Covers: input validation (engagement label, label / rel-type vocabulary,
