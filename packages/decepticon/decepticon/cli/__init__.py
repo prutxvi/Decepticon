@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Decepticon Python CLI surface — invoked as ``python -m decepticon.cli``.
 
