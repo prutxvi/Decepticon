@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Defense tool bundle — push Detector/Patcher output to live blue-team stacks.
 
