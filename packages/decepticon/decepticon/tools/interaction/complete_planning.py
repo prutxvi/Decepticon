@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """complete_engagement_planning — signal soundwave-to-decepticon handoff.
 
 Soundwave calls this exactly once after RoE / CONOPS / Deconfliction Plan
