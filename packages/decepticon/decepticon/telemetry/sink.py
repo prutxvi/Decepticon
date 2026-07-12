@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """TelemetrySink — the one object the agent stack talks to.
 
 Wires consent (:mod:`config`) + sanitization (:mod:`sanitizer`) + delivery
