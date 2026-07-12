@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for EngagementContextMiddleware — engagement and benchmark inject paths."""
 
 from __future__ import annotations
