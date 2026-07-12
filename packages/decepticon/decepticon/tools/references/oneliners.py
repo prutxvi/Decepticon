@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Shell one-liner / recipe corpus.
 
 Chunks the cached ``trimstray/the-book-of-secret-knowledge`` repo into
