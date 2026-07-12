@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Collision-proofing tests for the PS1 completion marker regex.
 
 The marker is emitted by the in-sandbox shell as::
