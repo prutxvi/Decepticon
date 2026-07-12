@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """YAML loader for benchmark scenario configs.
 
 Validates that:
