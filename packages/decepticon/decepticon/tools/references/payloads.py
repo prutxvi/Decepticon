@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Offline-bundled payload library.
 
 A compact, curated subset of PayloadsAllTheThings-style payloads that
