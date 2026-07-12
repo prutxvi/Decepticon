@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression tests for the Blue Cell defensive KG vocabulary.
 
 The Offensive Vaccine / Blue Cell loop (``docs/features/blue-cell.md``)
