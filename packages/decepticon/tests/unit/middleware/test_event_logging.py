@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.middleware.event_logging."""
 
 from __future__ import annotations
