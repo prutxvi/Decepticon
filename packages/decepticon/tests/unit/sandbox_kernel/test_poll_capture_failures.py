@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression: the poll loop must fail fast after repeated transient capture
 failures instead of resetting the stall timer forever.
 
