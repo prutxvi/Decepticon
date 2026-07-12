@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the pure-logic helpers in ``decepticon.tools.opplan``.
 
 Covers the three silent-corruption-prone paths that previously had **zero**
