@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.tools.mcp.client``.
 
 These tests must never reach the real network and must never require
