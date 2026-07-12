@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.cli.scan (parsing + scope resolution; live LangGraph not invoked)."""
 
 from __future__ import annotations
