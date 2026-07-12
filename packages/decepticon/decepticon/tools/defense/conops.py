@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Read SIEM target endpoints from the engagement's ConOps document.
 
 The ConOps lives at ``/workspace/conops.json``. The schema looked up here
