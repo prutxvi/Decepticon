@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """FastMCP server exposing Decepticon engagement control to external agents.
 
 This is the seam that makes external agent runtimes (OpenClaw, Hermes, or any
