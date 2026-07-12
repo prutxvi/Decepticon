@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Single-run execution: provision lab -> invoke LangGraph agent -> capture
 artifacts -> teardown.
 
