@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """IcsOperator Agent - ICS / OT / SCADA attack lane (RoE-gated).
 
 ICS skills already exist in the repo at
