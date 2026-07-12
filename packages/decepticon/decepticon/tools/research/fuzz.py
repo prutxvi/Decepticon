@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Fuzzing orchestration — harness synthesis + campaign launching.
 
 Decepticon treats fuzzing as first-class for 0-day discovery. This module:
