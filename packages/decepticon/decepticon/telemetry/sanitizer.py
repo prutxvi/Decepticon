@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Client-side sanitization: on-disk event → Tier-A telemetry event.
 
 This is the first line of the privacy boundary (the gateway's Tier-C scan is the
