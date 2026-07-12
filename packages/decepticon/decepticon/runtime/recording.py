@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Record / replay layer for deterministic engagement re-execution.
 
 Why this exists
