@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``python -m decepticon.skill_audit`` entrypoint."""
 
 from __future__ import annotations
