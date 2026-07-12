@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the client-side APOC procedure safety check."""
 
 from __future__ import annotations
