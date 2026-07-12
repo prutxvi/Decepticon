@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for benchmark.scorer.Scorer."""
 
 from __future__ import annotations
