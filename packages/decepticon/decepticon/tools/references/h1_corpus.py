@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """HackerOne disclosed-report corpus indexer.
 
 Parses the markdown tables inside a cached clone of
