@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Sigma → Microsoft Sentinel Analytic Rule (ARM-based push).
 
 Sentinel Analytic Rules live under
