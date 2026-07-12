@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.telemetry.exporter — batching + offline tolerance."""
 
 from __future__ import annotations
