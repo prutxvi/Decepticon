@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for ``decepticon.tools.skills_registry`` — slug resolver + safety."""
 
 from __future__ import annotations
