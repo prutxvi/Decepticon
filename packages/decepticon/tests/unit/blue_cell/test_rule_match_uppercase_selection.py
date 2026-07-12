@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_rule_match_uppercase_selection module."""
 
 from __future__ import annotations
