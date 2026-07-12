@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """MCP tool registration — engagement lifecycle (start / status / findings / cancel)."""
 
 from __future__ import annotations
