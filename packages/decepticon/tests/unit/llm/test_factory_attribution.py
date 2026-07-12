@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Provider/model attribution logging on the proxied ChatOpenAI wrapper.
 
 When fallback fires through the LiteLLM proxy, operators need to know
