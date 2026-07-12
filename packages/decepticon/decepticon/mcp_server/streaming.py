@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bounded live tail of an engagement's run stream.
 
 The web UI and CLI render a live kill-chain feed by joining the run's
