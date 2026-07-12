@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Regression: ``SandboxBase._normalize_workspace_path`` must reject traversal.
 
 A "." or ".." path component passes the per-segment character class, so without
