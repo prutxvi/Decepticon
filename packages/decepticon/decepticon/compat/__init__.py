@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Backward-compatibility shim layer for the core/framework/sdk split.
 
 Per spec §7.3 of
