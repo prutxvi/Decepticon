@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Patch generation + verification — Stage 4 of the vulnresearch pipeline.
 
 The patcher agent uses the two tools exposed here to record a proposed
