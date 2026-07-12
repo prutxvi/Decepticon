@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for benchmark.providers.xbow.XBOWProvider."""
 
 from __future__ import annotations
