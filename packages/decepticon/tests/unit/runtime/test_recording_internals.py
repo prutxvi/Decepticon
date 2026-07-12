@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Serializer + record/replay-middleware coverage for
 ``decepticon.runtime.recording``.
 
