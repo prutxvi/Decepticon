@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 """Background job tracker — pure-Python unit tests + start/poll integration."""
 
