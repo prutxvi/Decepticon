@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Plugin loader contract tests.
 
 The plugin loader is the OSS↔downstream extension surface. These tests pin its
