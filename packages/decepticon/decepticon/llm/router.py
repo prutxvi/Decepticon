@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Model router — resolves role to model name(s).
 
 Thin layer over LLMModelMapping that provides convenience methods
