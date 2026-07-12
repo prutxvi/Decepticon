@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Live integration tests for ``build_summary`` against compose Neo4j.
 
 Populates an engagement with a representative graph (hosts, services,
