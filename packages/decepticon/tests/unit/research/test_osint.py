@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Unit tests for the OSINT enrichment tool.
 
 Network egress is exercised through ``httpx.MockTransport`` (no real
