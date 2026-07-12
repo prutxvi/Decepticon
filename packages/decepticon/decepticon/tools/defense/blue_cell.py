@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Blue Cell detection-coverage tool — the runtime that closes the loop.
 
 The Offensive Vaccine pipeline documents a ``Defender`` that writes Sigma
