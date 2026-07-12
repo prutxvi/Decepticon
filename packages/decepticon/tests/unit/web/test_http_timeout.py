@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Per-request timeout override + exception safety on HTTPSession.request."""
 
 from __future__ import annotations
