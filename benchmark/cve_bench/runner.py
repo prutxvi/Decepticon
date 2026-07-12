@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """CVE-Bench runner (live + dry-run shared loop).
 
 Loads challenges, dispatches each to a swappable agent callable, scores
