@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """RoE guardrail middleware - the advisory command-parse RoE gate.
 
 This middleware sits between the LLM and the tool surface. Every
