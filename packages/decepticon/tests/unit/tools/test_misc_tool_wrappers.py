@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for @tool wrappers in contracts/tools.py, evidence/tools.py, cloud/tools.py.
 
 Focuses on the JSON output shapes and error paths that are NOT covered by the
