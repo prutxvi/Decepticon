@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """MCP (Model Context Protocol) tool-server client integration.
 
 Opt-in bridge so Decepticon agents can use tools exposed by external
