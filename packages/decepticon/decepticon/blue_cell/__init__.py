@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Blue Cell - the defensive sibling agent of the offensive Red Cell.
 
 The promised "Offensive Vaccine" loop (attack → detect → verify) was
