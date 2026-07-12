@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Executive summary writer.
 
 Produces a high-level markdown digest that a CISO / program owner can
