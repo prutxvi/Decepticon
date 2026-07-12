@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """schemas module."""
 
 from __future__ import annotations
