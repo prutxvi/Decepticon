@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Vulnerability research package — Neo4j-native attack graph.
 
 High-value capabilities for 0-day discovery and exploit chain construction:
