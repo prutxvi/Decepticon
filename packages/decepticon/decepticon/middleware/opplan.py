@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """OPPLANMiddleware — domain-specific objective tracking for red team engagements.
 
 This middleware injects OPPLAN instructions and live objective status into the
