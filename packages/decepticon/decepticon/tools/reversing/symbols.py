@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Symbol triage — spot security-relevant imports at a glance.
 
 We don't parse full ELF symbol tables here; instead we pattern-match
