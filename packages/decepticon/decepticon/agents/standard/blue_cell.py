@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Blue Cell Agent — the defensive sibling that closes the Offensive Vaccine loop.
 
 Red Cell attacks; the Detector writes Sigma rules. Blue Cell is the runtime
