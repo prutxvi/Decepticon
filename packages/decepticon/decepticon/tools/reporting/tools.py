@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain @tool wrappers for the reporting package.
 
 The reporting tools read the engagement KG that ``KGMiddleware`` and
