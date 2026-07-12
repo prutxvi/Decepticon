@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ACL regression tests for SkillogyMiddleware (ADR-0008).
 
 When the Skillogy backend replaced ``FilesystemBackend`` as the default
