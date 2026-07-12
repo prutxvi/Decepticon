@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Terraform state + plan analyser.
 
 Terraform state files (``terraform.tfstate``) are the single highest-
