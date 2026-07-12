@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """test_defense_edr module."""
 
 from __future__ import annotations
