@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Generic URL transforms for the fetch grid.
 
 Transforms are domain-agnostic *rules*. They never reference a specific
