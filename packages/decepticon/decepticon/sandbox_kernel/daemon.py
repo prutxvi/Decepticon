@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """In-container sandbox — used by the HTTP daemon, never the agent host.
 
 `DaemonSandbox` is what `decepticon.sandbox_server` instantiates inside
