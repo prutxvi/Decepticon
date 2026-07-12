@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """MCP tool-server client — opt-in, lazy, never fatal.
 
 This module is the single bridge between Decepticon and external
