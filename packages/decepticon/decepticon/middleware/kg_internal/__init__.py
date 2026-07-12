@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Internal implementation of the KG middleware.
 
 Modules under this package are NOT a public plugin surface. External
