@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Detector Agent — Stage 2 of the vulnresearch pipeline.
 
 Given ``CANDIDATE`` nodes emitted by the Scanner, the Detector reads the
