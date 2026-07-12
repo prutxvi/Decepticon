@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """U5: lightweight per-host self-learning store (`observations/learned.json`).
 
 Records which fetch route (impersonate × referer × url-transform × phase) last
