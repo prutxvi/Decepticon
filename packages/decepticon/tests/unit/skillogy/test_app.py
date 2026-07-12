@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the Phase 1a Neo4j-backed REST app (``decepticon.skillogy.server.app``).
 
 Each endpoint is exercised against a fake ``Neo4jBackend`` so the
