@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for decepticon.middleware.budget."""
 
 from __future__ import annotations
