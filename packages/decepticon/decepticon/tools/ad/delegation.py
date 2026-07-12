@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Active Directory delegation attack path analysis.
 
 Analyzes BloodHound data in the knowledge graph for:
