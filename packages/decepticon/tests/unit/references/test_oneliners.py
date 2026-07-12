@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the one-liner recipe indexer."""
 
 from __future__ import annotations
