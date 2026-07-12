@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Dynamic LiteLLM config helpers for user-supplied model IDs.
 
 The checked-in ``config/litellm.yaml`` contains the default Decepticon routes.
