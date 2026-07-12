@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Framework import smoke — proves Phase 2.x.3 import rewrite landed
 cleanly across all 16 agent factories without needing the sandbox
 container or LiteLLM proxy.
