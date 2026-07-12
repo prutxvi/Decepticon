@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Decepticon skill registry + slug / fuzzy resolver.
 
 This module is the data-layer counterpart to ``decepticon.tools.skills``.
