@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LangChain ``@tool`` wrappers that expose the research package to agents.
 
 These are the surfaces the Analyst (and optionally the Orchestrator)
