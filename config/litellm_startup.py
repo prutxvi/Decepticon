@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """LiteLLM startup script — registers custom OAuth handlers before server start.
 
 LiteLLM's YAML-based custom_provider_map registration is unreliable across
