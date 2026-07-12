@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for GraphQL schema helpers."""
 
 from __future__ import annotations
