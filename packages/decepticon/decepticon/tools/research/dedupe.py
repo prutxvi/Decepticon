@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Semantic deduplication for knowledge-graph finding/vulnerability nodes.
 
 Decepticon's graph dedups writes by deterministic node ID (SHA1 of kind +
