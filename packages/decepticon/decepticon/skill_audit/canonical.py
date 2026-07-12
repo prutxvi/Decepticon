@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Canonical subdomain list — loaded from a packaged YAML asset.
 
 The list is the source of truth for ``metadata.subdomain`` values. The
