@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for UntrustedOutputMiddleware and the injection detector."""
 
 from __future__ import annotations
