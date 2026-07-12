@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Migration runner for the KG schema.
 
 Reads ``V*.cypher`` files from ``kg_internal/migrations/``, executes
