@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """``python -m decepticon.skillogy.builder`` entrypoint."""
 
 from __future__ import annotations
