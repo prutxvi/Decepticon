@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Single entrypoint: insane-search generic fetch chain.
 
     from insane_search.engine import fetch
