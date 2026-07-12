@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Skillogy AssetType seed coverage tests."""
 
 from __future__ import annotations
