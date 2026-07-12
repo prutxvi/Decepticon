@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Deterministic Cypher emitter.
 
 Produces ``skills/.graph/skills.cypher`` — a checked-in build artifact
