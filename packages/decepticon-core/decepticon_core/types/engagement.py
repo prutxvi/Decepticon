@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Red team engagement document schemas.
 
 Defines the machine-readable document set for planning and executing
