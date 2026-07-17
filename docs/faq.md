@@ -1,0 +1,4 @@
+# Decepticon FAQ
+
+## Common Questions
+
